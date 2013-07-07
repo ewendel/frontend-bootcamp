@@ -1,0 +1,948 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>HTML: FrontendSommer</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <script src="https://github.com/downloads/gnab/remark/remark-0.3.4.min.js" type="text/javascript"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+    <script src="https://github.com/downloads/kjbekkelund/remark-bekk/bekk-0.0.3.js" type="text/javascript"></script>
+    <link href="https://github.com/downloads/kjbekkelund/remark-bekk/bekk-0.0.3.css" type="text/css" rel="stylesheet">
+    <style type="text/css" media="screen">
+      #slideshow .slide .content.front-page h1 { width: 100%; }
+      .slide p { padding: 0; margin: 1.1em 0; }
+      .slide ul { padding: 0; margin: 1.1em 0; }
+      .slide img { max-width: 100%; max-height: 600px; }
+      .slide .big { font-size: 4em; }
+      #slideshow .slide .content ul li { padding-left: 1.3em; }
+      #slideshow .slide .attr a { color:#333; font-size:0.8em; }
+      #slideshow .slide .fullscreen img { width:100%; height:100%; position:absolute; top:40px; left:0; }
+      .slide span.alt { color:#FD5158; }
+      .jquery { background-color: #1E2837; }
+      .nodejs { background-color: #3F4239; }
+      #slideshow .position { display: none; }
+
+    /*Egne ninjatriks:*/
+      .whitebg {background: #fff;color:#000;}
+      .hl-text {background:#000;padding:0 .6em 0 0; color: #FD5158; text-transform:uppercase;font-weight: normal;font-size: 1.5em;font-style: italic;}
+      .fullscreen {position: relative;}
+      .fullscreen img {width:100%; min-height:100%; height:auto; top:0 !important;}
+      .fullscreen.higher img {height:115% !important;max-height:115%;}
+      .fullscreen .overlay {position:absolute;left:0;right:0;top:35%;z-index:999;background:rgba(0,0,0,.75);}
+      .slide .source {position: absolute;bottom:3px; left:5px;z-index:999;font-size:.7em;}
+      .loud {font-size:2em;}
+
+      blockquote, .loud {font-size:2em;}
+      blockquote cite, .loud small {font-size:.7em;color:#FD5158;}
+      .slide .overlay h1 > span {background:transparent !important;}
+      .slide .overlay h1:before {border-top:none !important;}
+
+      .css-example {border:1px solid rgba(0,0,0,.2); font-size:.8em;padding:1em;}
+      .css-example .pbox {width:100px;height:100px;line-height: 2;text-align: center;font-size: 3em}
+      .css-example .pbox:nth-child(2) {color:red;}
+      .css-example .pbox:nth-child(3) {color:white;}
+      .css-eaxample-clear:after, .group:after {
+   content: "";
+   visibility: hidden;
+   height: 0;
+   display: block;
+   clear: both;
+}
+
+.specificity {display:inline-block;}
+.specificity tbody {background:#fff;color:#000;}
+.specificity td { height:120px;width:60px;padding:20px;border:4px solid #ccc;color:000;font-size:2em;text-align:center;
+2
+background: -moz-linear-gradient(top, rgba(0,0,0,0.16) 0%, #FDF6E3 49%, rgba(0,0,0,0.12) 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,0,0,0.16)), color-stop(49%,#FDF6E3), color-stop(100%,rgba(0,0,0,0.12))); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top, rgba(0,0,0,0.16) 0%,#FDF6E3 49%,rgba(0,0,0,0.12) 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top, rgba(0,0,0,0.16) 0%,#FDF6E3 49%,rgba(0,0,0,0.12) 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top, rgba(0,0,0,0.16) 0%,#FDF6E3 49%,rgba(0,0,0,0.12) 100%); /* IE10+ */
+background: linear-gradient(to bottom, rgba(0,0,0,0.16) 0%,#FDF6E3 49%,rgba(0,0,0,0.12) 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#29000000', endColorstr='#1f000000',GradientType=0 ); /* IE6-9 */
+
+}
+
+    </style>
+  </head>
+  <body>
+    <textarea id="source">
+
+---
+
+.agenda
+
+# Agenda
+
+* Introduksjon
+* Nettleseren
+* HTML
+* CSS
+* JavaScript
+
+---
+
+.middle.center
+
+# INTRODUKSJON
+
+---
+
+.middle.center
+
+# FØRST: GITHUB!
+
+---
+
+.middle.center
+
+## http://bit.ly/11LX48r
+
+---
+
+.middle.center
+
+# Kursholdere
+
+![Erik Wendel](../img/wendel.png)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![Helge Fredheim](../img/fredheim.png)
+
+Erik Wendel&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Helge Fredheim
+
+---
+
+.middle.center
+
+# Sommerstudenter
+
+---
+
+.middle.center
+
+# Hvem er dere?
+
+---
+
+.middle.center
+
+#Nettleseren
+
+---
+
+.middle.center.fullscreen
+
+![Mosaic info](../img/browser_mosaic_illinois.jpeg)
+
+<div class="source">http://flic.kr/p/FvW5d</div>
+
+---
+
+.middle.center
+
+# 1990: WorldWideWeb
+# Tim Berners-Lee
+
+---
+
+.fullscreen
+
+#1993: Mosaic
+
+![Mosaic browser](../img/browser_mosaic.6beta2.png)
+
+---
+
+.fullscreen
+
+#1994: Netscape
+
+![Netscape 1.0](../img/browser_netscape_1.jpeg)
+
+---
+
+.fullscreen
+
+#1995: Internet Explorer
+
+![IE2](../img/browser_ie2.gif)
+
+---
+
+.middle.center
+
+# Netscape
+
+---
+
+.middle.center
+
+# Netscape
+# Mozilla Firefox
+
+---
+
+.middle.center
+
+# Mozilla Firefox
+
+---
+
+.middle.center
+
+# Mozilla Firefox
+# Opera
+
+---
+
+.middle.center
+
+# Mozilla Firefox
+# Opera
+# Safari
+
+---
+
+.middle.center
+
+# Mozilla Firefox
+# Opera
+# Safari
+# Chrome
+
+---
+
+.middle.center
+
+# Mozilla Firefox
+# Opera
+# Safari
+# Chrome
+# ...og IE :-)
+
+---
+
+.middle.center
+
+# Mozilla Firefox
+# Opera
+# Safari
+# Chrome
+# ...og IE :-(
+
+---
+
+.middle.center.fullscreen
+
+![](../img/browser_uglysite.jpeg)
+
+---
+
+.middle.center.fullscreen
+
+![](../img/browser_uglysite_ie.jpg)
+
+---
+
+.middle.center.fullscreen
+
+![Excite search](../img/browser_excite.png)
+
+---
+
+.middle.center.fullscreen
+
+![Excite search](../img/browser_excite2.png)
+
+---
+
+.middle.center
+
+# Graceful degradation
+
+---
+
+
+.middle.center.whitebg
+
+![Flash player](../img/browser_noflash.jpeg)
+
+---
+
+
+.middle
+
+    &nbsp;
+
+
+    &lt;noscript&gt;
+    Nettleseren din støtter ikke JavaScript! Synd for deg. Snakkes!
+    &lt;/noscript&gt;
+
+---
+
+
+.middle
+    
+  &nbsp;
+
+    &lt;script src="fancy-pants-supercool-flyout-menu.js"&gt;&lt;/script&gt;
+
+    &lt;noscript&gt;
+    <ul>
+        <li>
+            <a href="side1.htm">Side 1</a>
+        </li>
+        <li>
+            <a href="side2.htm">Side 2</a>
+        </li>
+    </ul>
+    &lt;/noscript&gt;
+
+
+---
+
+.middle.center.fullscreen
+
+![G1000 cockpit graceful degradation](../img/browser_cockpit_degrading.jpg)
+
+<div class="overlay loud" style="top:50%">
+<p>
+    Alternative instrumenter
+    <small style="display:block;">Graceful degradation</small>
+</p>
+</div>
+
+
+---
+
+.middle.center
+
+# Progressive enhancement
+
+---
+
+.middle.center.fullscreen
+
+![Escalator](../img/browser_escalator.jpeg)
+
+<div class="source">
+http://flic.kr/p/wzHU
+</div>
+
+---
+
+.middle.center.fullscreen
+
+![Escalator](../img/browser_escalator.jpeg)
+<div class="overlay">
+<blockquote>
+    An escalator can never break, <br />
+    it can only become stairs.
+<cite>Mitch Hedberg</cite>
+</blockquote>
+</div>
+
+<div class="source">
+http://flic.kr/p/wzHU
+</div>
+
+---
+.middle.center.fullscreen
+
+![Moped](../img/browser_moped.jpeg)
+
+<div class="source">
+http://flic.kr/p/4W4qfx
+</div>
+
+---
+.middle.center.fullscreen
+
+![Moped](../img/browser_moped.jpeg)
+
+<div class="overlay loud" style="top:71%">
+<p>
+    Moped: Pedaler &amp; motor
+    <small style="display:block;">Progressive enhancement</small>
+</p>
+</div>
+
+<div class="source">
+http://flic.kr/p/4W4qfx
+</div>
+
+---
+
+.middle.center.whitebg
+
+![Understanding progressive enhancement](../img/browser_layered_cake.jpeg)
+
+<div class="source">
+http://www.alistapart.com/articles/understandingprogressiveenhancement/
+</div>
+
+---
+
+
+.middle.center.whitebg
+
+![Browser Stats fra Wikipedia](../img/browser_stats_10_12.png)
+
+
+---
+
+.middle.center
+
+Men hva består en nettside av?
+
+---
+
+.middle.center.fullscreen.higher
+
+![HTML](../img/html.jpeg)
+
+<div class="source">
+http://flic.kr/p/5HzQsy
+</div>
+
+---
+
+.middle.center
+
+![UIT](../img/uit.css.off.png)
+
+
+---
+
+# HTML
+
+&nbsp;
+
+
+HTML beskriver strukturen og innholdet til en nettside.
+
+Denne strukturen brukes av CSS og JS.
+
+---
+
+# HTML
+
+&nbsp;
+
+
+HTML beskriver strukturen og innholdet til en nettside.
+
+Denne strukturen brukes av CSS og JS.
+
+&nbsp;
+
+HTML sier ingenting om utseende.
+
+HTML sier ingenting om oppførsel.
+
+---
+
+# HTML
+
+&nbsp;
+
+
+HTML beskriver strukturen og innholdet til en nettside.
+
+Denne strukturen brukes av CSS og JS.
+
+&nbsp;
+
+HTML sier ingenting om utseende.
+
+HTML sier ingenting om oppførsel.
+
+&nbsp;
+
+HTML er ikke et programmeringsspråk
+
+HTML er et markeringsspråk som beskriver semantikken til et dokument.
+
+---
+
+.middle.center
+
+![Bekk.no](../img/bekk.no.png)
+
+[view-source:bekk.no](http://www.bekk.no)
+
+---
+
+# HTML
+
+## En enkel side
+  
+    .html
+    <!doctype html>
+
+    <html lang="en">
+        <head>
+
+
+
+
+        </head>
+        <body>
+
+
+
+
+        </body>
+    </html>
+
+---
+
+# HTML
+
+## En enkel side
+
+    .html
+    <!doctype html>
+
+    <html lang="en">
+        <head>
+
+            <meta charset="utf-8">
+            <title>En enkel HTML-side</title>
+
+        </head>
+        <body>
+
+            <h1>Velkommen til min flotte nettside!</h1>
+            <p>Her er litt <a href="mer.html">mer informasjon</a>.</p>
+
+        </body>
+    </html>
+
+---
+
+#HTML
+
+##Tekst: p
+
+    .html
+
+    <p>Dette er et avsnitt</p>
+
+---
+
+#HTML
+
+##Tekst: strong
+
+    .html
+
+    <p>Dette er et <strong>avsnitt</strong></p>
+
+---
+
+#HTML
+
+## Tekst: em
+
+    .html
+
+    <p>Dette er et <em>avsnitt</em></p>
+
+---
+
+#HTML
+
+## Tekst: a
+
+    .html
+
+    <p>Dette er et <a href="link.html">avsnitt</a>!</p>
+
+---
+
+#HTML
+
+## Tekst: span
+
+    .html
+
+    <p>Dette er et <span class="my-span">avsnitt</span>!</p>
+
+---
+
+# HTML
+
+## Tekst: overskrift
+
+    .html
+
+    <h2>Lorem ipsum</h2>
+
+    <p>Dette er et avsnitt!</p>
+
+---
+
+# HTML
+
+## Tekst: sitat
+
+    .html
+
+    <blockquote cite="http://www.worldwildlife.org/who/index.html">
+      For 50 years, WWF has been protecting the future of nature.
+    </blockquote> 
+
+---
+
+#HTML
+
+## Bilde
+
+    .html
+
+    <img src="mittBilde.jpg" alt="Beskrivelse av bildet" width="150" height="80" />
+
+---
+
+# HTML
+
+## Layout
+
+    .html
+
+    <div id="wrapper">
+        <div id="news" class="index">
+            <div class="news-item"></div>
+            <div class="news-item"></div>
+            <div class="news-item"></div>
+        </div>
+    </div>    
+
+---
+
+# HTML
+
+## Tabell
+
+    .html
+
+    <table border="0" cellspacing="0" cellpadding="0">
+      <caption>Caption</caption>
+      <thead>
+        <tr>
+          <th>Navn</th>
+          <th>Alder</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Helge</td>
+          <td>29</td>
+        </tr>
+        <tr>
+          <td>Erik</td>
+          <td>26</td>
+        </tr>
+      </tbody>
+    </table>    
+
+---
+
+# HTML
+
+## Uordnet liste
+
+    .html
+
+    <ul>
+        <li>Nøkler</li>
+        <li>Lommebok</li>
+        <li>Mobiltelefon</li>
+    </ul>
+
+---
+
+# HTML
+
+## Ordnet liste
+
+    .html
+
+    <ol>
+        <li>Vaske golv</li>
+        <li>Bære ved</li>
+        <li>Sette opp fuggelband</li>
+        <li>Pynte tre</li>
+    </ol>
+
+---
+
+# HTML
+
+## Ordnet liste ... kan nøstes!
+
+    .html
+
+    <ol>
+        <li>Vaske golv</li>
+        <li>Bære ved</li>
+        <li>Sette opp fuggelband</li>
+        <li>Pynte tre
+          <ul>
+            <li>Fikse juletrelys</li>
+            <li>Henge opp kurver</li>
+            <li>Hente opp kuler</li>
+          </ul>
+        </li>
+    </ol>
+
+---
+
+# HTML
+
+## Definisjonsliste
+
+    .html
+
+    <dl>
+        <dt>BEKK Consulting AS</dt>
+        <dd>Bekk Consulting AS er et norsk konsulentselskap. Vi gjennomfører 
+            prosjekter for store private og offentlige virksomheter innen 
+            strategisk rådgivning, utvikling av IT-systemer og design av 
+            digitale tjenester. Vi er i dag omkring 320 ansatte, 
+            og har kontorer i Oslo og Trondheim.</dd>
+
+        <dt>Snøhetta</dt>
+        <dd>Snøhetta (2286 moh.) er et fjell på Dovrefjell, i Dovre kommune, 
+            nær grensa til Oppdal og Lesja. Fjellet ligger i 
+            Dovrefjell-Sunndalsfjella nasjonalpark.</dd>
+    </dl>
+
+---
+
+#Skjemaelementer
+
+    .html 
+
+    <!-- Vanlig input-felt -->
+    <label for="navn">Navn</label>
+    <input type="text" value="" name="navn" id="navn" />
+
+---
+
+#Skjemaelementer
+
+    .html 
+
+    <!-- Vanlig input-felt -->
+    <label for="navn">Navn</label>
+    <input type="text" value="" name="navn" id="navn" />
+
+    <!-- Telefon -->
+    <label for="telefon">Telefon</label>
+    <input type="telephone" value="" name="telefon" id="telefon" />    
+
+---
+
+#Skjemaelementer
+
+    .html 
+
+    <!-- Vanlig input-felt -->
+    <label for="navn">Navn</label>
+    <input type="text" value="" name="navn" id="navn" />
+
+    <!-- Telefon -->
+    <label for="telefon">Telefon</label>
+    <input type="telephone" value="" name="telefon" id="telefon" />  
+
+    <!-- Søkefelt -->
+    <input type="search" value="" name="sokeord" id="sokeord" placeholder="Søk..." />    
+
+---
+
+# HTML5
+
+Mer semantisk riktig HTML
+
+`.html <div id="header">…</div>`
+
+`.html <div class="section"></div>`
+
+`.html <div id="navigation">…</div>`
+
+`.html <div class="article"></div>`
+
+`.html <div id="sidebar"></div>`
+
+---
+
+# HTML5
+
+Mer semantisk riktig HTML
+
+`.html <div id="header">…</div>` &mdash; `.html <header>…</header>`
+
+`.html <div class="section"></div>` &mdash; `.html <section>…</section>`
+
+`.html <div id="navigation">…</div>` &mdash; `.html <nav>…</nav>`
+
+`.html <div class="article"></div>` &mdash; `.html <article>…</article>`
+
+`.html <div id="sidebar"></div>` &mdash; `.html <aside>…</aside>`
+
+---
+.middle.center
+
+
+![HTML vs HTML5](../img/HTML-HTML5.jpeg)
+
+<div class="source">
+    Elijah Manor / http://i.imgur.com/2Kq6Y.jpg
+</div>
+
+---
+
+#HTML4 &amp; HTML5
+
+    .html
+        <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+        <div id="header">
+            <h1>Velkommen</h1>
+            <div id="nav">
+                <a href="/side2.html">Side2</a>
+            </nav>
+        </div>
+        <div id="main">
+            <div id="article">En artikkel</div>
+        </div>
+        <div id="sidebar">Sidebar</div>
+        <div id="footer">The end</div>
+&nbsp;
+
+    .html
+        <!doctype html>
+        <header>
+            <h1>Velkommen</h1>
+            <nav>
+                <a href="/side2.html">Side2</a>
+            </nav>
+        </header>
+        <main>
+            <article>En artikkel</article>
+        </main>
+        <aside>Sidebar</aside>
+        <footer>The end</footer>
+
+---
+
+#HTML5
+
+##Spesifikasjon
+
+[WHATWG: HTML living standard](http://www.whatwg.org/html/)
+
+[W3C: HTML5](http://dev.w3.org/html5/)
+
+##Mer om HTML5
+[Mozilla Developer Network](https://developer.mozilla.org/en-US/docs/HTML/HTML5)
+
+[Why HTML5 rocks](http://www.html5rocks.com/en/why)
+
+---
+
+<!-- OPPSUMMERING HTML -->
+# HTML
+
+&nbsp;
+
+HTML er enkle tekstfiler.
+
+HTML beskriver strukturen og innholdet til en nettside.
+
+Denne strukturen brukes av CSS og JS.
+
+---
+# HTML
+
+&nbsp;
+
+HTML er enkle tekstfiler.
+
+HTML beskriver strukturen og innholdet til en nettside.
+
+Denne strukturen brukes av CSS og JS.
+
+&nbsp;
+
+HTML sier ingenting om utseende.
+
+HTML sier ingenting om oppførsel.
+
+---
+# HTML
+
+&nbsp;
+
+HTML er enkle tekstfiler.
+
+HTML beskriver strukturen og innholdet til en nettside.
+
+Denne strukturen brukes av CSS og JS.
+
+&nbsp;
+
+HTML sier ingenting om utseende.
+
+HTML sier ingenting om oppførsel.
+
+&nbsp;
+
+HTML er ikke et programmeringsspråk
+
+HTML er et markeringsspråk som beskriver semantikken til et dokument.
+
+---
+
+# Diskusjon
+
+Hvilke HTML-elementer passer til:
+
+* En meny
+* En artikkel
+* En artikkelliste, f.eks. &laquo;siste nytt&raquo;
+* Et reklamebanner
+* Et bildegalleri
+* En FAQ
+* Viktig tekst
+* Et sitat
+* En forkortelse
+* Kolonner
+* Kursiv tekst
+
+
+---
+
+.middle.center
+
+# Oppgave
+
+---
+
+# Oppgave
+
+## Skriv HTML for <a href="oppgaver/Mockup.pdf">denne nettsiden</a>.
+
+## frontendsommer/01-html/oppgaver
+
+## Skriv HTML i _index.html_ eller _index-annotated.html_
+
+---
+
+.middle.center.fullscreen
+
+  # <a href="../02-cssintro/cssintro-presentasjon.html">Klikk for neste presentasjon</a>
+
+    </textarea>
+    <div id="slideshow"></div>
+  </body>
+</html>
