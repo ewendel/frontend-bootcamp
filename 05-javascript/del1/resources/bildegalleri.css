@@ -1,0 +1,10 @@
+/* Bildegalleri */
+
+.imageGallery img {
+    display: none;
+}
+
+.imageGallery img.show {
+    display: block;
+}
+
