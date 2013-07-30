@@ -244,6 +244,53 @@ Value kan være hva som helst.
 
 # Objekter
 
+## Nesten alt er objekter i JavaScript!
+
+    .javascript
+    var navn = "Helge Fredheim";
+    typeof navn; // "string"
+
+    /* Strengen har metoder og attributter */
+    navn.length; // 14
+    navn.substr(0, 5); // Helge
+    navn.split(" "); // ["Helge", "Fredheim"]
+    navn.replace("Helge", "Kenneth"); // Kenneth Fredheim
+
+---
+
+# Objekter
+
+## Nesten alt er objekter i JavaScript!
+
+    .javascript
+    var navn = "Helge Fredheim";
+    typeof navn; // "string"
+
+    /* Strengen har metoder og attributter */
+    navn.length; // 14
+    navn.substr(0, 5); // Helge
+    navn.split(" "); // ["Helge", "Fredheim"]
+    navn.replace("Helge", "Kenneth"); // Kenneth Fredheim
+
+---
+
+# Objekter
+
+## Nesten alt er objekter i JavaScript!
+
+    .javascript
+    var frukter = ["eple", "banan"];
+    typeof frukter; // "object" (!!)
+
+    /* Arrayet har metoder og attributter */
+    frukter.length; // 2
+    frukter.push("drue"); // ["eple", "banan", "drue"];
+    frukter.pop(); // ["eple"];
+
+---
+
+# Objekter
+
 ## Arrays vs. objekter
 
 En samling av indekserte properties.
@@ -320,10 +367,10 @@ Vi kan bruke **typeof**-operatoren for å sjekke type.
 
 # Prøv å få testene til å bli grønne
 
-    1) http://jsbin.com/owezaz/5/edit
-    2) http://jsbin.com/oginom/2/edit
-    3) http://jsbin.com/umiraq/2/edit
-    4) http://jsbin.com/ituxar/3/edit
+1) http://jsbin.com/owezaz/5/edit
+2) http://jsbin.com/oginom/2/edit
+3) http://jsbin.com/umiraq/2/edit
+4) http://jsbin.com/ituxar/3/edit
 
 ---
 
@@ -631,14 +678,14 @@ Ooops!
 
 # Oppgaver
 
-    1) Number of arguments: http://jsbin.com/owogap/3/edit
-    2) Higher order functions: http://jsbin.com/asojop/2/edit
-    3) Variables by reference: http://jsbin.com/uwemiz/5/edit
-    3) Scope: http://jsbin.com/asojop/4/edit
-    4) Binding scope: http://jsbin.com/evabis/2/edit
-    5) What is this?: http://jsbin.com/ucamoc/2/edit
-    6) Constructing objects: http://jsbin.com/ucamoc/3/edit
-    7) Context confusion: http://jsbin.com/etozef/2/edit
+1) Number of arguments: http://jsbin.com/owogap/3/edit
+2) Higher order functions: http://jsbin.com/asojop/2/edit
+3) Variables by reference: http://jsbin.com/uwemiz/5/edit
+3) Scope: http://jsbin.com/asojop/4/edit
+4) Binding scope: http://jsbin.com/evabis/2/edit
+5) What is this?: http://jsbin.com/ucamoc/2/edit
+6) Constructing objects: http://jsbin.com/ucamoc/3/edit
+7) Context confusion: http://jsbin.com/etozef/2/edit
 
 ---
 
@@ -850,10 +897,26 @@ Ooops!
 
 ---
 
+# Arv
+
+## Vi kan utvide de innebyggede objektene også!
+
+For eksempel **String**: 
+
+    .javascript
+    String.prototype.log = function () {
+        console.log("Logged string: " + String(this));
+    };
+
+    var navn = "Helge Fredheim"
+    navn.log(); // "Logged string: Helge Fredheim"
+
+---
+
 # Oppgaver
 
-    1) http://jsbin.com/evaguq/3/edit
-    2) http://jsbin.com/asupex/2/edit
+1) http://jsbin.com/evaguq/3/edit
+2) http://jsbin.com/asupex/2/edit
 
 ---
 

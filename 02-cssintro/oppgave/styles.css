@@ -1,0 +1,57 @@
+/* Reset */
+
+ul {
+	padding: 				0;
+	margin: 				0;
+}
+
+h1 {
+	margin: 				0;
+}
+
+section:after, .clearfix:after { 
+	content: 				"."; 
+	visibility: 			hidden; 
+	display: 				block; 
+	height: 				0; 
+	clear: 					both
+}
+
+body {
+	margin: 				0;
+	padding: 				0;
+	background-color: 		lightgray;
+}
+
+.teaserTitle {
+	text-align: 			center;
+}
+
+.sectionTitle {
+	border: 				1px solid black;
+}
+
+.container {
+	background-color: 		white;
+}
+
+/* Oppgave 1: Generell oppstramming */
+
+
+/* Oppgave 2: Menyen; */
+
+
+/* Oppgave 3: Våre tjenester-seksjonen */
+
+
+/* Oppgave 4: Seksjonsheadere */
+
+
+/* Oppgave 5: Selvskryt-seksjonen */
+
+
+/* Oppgave 6: Forrige/neste-knapper */
+
+
+/* Oppgave 7: Footer-seksjonen */
+

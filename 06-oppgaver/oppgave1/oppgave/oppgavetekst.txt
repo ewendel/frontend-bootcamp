@@ -1,0 +1,37 @@
+#################
+TO DO-APPLIKASJON
+#################
+
+Lag en TODO-applikasjon. Dette inkluderer:
+
+
+1) Et array som holder på gjøremål
+
+2) En funksjon som gjør det mulig å legge til nye gjøremål i arrayet
+
+3) En funksjon som gjør det mulig å slette gjøremål i arrayet
+
+4) Gjøremålene skal være objekter som du lager instanser av. Du må altså lage en funksjon som du kan kalle på med kodeordet *new*.
+
+5) Et grensesnitt likt det som ligger i skjermdump.png, med semantisk korrekt HTML.
+	* Når man trykker på enter (dvs. når skjemaet 'submittes'), legges nye gjøremål til i listen. Input-feltet blir tomt. 
+	* Det skal bare legges til nye gjøremål dersom det faktisk er skrevet inn en oppgave. Her må du altså validere input før du legger til elementer 
+	* Når man klikker på "slett", slettes det elementet man har klikket på fra arrayet, og grensesnittet oppdateres.
+	* Når man klikker på "endre", dukker oppgaveteksten opp i input-feltet, og man kan skrive inn en ny oppgavetekst. Når man deretter trykker på enter, oppdateres oppgaveteksten til den aktuelle oppgaven både i arrayet og i grensesnittet. Input-feltet tømmes. 
+
+6) For de viderekomne: Lagre dataene med localStorage i nettleseren, slik at de ikke slettes når man oppdaterer nettleseren.
+
+
+####
+HINT
+####
+
+* Begynn med å lage funksjoner som gjør det mulig å fjerne, slette og oppdatere gjøremål, f.eks. 
+
+	- addItem(); 
+	- changeItem(index); 
+	- removeItem(index);
+
+* Lag GUI etterpå, og legg dernest til håndtering av events 
+* Lag CSS til slutt
+* Fonten som brukes heter 'Roboto Condensed' og ligger på Google Fonts
