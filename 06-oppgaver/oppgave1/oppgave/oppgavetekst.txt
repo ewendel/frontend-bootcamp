@@ -5,7 +5,7 @@ TO DO-APPLIKASJON
 Lag en TODO-applikasjon. Dette inkluderer:
 
 
-1) Et array som holder på gjøremål
+1) Et array som holder på gjøremål ("todos")
 
 2) En funksjon som gjør det mulig å legge til nye gjøremål i arrayet
 
@@ -35,3 +35,4 @@ HINT
 * Lag GUI etterpå, og legg dernest til håndtering av events 
 * Lag CSS til slutt
 * Fonten som brukes heter 'Roboto Condensed' og ligger på Google Fonts
+* Dersom du synes ovenstående virker lett, så prøv å løse oppgaven ved å bruke et MV*-rammeverk som f.eks. Backbone.js. 

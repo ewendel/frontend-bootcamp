@@ -367,10 +367,10 @@ Vi kan bruke **typeof**-operatoren for å sjekke type.
 
 # Prøv å få testene til å bli grønne
 
-1) http://jsbin.com/owezaz/5/edit
-2) http://jsbin.com/oginom/2/edit
-3) http://jsbin.com/umiraq/2/edit
-4) http://jsbin.com/ituxar/3/edit
+1. http://jsbin.com/owezaz/5/edit
+2. http://jsbin.com/oginom/2/edit
+3. http://jsbin.com/umiraq/2/edit
+4. http://jsbin.com/ituxar/3/edit
 
 ---
 
@@ -678,14 +678,14 @@ Ooops!
 
 # Oppgaver
 
-1) Number of arguments: http://jsbin.com/owogap/3/edit
-2) Higher order functions: http://jsbin.com/asojop/2/edit
-3) Variables by reference: http://jsbin.com/uwemiz/5/edit
-3) Scope: http://jsbin.com/asojop/4/edit
-4) Binding scope: http://jsbin.com/evabis/2/edit
-5) What is this?: http://jsbin.com/ucamoc/2/edit
-6) Constructing objects: http://jsbin.com/ucamoc/3/edit
-7) Context confusion: http://jsbin.com/etozef/2/edit
+1. Number of arguments: http://jsbin.com/owogap/3/edit
+2. Higher order functions: http://jsbin.com/asojop/2/edit
+3. Variables by reference: http://jsbin.com/uwemiz/5/edit
+3. Scope: http://jsbin.com/asojop/4/edit
+4. Binding scope: http://jsbin.com/evabis/2/edit
+5. What is this?: http://jsbin.com/ucamoc/2/edit
+6. Constructing objects: http://jsbin.com/ucamoc/3/edit
+7. Context confusion: http://jsbin.com/etozef/2/edit
 
 ---
 
@@ -697,7 +697,80 @@ Ooops!
 
 # Arv
 
+## Liten recap: 
+
+* Alt er objekter i javascript
+* Typer: function, number, boolean, string
+
+---
+
+# Arv
+
+## Liten recap: 
+
+* Alt er objekter i javascript
+* Typer: function, number, boolean, string
+* Har egenskaper som de **arver fra prototypen sin**
+
+---
+
+# Arv
+
+## Arver egenskaper fra prototypen sin: 
+  
+    .javascript
+    var navn = "Helge";
+    navn.charAt(0); // "H"
+
+    // charAt() arves fra String.prototype
+
+---
+
+# Arv
+
+## Vi kan dermed utvide en prototype:
+
+For eksempel **String**: 
+
+    .javascript
+    String.prototype.log = function () {
+        console.log("Logged string: " + String(this));
+    };
+
+    var navn = "Helge Fredheim"
+    navn.log(); // "Logged string: Helge Fredheim"
+
+---
+
+# Arv
+
+
+Eller **Array**
+
+    .javascript
+    if (!Array.prototype.filter) {
+      Array.prototype.filter = function(filterFunction) {
+        
+      }
+    }
+
+---
+
+# Arv
+
+## Men ofte lager vi våre egne objekter
+
+Disse arver fra sin prototype
+
+...Og de arver fra Object.prototype
+
+---
+
+# Arv
+
 ## Constructor Invocation
+
+Som vi vet: 
 
     .javascript
     var Person = function(navn) {
@@ -709,6 +782,8 @@ Ooops!
 # Arv
 
 ## Constructor Invocation
+
+Som vi vet: 
 
     .javascript
     var Person = function(navn) {
@@ -720,11 +795,11 @@ Ooops!
 
 ---
 
-# Arv Chain
+# Prototype Chain
 
 .middle.center
 
-![Prototype Chain](img/prototype2.png)
+![Prototype Chain](../../img/prototype2.png)
 
 ---
 
@@ -897,26 +972,19 @@ Ooops!
 
 ---
 
-# Arv
-
-## Vi kan utvide de innebyggede objektene også!
-
-For eksempel **String**: 
-
-    .javascript
-    String.prototype.log = function () {
-        console.log("Logged string: " + String(this));
-    };
-
-    var navn = "Helge Fredheim"
-    navn.log(); // "Logged string: Helge Fredheim"
-
----
-
 # Oppgaver
 
-1) http://jsbin.com/evaguq/3/edit
-2) http://jsbin.com/asupex/2/edit
+Prototype
+
+1. http://jsbin.com/evaguq/3/edit
+2. http://jsbin.com/asupex/2/edit
+
+Iterering
+
+1. Lag din egen "forEach"-funksjon: http://jsbin.com/utawod/2/edit
+2. Lag en "filter"-funksjon: http://jsbin.com/eqalol/3/edit
+3: Lag en "every"-funksjon: http://jsbin.com/uguhex/2/edit
+
 
 ---
 
