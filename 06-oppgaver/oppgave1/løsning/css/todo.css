@@ -22,7 +22,7 @@ body {
 	margin: .3em 0;
 }
 
-.item-form {
+.todo-form {
 	margin-bottom: 50px;
 }
 
@@ -36,19 +36,19 @@ body {
 	font-family: 'Roboto Condensed', sans-serif;
 }
 
-.item-list {
+.todo-list {
 	font-size: 1.5em;
 	list-style-type: none;
 	margin: 0;
 	padding: 0; 
 }
 
-.item-list li {
+.todo-list li {
 	margin-bottom: 5px;
 	padding: 6px;
 }
 
-.item-list li:hover {
+.todo-list li:hover {
 	background: #ccc;
 }
 

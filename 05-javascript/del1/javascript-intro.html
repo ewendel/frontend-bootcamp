@@ -354,10 +354,10 @@ Vi kan bruke **typeof**-operatoren for å sjekke type.
     typeof {};          // 'object'
     typeof [];          // 'object'     WTF?
     typeof 1;           // 'number'
-    typeof '';          // 'string'DF
+    typeof '';          // 'string'
     typeof true;        // 'boolean'
     typeof false;       // 'boolean'
-    typeof blabla       // 'undefined'
+    typeof minVar       // 'undefined'
 
     typeof null;        // 'object'     WTF?
 
@@ -367,10 +367,10 @@ Vi kan bruke **typeof**-operatoren for å sjekke type.
 
 # Prøv å få testene til å bli grønne
 
-1. http://jsbin.com/owezaz/5/edit
-2. http://jsbin.com/oginom/2/edit
-3. http://jsbin.com/umiraq/2/edit
-4. http://jsbin.com/ituxar/3/edit
+1. Set the three properties, in three different ways: http://jsbin.com/owezaz/5/edit
+2. Populate array: http://jsbin.com/oginom/2/edit
+3. Create copy: http://jsbin.com/umiraq/2/edit
+4. doubleMe: http://jsbin.com/ituxar/3/edit
 
 ---
 
@@ -433,7 +433,7 @@ Funksjoner som returnerer andre funksjoner:
     }
 
     var anonymous = createFunction();
-    anonymous();  // undefined
+    anonymous();  // "Hello undefined"
 
 ---
 
