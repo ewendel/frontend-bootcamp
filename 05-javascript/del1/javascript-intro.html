@@ -1,110 +1,28 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>JavaScript: FrontendBootcamp</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <script src="https://github.com/downloads/gnab/remark/remark-0.3.4.min.js" type="text/javascript"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
-    <script src="https://github.com/downloads/kjbekkelund/remark-bekk/bekk-0.0.3.js" type="text/javascript"></script>
-    <link href="https://github.com/downloads/kjbekkelund/remark-bekk/bekk-0.0.3.css" type="text/css" rel="stylesheet">
-
-    <link href='http://fonts.googleapis.com/css?family=Snowburst+One' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Griffy' rel='stylesheet' type='text/css'>
-
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>JAVASCRIPT & DOM</title>
+    <link href='http://fonts.googleapis.com/css?famil=Inconsolata' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="../../remark/remark-bekk.css">
     <style type="text/css" media="screen">
 
-.fs { font-size:1.6em; }
-.f1 { font-family: 'Snowburst One', cursive; }
-.f2 { font-family: 'Griffy', cursive; }
-
-
-#slideshow .slide .content.front-page h1 { width: 100%; }
-.slide p { padding: 0; margin: 1.1em 0; }
-.slide ul { padding: 0; margin: 1.1em 0; }
-.slide img { max-width: 100%; max-height: 600px; }
-.slide .big { font-size: 4em; }
-#slideshow .slide .content ul li { padding-left: 1.3em; }
-#slideshow .slide .attr a { color:#333; font-size:0.8em; }
-#slideshow .slide .fullscreen img { width:100%; height:100%; position:absolute; top:40px; left:0; }
-.fullscreen.higher img {height:115% !important;max-height:115%;}
-.slide span.alt { color:#FD5158; }
-.jquery { background-color: #1E2837; }
-.nodejs { background-color: #3F4239; }
-#slideshow .position { display: none; }
-.invert { background:#fff; }
-.imgtranslate img { -webkit-transform: perspective(600px) rotateY(20deg) scale(0.8) translateX(60px); }
-iframe { border:none; }
-.anim a { -webkit-transition: color 200ms ease-in-out; display: block; font-size: 3em; text-align: center; margin:1em 0; }
-.anim a:hover { color:#fff !important; text-decoration: none !important; }
-.imganim img { -webkit-transition: all 300ms ease-in-out; }
-.imganim img:hover { -webkit-transform: perspective(600px) rotateY(20deg) scale(0.8) translateX(60px); }
-
-.gradient { background-image:-webkit-linear-gradient(red, green, blue, purple, orange); }
-
-.gradient * { color:#fff !important; }
-
-.middle.center h1 span { background:none !important; }
-
-.middle.center.shadow { background:#333; text-shadow:2px 2px 2px rgba(0,0,0,0.3); }
-.middle.center.shadow .shadow1 { background: #444; padding:1em; box-shadow:0 2px 3px rgba(0,0,0,0.2); }
-
-.caniuse { background: #ede1cc !important; }
-
-a.two { font-size:3em; display: block; text-align: left; color:#fff !important; line-height: 1.3; }
-
-#slideshow .slide .content.front-page h1 { width: 100%; }
-      .slide p { padding: 0; margin: 1.1em 0; }
-      .slide ul { padding: 0; margin: 1.1em 0; }
-      .slide img { max-width: 100%; max-height: 600px; }
-      .slide .big { font-size: 4em; }
-      #slideshow .slide .content ul li { padding-left: 1.3em; }
-      #slideshow .slide .attr a { color:#333; font-size:0.8em; }
-      #slideshow .slide .fullscreen img { width:100%; height:100%; position:absolute; top:40px; left:0; }
-      .slide span.alt { color:#FD5158; }
       .jquery { background-color: #1E2837; }
       .nodejs { background-color: #3F4239; }
-      #slideshow .position { display: none; }
-
-    /*Egne ninjatriks:*/
-      .whitebg {background: #fff;color:#000;}
-      .hl-text {background:#000;padding:0 .6em 0 0; color: #FD5158; text-transform:uppercase;font-weight: normal;font-size: 1.5em;font-style: italic;}
-      .fullscreen {position: relative;}
-      .fullscreen img {width:100%; min-height:100%; height:auto; top:0 !important;}
-      .fullscreen.higher img {height:115% !important;max-height:115%;}
-      .fullscreen .overlay {position:absolute;left:0;right:0;top:35%;z-index:999;background:rgba(0,0,0,.75);}
-      .slide .source {position: absolute;bottom:3px; left:5px;z-index:999;font-size:.7em;}
-      .loud {font-size:2em;}
-
-      blockquote, .loud {font-size:2em;}
-      blockquote cite, .loud small {font-size:.7em;color:#FD5158;}
-      .slide .overlay h1 > span {background:transparent !important;}
-      .slide .overlay h1:before {border-top:none !important;}
-
-      .css-example {border:1px solid rgba(0,0,0,.2); font-size:.8em;padding:1em;}
-      .css-example .pbox {width:100px;height:100px;line-height: 2;text-align: center;font-size: 3em}
-      .css-example .pbox:nth-child(2) {color:red;}
-      .css-example .pbox:nth-child(3) {color:white;}
-      .css-example-clear:after, .group:after { 
-           content: ""; 
-           visibility: hidden; 
-           height: 0; 
-           display: block; 
-           clear: both;
-        }
-
 
     </style>
   </head>
   <body>
     <textarea id="source">
 
-.middle.center
+layout: false
+class: front-page
 
-# JAVASCRIPT INTRO
+# Introduksjon til JavaScript
 
 ---
 
-.middle.center
+class: middle center
 
 HTML beskriver hva innholdet er.
 
@@ -114,53 +32,62 @@ Men hva hvis vi trenger dynamisk oppførsel?
 
 ---
 
-.center
+class: center
 
 ![Javascript](../../img/javascript.png)
 
 ---
 
-.middle.center
+class: fullscreen
 
 ![Google instant search](../../img/google.png)
 
 ---
 
-.middle.center
+class: fullscreen
 
 ![Google Maps](../../img/googlemaps.png)
 
 ---
 
-.middle.center
+class: fullscreen
 
 ![JSLinux](../../img/jslinux.png)
-[JSLinux](http://bellard.org/jslinux/)
+.source[http://bellard.org/jslinux/]
 
 ---
 
-.middle.center
+class: middle center
 
-<iframe width="640" height="640" src="http://www.carvisualizer.plus360degrees.com/threejs/"/>
-
-![Three.js](../../img/threejs.png)
-[Three.js](http://mrdoob.github.com/three.js/)
+#[Car visualization with Three.js](http://www.carvisualizer.plus360degrees.com/threejs/)
 
 ---
 
-.middle.center
+class: middle center
 
-#DEMO - BananaBread
+#[BananaBread](https://developer.mozilla.org/en-US/demos/detail/bananabread)
 
 ---
 
-.middle.center
+# BananaBread
+
+- Skrevet i C++ og OpenGL
+--
+
+- Kompilert med Emscripten til JavaScript og WebGL
+
+--
+- ASM og WebRTC
+
+---
+
+class: middle center
 
 JavaScript er et programmeringspråk
 
 ---
 
-.middle.center
+class: middle center
 
  ... men det har ingenting med Java å gjøre.
 
@@ -172,13 +99,7 @@ JavaScript er et programmeringspråk
 
 * Objektorientert
 
----
-
-# JavaScript vs. Java
-
-## Likheter
-
-* Objektorientert
+--
 
 ## Forskjeller
 
@@ -189,13 +110,13 @@ JavaScript er et programmeringspråk
 
 ---
 
-.middle.center
+class: middle center
 
 La oss ta en rask introduksjon
 
 ---
 
-.middle.center
+class: middle center
 
 # Objekter
 
@@ -205,7 +126,6 @@ La oss ta en rask introduksjon
 
 En samling av "key-value"
 
-    .javascript
     var obj = {
       key1: 'value1',
       key2: 13
@@ -224,7 +144,6 @@ En samling av "key-value"
 
 Value kan være hva som helst.
 
-    .javascript
     var obj = {
         key1: 'value1',
         key2: 13
@@ -246,7 +165,6 @@ Value kan være hva som helst.
 
 ## Nesten alt er objekter i JavaScript!
 
-    .javascript
     var navn = "Helge Fredheim";
     typeof navn; // "string"
 
@@ -262,7 +180,6 @@ Value kan være hva som helst.
 
 ## Nesten alt er objekter i JavaScript!
 
-    .javascript
     var navn = "Helge Fredheim";
     typeof navn; // "string"
 
@@ -278,7 +195,6 @@ Value kan være hva som helst.
 
 ## Nesten alt er objekter i JavaScript!
 
-    .javascript
     var frukter = ["eple", "banan"];
     typeof frukter; // "object" (!!)
 
@@ -295,7 +211,6 @@ Value kan være hva som helst.
 
 En samling av indekserte properties.
 
-    .javascript
     var arr = [1, "two", 3];
 
     arr.push(4);
@@ -312,7 +227,6 @@ En samling av indekserte properties.
 
 Array er ikke "ekte" arrays:
 
-    .javascript
 
     var obj = [1, 2, 3];
     obj.speed = 5;      // Høh?
@@ -330,7 +244,6 @@ Array er ikke "ekte" arrays:
 
 *for (... in ...)* løper igjennom alle property'ene i et objekt
 
-    .javascript
     var obj = [1, 2, 3];
     obj.speed = 5;
 
@@ -350,7 +263,6 @@ Array er ikke "ekte" arrays:
 
 Vi kan bruke **typeof**-operatoren for å sjekke type.
 
-    .javascript
     typeof {};          // 'object'
     typeof [];          // 'object'     WTF?
     typeof 1;           // 'number'
@@ -365,7 +277,7 @@ Vi kan bruke **typeof**-operatoren for å sjekke type.
 
 # Oppgaver
 
-# Prøv å få testene til å bli grønne
+## Prøv å få testene til å bli grønne
 
 1. Set the three properties, in three different ways: http://jsbin.com/owezaz/5/edit
 2. Populate array: http://jsbin.com/oginom/2/edit
@@ -374,7 +286,7 @@ Vi kan bruke **typeof**-operatoren for å sjekke type.
 
 ---
 
-.middle.center
+class: middle center
 
 # Funksjoner
 
@@ -384,7 +296,6 @@ Vi kan bruke **typeof**-operatoren for å sjekke type.
 
 ## En rask intro:
 
-    .javascript
     function () {}
 
     function add (a, b) {
@@ -408,7 +319,6 @@ Vi kan bruke **typeof**-operatoren for å sjekke type.
 
 Alle funksjoner har tilgang til _arguments_:
 
-    .javascript
     function countArguments () {
       return arguments.length;
     }
@@ -425,7 +335,6 @@ Alle funksjoner har tilgang til _arguments_:
 
 Funksjoner som returnerer andre funksjoner:
 
-    .javascript
     function createFunction () {
       return function (name) {
         console.log("Hello, " + name);
@@ -443,7 +352,6 @@ Funksjoner som returnerer andre funksjoner:
 
 Funksjoner kan sendes rundt:
 
-    .javascript
     function doSomething(arr, callback) {
         for(i = 0; i < arr.length; i++) {
             // do something cool 
@@ -464,7 +372,6 @@ Funksjoner kan sendes rundt:
 
 JavaScript har *funksjonsskop* - ikke blokkskop
 
-    .javascript
     function () {
       i;  // undefined    WTF?
 
@@ -483,7 +390,6 @@ JavaScript har *funksjonsskop* - ikke blokkskop
 
 Deklarer variabler på toppen av en funksjon!
 
-    .javascript
     function () {
       var i;
 
@@ -502,7 +408,6 @@ Deklarer variabler på toppen av en funksjon!
 
 Funksjoner har tilgang til alt i ytre skop
 
-    .javascript
     var a = 1;
 
     function doSomething () {
@@ -521,7 +426,6 @@ Funksjoner har tilgang til alt i ytre skop
 
 Men ikke motsatt
 
-    .javascript
     function doSomething () {
       var b = 1;
 
@@ -541,7 +445,6 @@ Men ikke motsatt
 
 Husk var - ellers blir variabelen global!
 
-    .javascript
     function doSomething () {
       c = 1;
 
@@ -561,7 +464,6 @@ Husk var - ellers blir variabelen global!
 
 Funksjoner kan binde skop:
 
-    .javascript
     var counter = function () {
       var i = 0;
 
@@ -582,7 +484,6 @@ Funksjoner kan binde skop:
 
 Funksjoner kan kalles umiddelbart:
 
-    .javascript
     var inc = function () {
       var i = 0;
 
@@ -602,7 +503,6 @@ Funksjoner kan kalles umiddelbart:
 
 Lag moduler med privat tilstand:
 
-    .javascript
     var lib = {};
     lib.module = (function () {
 
@@ -627,7 +527,6 @@ Lag moduler med privat tilstand:
 
 Funksjoner som kalles direkte
 
-    .javascript
     var countArguments = function () {
       // this === window
 
@@ -644,7 +543,6 @@ Funksjoner som kalles direkte
 
 Når vi kaller en funksjon med nøkkelordet *new*, blir funksjonen en konstruktør:
 
-    .javascript
     function Person (name) {
       // this === en instans av Person
 
@@ -664,7 +562,6 @@ Når vi kaller en funksjon med nøkkelordet *new*, blir funksjonen en konstrukt�
 
 Ooops!
 
-    .javascript
     function Person (name) {
       this.name = name;
     }
@@ -689,7 +586,7 @@ Ooops!
 
 ---
 
-.middle.center
+class: middle center
 
 # Arv
 
@@ -718,7 +615,6 @@ Ooops!
 
 ## Arver egenskaper fra prototypen sin: 
   
-    .javascript
     var navn = "Helge";
     navn.charAt(0); // "H"
 
@@ -732,7 +628,6 @@ Ooops!
 
 For eksempel **String**: 
 
-    .javascript
     String.prototype.log = function () {
         console.log("Logged string: " + String(this));
     };
@@ -747,7 +642,6 @@ For eksempel **String**:
 
 Eller **Array**
 
-    .javascript
     if (!Array.prototype.filter) {
       Array.prototype.filter = function(filterFunction) {
         
@@ -772,7 +666,6 @@ Disse arver fra sin prototype
 
 Som vi vet: 
 
-    .javascript
     var Person = function(navn) {
         this.navn = navn;
     };
@@ -785,7 +678,6 @@ Som vi vet:
 
 Som vi vet: 
 
-    .javascript
     var Person = function(navn) {
         this.navn = navn;
     };
@@ -795,9 +687,9 @@ Som vi vet:
 
 ---
 
-# Prototype Chain
+class: middle center
 
-.middle.center
+# Prototype Chain
 
 ![Prototype Chain](../../img/prototype2.png)
 
@@ -805,7 +697,6 @@ Som vi vet:
 
 # Arv
 
-    .javascript
     var Person = function (navn, stilling, firma) {
         this.navn = navn;
         this.stilling = stilling;
@@ -819,7 +710,6 @@ Som vi vet:
 
 # Arv 
 
-    .javascript
     var Person = function (navn, stilling, firma) {
         this.navn = navn;
         this.stilling = stilling;
@@ -836,7 +726,6 @@ Som vi vet:
 
 # Arv 
 
-    .javascript
     var Person = function (navn, stilling, firma) {
         this.navn = navn;
         this.stilling = stilling;
@@ -855,7 +744,6 @@ Som vi vet:
 
 # Arv 
 
-    .javascript
     var Person = function (navn, stilling, firma) {
         this.navn = navn;
         this.stilling = stilling;
@@ -872,7 +760,6 @@ Som vi vet:
 
 # Arv 
 
-    .javascript
     var Person = function (navn, stilling, firma) {
         this.navn = navn;
         this.stilling = stilling;
@@ -886,7 +773,6 @@ Som vi vet:
 
 # Arv 
 
-    .javascript
     var Person = function (navn, stilling, firma) {
         this.navn = navn;
         this.stilling = stilling;
@@ -904,7 +790,6 @@ Som vi vet:
 
 # Arv 
 
-    .javascript
     var Person = function (navn, stilling, firma) {
         this.navn = navn;
         this.stilling = stilling;
@@ -925,7 +810,6 @@ Som vi vet:
 
 # Arv 
 
-    .javascript
     var Person = function (navn, stilling, firma) {
         this.navn = navn;
         this.stilling = stilling;
@@ -948,7 +832,6 @@ Som vi vet:
 
 # Arv 
 
-    .javascript
     var Person = function (navn, stilling, firma) {
         this.navn = navn;
         this.stilling = stilling;
@@ -974,21 +857,34 @@ Som vi vet:
 
 # Oppgaver
 
-Prototype
+##Prototype
 
 1. http://jsbin.com/evaguq/3/edit
 2. http://jsbin.com/asupex/2/edit
 
-Iterering
+##Iterering
 
 1. Lag din egen "forEach"-funksjon: http://jsbin.com/utawod/2/edit
 2. Lag en "filter"-funksjon: http://jsbin.com/eqalol/3/edit
-3: Lag en "every"-funksjon: http://jsbin.com/uguhex/2/edit
+3. Lag en "every"-funksjon: http://jsbin.com/uguhex/2/edit
 
 
 ---
 
     </textarea>
-    <div id="slideshow"></div>
+    <script src="http://gnab.github.com/remark/downloads/remark-0.5.3.min.js" type="text/javascript"></script>
+    <script type="text/javascript">
+      var hljs = remark.highlighter.engine;
+    </script>
+    <script src="js/remark.language.js" type="text/javascript"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+    <script type="text/javascript">
+      var slideshow = remark.create({
+          highlightStyle: 'solarized_light',
+          highlightLanguage: 'remark'
+        }) ;
+      var a = [];
+      slideshow.addListener("slidein",function(b,c){if(a.indexOf(c)>-1)return;var d=$(b);d.find("p:empty").remove(),d.find(".front-page").length===0&&d.find("h1").wrapInner("<span>"),d.find(".pushed img").parent().wrapInner("<span class='img'>"),a.push(c)})
+    </script>
   </body>
 </html>
