@@ -1,196 +1,113 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>CSS: FrontendSommer</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <script src="https://github.com/downloads/gnab/remark/remark-0.3.4.min.js" type="text/javascript"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
-    <script src="https://github.com/downloads/kjbekkelund/remark-bekk/bekk-0.0.3.js" type="text/javascript"></script>
-    <link href="https://github.com/downloads/kjbekkelund/remark-bekk/bekk-0.0.3.css" type="text/css" rel="stylesheet">
-    <link href='http://fonts.googleapis.com/css?family=Snowburst+One' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Griffy' rel='stylesheet' type='text/css'>    
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>CSS EYE-CANDY</title>
+    <link href='http://fonts.googleapis.com/css?famil=Inconsolata' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="../remark/remark-bekk.css">
     <style type="text/css" media="screen">
-      #slideshow .slide .content.front-page h1 { width: 100%; }
-      .slide p { padding: 0; margin: 1.1em 0; }
-      .slide ul { padding: 0; margin: 1.1em 0; }
-      .slide img { max-width: 100%; max-height: 600px; }
-      .slide .big { font-size: 4em; }
-      #slideshow .slide .content ul li { padding-left: 1.3em; }
-      #slideshow .slide .attr a { color:#333; font-size:0.8em; }
-      #slideshow .slide .fullscreen img { width:100%; height:100%; position:absolute; top:40px; left:0; }
-      .slide span.alt { color:#FD5158; }
-      .jquery { background-color: #1E2837; }
-      .nodejs { background-color: #3F4239; }
-      #slideshow .position { display: none; }
 
-    /*Egne ninjatriks:*/
-      .whitebg {background: #fff;color:#000;}
-      .hl-text {background:#000;padding:0 .6em 0 0; color: #FD5158; text-transform:uppercase;font-weight: normal;font-size: 1.5em;font-style: italic;}
-      .fullscreen {position: relative;}
-      .fullscreen img {width:100%; min-height:100%; height:auto; top:0 !important;}
-      .fullscreen.higher img {height:115% !important;max-height:115%;}
-      .fullscreen .overlay {position:absolute;left:0;right:0;top:35%;z-index:999;background:rgba(0,0,0,.75);}
-      .slide .source {position: absolute;bottom:3px; left:5px;z-index:999;font-size:.7em;}
-      .loud {font-size:2em;}
+          .gradient { background-image:-moz-linear-gradient(red, green, blue, purple, orange); }
+          .gradient * { color:#fff !important; background: transparent!important; }
+          .shadow { background:#333; font-size: 1.5em; text-shadow:2px 2px 0 rgba(0,0,0,0.3); }
+          .shadow .shadow1 { background: #444; padding:1em; box-shadow:0 2px 3px rgba(0,0,0,0.2); }
+          .shadow1 span {background: transparent!important;}
+          .shadow-slide, .shadow-slide h1 span { background: #e0e0e0; }
+          .shadow-slide h1 span { text-shadow:1px 1px 0 rgba(0,0,0,0.3); }
+          .shadow-slide code { box-shadow:1px 1px 0 rgba(0,0,0,0.3); }
 
-      blockquote, .loud {font-size:2em;}
-      blockquote cite, .loud small {font-size:.7em;color:#FD5158;}
-      .slide .overlay h1 > span {background:transparent !important;}
-      .slide .overlay h1:before {border-top:none !important;}
 
-      .css-example {border:1px solid rgba(0,0,0,.2); font-size:.8em;padding:1em;}
-      .css-example .pbox {width:100px;height:100px;line-height: 2;text-align: center;font-size: 3em}
-      .css-example .pbox:nth-child(2) {color:red;}
-      .css-example .pbox:nth-child(3) {color:white;}
-      .css-example-clear:after, .group:after {
-		   content: "";
-		   visibility: hidden;
-		   height: 0;
-		   display: block;
-		   clear: both;
-		}
-
-		.specificity {display:inline-block;}
-		.specificity tbody {background:#fff;color:#000;}
-		.specificity td { height:120px;width:60px;padding:20px;border:4px solid #ccc;color:000;font-size:2em;text-align:center;
-		2
-		background: -moz-linear-gradient(top, rgba(0,0,0,0.16) 0%, #FDF6E3 49%, rgba(0,0,0,0.12) 100%); /* FF3.6 */
-		background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,0,0,0.16)), color-stop(49%,#FDF6E3), color-stop(100%,rgba(0,0,0,0.12))); /* Chrome,Safari4 */
-		background: -webkit-linear-gradient(top, rgba(0,0,0,0.16) 0%,#FDF6E3 49%,rgba(0,0,0,0.12) 100%); /* Chrome10,Safari5.1 */
-		background: -o-linear-gradient(top, rgba(0,0,0,0.16) 0%,#FDF6E3 49%,rgba(0,0,0,0.12) 100%); /* Opera 11.10 */
-		background: -ms-linear-gradient(top, rgba(0,0,0,0.16) 0%,#FDF6E3 49%,rgba(0,0,0,0.12) 100%); /* IE10 */
-		background: linear-gradient(to bottom, rgba(0,0,0,0.16) 0%,#FDF6E3 49%,rgba(0,0,0,0.12) 100%); /* W3C */
-		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#29000000', endColorstr='#1f000000',GradientType=0 ); /* IE6-9 */
-
-		}
-
-		.gradient { background-image:-webkit-linear-gradient(red, green, blue, purple, orange); }
-
-		.gradient * { color:#fff !important; }
-
-		.middle.center h1 span { background:none !important; }
-
-		.middle.center.shadow { background:#333; text-shadow:2px 2px 2px rgba(0,0,0,0.3); }
-		.middle.center.shadow .shadow1 { background: #444; padding:1em; box-shadow:0 2px 3px rgba(0,0,0,0.2); }
-
-		.caniuse { background: #ede1cc !important; }
-
-		a.two { font-size:3em; display: block; text-align: left; color:#fff !important; line-height: 1.3; }
-
-		.spinners {
-		    width:500px;
-		    height:600px;
-		    margin:0 auto;
-		    position: relative;
-		}
-
-		.anim-steps .spinners {
-		    height:250px;
-		}
-
-		.spinner1 {
-		    position: absolute;
-		    top:50%;
-		    left:50%;
-		    margin:-80px 0 0 -80px;
-
-		    border:20px solid #228fd3;
-		    border-right:20px solid #000;
-		    border-left:20px solid #000;
-		    border-radius:160px;
-		    width:160px;
-		    height:160px;
-		    -webkit-animation:rotation 2s infinite linear;
-		    -moz-animation:rotation 2s infinite linear;
-		    -ms-animation:rotation 2s infinite linear;
-		    -o-animation:rotation 2s infinite linear;
-		    animation:rotation 2s infinite linear;
-		}
-
-		.spinner2 {
-		    position: absolute;
-		    top:50%;
-		    left:50%;
-		    margin:-40px 0 0 -40px;
-		    border:20px solid #228fd3;
-		    border-right:20px solid #000;
-		    border-left:20px solid #000;
-		    border-radius:80px;
-		    width:80px;
-		    height:80px;
-		    -webkit-animation:rotation2 2s infinite linear;
-		    -moz-animation:rotation2 2s infinite linear;
-		    -ms-animation:rotation2 2s infinite linear;
-		    -o-animation:rotation2 2s infinite linear;
-		    animation:rotation2 2s infinite linear;
-		}
-
-		@-webkit-keyframes rotation {
-		    from { -webkit-transform: rotate(0deg); }
-		    to { -webkit-transform: rotate(359deg); }
-		}
-
-		@-webkit-keyframes rotation2 {
-		    from { -webkit-transform: rotate(0deg); }
-		    to { -webkit-transform: rotate(-359deg); }
-		}
-
-		.fs { font-size:1.6em; }
-		.f1 { font-family: 'Snowburst One', cursive; }
-		.f2 { font-family: 'Griffy', cursive; }
-
-		.invert { background:#fff; }
-		.imgtranslate img { -webkit-transform: perspective(600px) rotateY(20deg) scale(0.8) translateX(60px); }
-		iframe { border:none; }
-		.anim a { -webkit-transition: color 200ms ease-in-out; display: block; font-size: 3em; text-align: center; margin:1em 0; }
-		.anim a:hover { color:#fff !important; text-decoration: none !important; }
-		.imganim img { -webkit-transition: all 300ms ease-in-out; }
-		.imganim img:hover { -webkit-transform: perspective(600px) rotateY(20deg) scale(0.8) translateX(60px); }
     </style>
   </head>
   <body>
     <textarea id="source">
 
-.middle.center
-
-# DESIGN I CSS
+---
 
 ---
 
-.agenda
+layout: false
+class: front-page
 
-# DESIGN I CSS
+# CSS Eye-Candy
 
-* Typografi &amp; farger
-* Gradients  Skygger
-* Transforms  Transitions
+## Farger, typografi, CSS3
 
 ---
 
-.middle.center
+class: agenda
+
+#Agenda
+
+* Typografi
+* Farger
+* Gradients  
+* Skygger
+* Transforms 
+* Transitions
+
+---
+
+class: middle center
 
 # Typografi
 
+Sandkasse: http://jsbin.com/ogajol/6/edit
+
+???
+
+Læren om fonter
+
 ---
 
 # Typografi
 
-    .css
+.two-column[
+
+- font-family
+- font-size
+- line-height
+- font-weight
+- text-decoration
+- letter-spacing
+- text-transform
+
+]
+
+.two-column[
+
+- font-style
+- text-decoration
+- letter-spacing
+- text-transform
+- tilstand
+
+]
+
+---
+
+#Typografi
 
     /* Fonter */
     .selector {
       font-family: Helvetica, Arial, Sans-serif;
     }
 
+--
+
     /* Skriftstørrelse */
     .selector {
       font-size: 12px; /* 1.2em / 90% */
     }
 
+--
+
     /* Linjeavstand */
     .selector {
       line-height: 1.2 /* 120% / 15px */
     }
+
+--
 
     /* Uthevet */
     .selector {
@@ -199,88 +116,97 @@
 
 ---
 
-# Typografi
-
-    .css
+#Typografi
 
     /* Kursiv */
     .selector {
       font-style: italic; 
     }
 
+--
     /* Understreking */
     .selector {
       text-decoration: underline;
       /* border-bottom: 1px solid #333 */  
     }
 
-    /* Sperring (avstand mellom bokstaver) */
+--
+    /* Sperring (a v s t a n d &nbsp; mellom bokstaver) */
     .selector {
       letter-spacing: 1px;
     }
 
+--
     /* VERSALER */
     .selector {
       text-transform: uppercase; 
     }
 
+-- 
+
+    /* tilstand */
+    .selector:hover {
+      color: red; 
+      text-decoration: underline; 
+    }
+
+
 ---
 
-.middle.center
+class: middle center
 
-# Fonter
+#Fonter
 
 <span class="fs">Lett å bruke,  <span class="f1">vanskelig</span> <span class="f2">å mestre</span></span>
 
 ---
 
-.middle.center.invert
+class: middle center inverse
 
 ![Standardfonts](../img/fonts.png)
 
 ---
 
-.middle.center.caniuse
+class: fullscreen caniuse
 
 ![CaniuseFonts](../img/caniuse.fonts.png)
 
 ---
 
-.middle.center
+class: fullscreen
 
 ![Google](../img/webfonts.png)
 
 ---
 
-.middle.center
+class: fullscreen
 
 ![Google](../img/typekit.png)
 
 ---
 
-.middle.center
+class: fullscreen
 
 ![Eg1](../img/fonts3.png)
 
 ---
 
-.middle.center
+class: fullscreen
 
 ![Eg2](../img/fonts4.png)
 
 ---
 
-.middle.center
+class: fullscreen
 
 ![Eg3](../img/fonts1.png)
 
 ---
 
-# Web fonts
+# Web-fonter
 
 1a. Importer font via CSS:
-
-    .css
+   
     @font-face {
       font-family: 'Snowburst One';
       font-style: normal;
@@ -290,70 +216,64 @@
 
 1b. Importer font via HTML (f.eks. for Google Web Fonts):
 
-    .html
     <link type='text/css' rel='stylesheet'
         href='http://fonts.googleapis.com/css?family=SnowburstOne'>
 
 2\. Bruk fonten:
-
-    .css
+   
     body {
         font-family: "Snowburst One", Helvetica, Arial, sans-serif;
     }
 
 ---
 
-.middle.center
+class: middle center
 
-# Icon fonts
-
-Windings
+# Ikon-fonter
 
 ---
 
-.middle.center.invert
+class: fullscreen inverse
 
 ![Iconfonts example](../img/awsfont2.png)
 
 ---
 
-.middle.center
+class: fullscreen
 
 ![Awsfont](../img/awsfont.png)
 
 ---
 
-.middle.center
+class: fullscreen
 
 ![Icomoon](../img/icomoon.png)
 
 ---
 
 # Farger
-
-    .css
+   
     /* Farge på tekst */
     .selector-a {
       color: #000000; 
     }
 
+--
+
     .selector-b {
       color: rgb(0, 0, 0);
     }
+
+--
 
     .selector-c {
       color: rgba(0, 0, 0, 0.5); 
     }
 
-    .selector-d {
-	  border: 10px solid green; 
-	}
-
 ---
 
 #Farger
-
-    .css 
+    
     /* Bakgrunnsfarge */
     .selector {
       background-color: blue; 
@@ -368,7 +288,7 @@ Windings
 
 ---
 
-.middle.center.gradient
+class: middle center gradient
 
 # CSS Gradients
 
@@ -377,8 +297,7 @@ Mer fleksibelt enn bakgrunnsbilder
 ---
 
 # CSS Gradients
-
-    .css
+   
     /* fallback */
     background-color:#063053;
 
@@ -388,10 +307,9 @@ Mer fleksibelt enn bakgrunnsbilder
 ---
 
 # CSS Gradients
-
-    .css
+   
     /* fallback */
-    background-color:#063053;
+    background-color: #063053;
 
     /* chrome 10, safari 5.1 */
     background-image: -webkit-linear-gradient(red, green, blue, purple, orange);
@@ -418,8 +336,7 @@ Mer fleksibelt enn bakgrunnsbilder
 ---
 
 # CSS Gradients
-
-    .css
+   
     <!--[if lt IE 10]>
         <style>
 
@@ -438,13 +355,13 @@ Mer fleksibelt enn bakgrunnsbilder
 
 ---
 
-.middle.center
+class: fullscreen
 
 ![colorzilla](../img/colorzilla.png)
 
 ---
 
-.middle.center.shadow
+class: middle center shadow
 
 <div class="shadow1">
 # Skygger
@@ -452,23 +369,24 @@ Mer fleksibelt enn bakgrunnsbilder
 
 ---
 
+class: shadow-slide
+
 # Skygger
 
-    .css
     /*
      * text-shadow: x y blur color;
      */
     p {
         text-shadow:1px 1px 1px rgba(0,0,0,0.1);
     }
-
+--
     /*
      * box-shadow: x y blur color;
      */
     .box1 {
         box-shadow:0 2px 3px rgba(0,0,0,0.2);
     }
-
+--
     /*
      * box-shadow: inset x y blur color;
      */
@@ -478,17 +396,18 @@ Mer fleksibelt enn bakgrunnsbilder
 
 ---
 
-.middle.center
+class: middle center
 
 # CSS Transforms
 
 Endre koordinater utenom flyten, i 2D og 3D.
 
+Sandkasse: http://jsbin.com/ugiper/3/edit
+
 ---
 
 # CSS Transforms
-
-    .css
+   
     /*
      * Øk størrelsen på elementer med klassen "foo" 2x,
      * langs både X- og Y-aksen.
@@ -507,8 +426,7 @@ Endre koordinater utenom flyten, i 2D og 3D.
 ---
 
 # CSS Transforms
-
-    .css
+   
     /*
      * Øk størrelsen på elementer med klassen "foo" 2x,
      * langs både X- og Y-aksen.
@@ -534,17 +452,16 @@ Endre koordinater utenom flyten, i 2D og 3D.
 
 ---
 
-.middle.center.imgtranslate
+class: middle center imgtranslate
 
 ![Icomoon](../img/typekit.png)
-
-    .css
+   
     img { transform: perspective(600px) rotateY(20deg) scale(0.8) translateX(60px); }
 
 
 ---
 
-.middle.center.caniuse
+class: fullscreen caniuse
 
 ![caniuse.transforms](../img/caniuse.transforms.png)
 
@@ -552,8 +469,7 @@ Endre koordinater utenom flyten, i 2D og 3D.
 ---
 
 # CSS Transforms
-
-    .css
+   
     .foo {
 
         /* Flytt langs x/y. */
@@ -569,6 +485,7 @@ Endre koordinater utenom flyten, i 2D og 3D.
         transform: scaleZ(0.3);
 
         /* perspektiv */
+        transform: skew(30deg, 90deg);
         transform: skewX(30deg);
         transform: skewY(1.07rad);
         transform: translate3d(12px, 50%, 3em);
@@ -588,7 +505,7 @@ Endre koordinater utenom flyten, i 2D og 3D.
 
 ---
 
-.middle.center
+class: middle center
 
 # CSS Transitions
 
@@ -597,11 +514,10 @@ Overgang mellom stiler, med implisitt animasjon.
 
 ---
 
-.anim
+class: anim
 
 # CSS Transitions
-
-    .css
+   
     a {
         color:#fd5158;
         transition: color 100ms ease-in-out;
@@ -611,13 +527,12 @@ Overgang mellom stiler, med implisitt animasjon.
         color:#fff;
     }
 
-<a href="#">Test</a>
+Demo: http://jsbin.com/ugiper/3/edit
 
 ---
 
 # CSS Transitions
-
-    .css
+   
     .foo {
         /* hva som skal animeres */
         transition-property: none;
@@ -652,11 +567,10 @@ Overgang mellom stiler, med implisitt animasjon.
 
 ---
 
-.middle.center.imganim
+class: middle center imganim
 
 ![Icomoon](../img/typekit.png)
-
-    .css
+   
     img { transition: transform 300ms ease-in-out; }
     img:hover { transform: perspective(600px) rotateY(20deg) scale(0.8) translateX(60px); }
 
@@ -666,12 +580,11 @@ Overgang mellom stiler, med implisitt animasjon.
 
 &nbsp;
 ## Les mer på nettet: 
-
-* http://www.css3files.com/
+* http://ww3files.com/
 
 ---
 
-.middle.center
+class: middle center
 
 # Oppgave
 
@@ -681,82 +594,98 @@ Overgang mellom stiler, med implisitt animasjon.
 
 ## Gjør nettsiden <a href="oppgave/design-desktop.jpg">litt finere</a>!
 
-01-css/del2/oppgave
+03-cssdesign/oppgave
 
 ---
 
 # Oppgave
-  
-  ## 1) Gi riktig utseende til teksten "En alpinist gjenopplivde en sebra..." 
 
-  * Skriftstørrelse
-  * Font (Georgia med serif-fallback)
-  * Avstand til elementene rundt
-  * Farge (#333333)
-  * Farge på lenken (#ff6600)
-  * Stiplet understreking på lenken
+## 1) Gi riktig utseende til teksten "En alpinist gjenopplivde en sebra..." 
+
+- Skriftstørrelse
+- Font (Georgia med serif-fallback)
+- Avstand til elementene rundt
+- Farge (#333333)
+- Farge på lenken (#ff6600)
+- Stiplet understreking på lenken
 
 ---
 
 # Oppgave 
 
-  ## 2) Style typografien under "Våre tjenester"
+## 2) Style typografien under "Våre tjenester"
 
-  * Linjeavstand
-  * Font
-  * Skriftstørrelse
-  * Farge
+- Linjeavstand
+- Font
+- Skriftstørrelse
+- Farge
 
 ---
 
 # Oppgave 
 
-  ## 3) Gi riktig utseende til selve siden
+## 3) Gi riktig utseende til selve siden
 
-  * Hvit bakgrunn på innholdet
-  * Grå bakgrunn på resten 
-  * Skygge på innholdet
-  * Svart bakgrunn og hvit tekst på footer
-
----
-
-# Oppgave
-
-  ## 4) Gi riktig utseende til innholdet i article-taggene under "Selvskryt"
-
-  * Svart bakgrunn på overskriftene
-  * Luft rundt overskriftene
-  * Midtstilt tekst
+- Hvit bakgrunn på innholdet
+- Grå bakgrunn på resten 
+- Skygge på innholdet
+- Svart bakgrunn og hvit tekst på footer
 
 ---
 
 # Oppgave
 
-  ## 5) Gi riktig utseende til seksjonsheadingene
+## 4) Gi riktig utseende til innholdet i article-taggene under "Selvskryt"
 
-  * Svart bakgrunn
-  * Riktig font (Helvetica Neue)
-  * Hvit tekst
-  * Skygge
-  * Ingen border
-
---- 
-
-# Oppgave
-
-  ## 6) Style menyknappene
-
-  * Svart bakgrunn
-  * Riktig typografi
-  * Tynn linje mellom knappene
+- Svart bakgrunn på overskriftene
+- Luft rundt overskriftene
+- Midtstilt tekst
 
 ---
 
-.middle.center.fullscreen
+# Oppgave
 
-  # <a href="../04-responsive/responsive-presentasjon.html">Klikk for neste presentasjon</a>
+## 5) Gi riktig utseende til seksjonsheadingene
+
+- Svart bakgrunn
+- Riktig font (Helvetica Neue)
+- Hvit tekst
+- Skygge
+- Ingen border
+
+---
+ 
+# Oppgave
+
+## 6) Style menyknappene
+
+- Svart bakgrunn
+- Riktig typografi
+- Tynn linje mellom knappene
+
+---
+
+# Oppgave
+
+## 7) Lag en transition i menyen
+
+- F.eks. ved fargeskifte på tekst ved hover
+
 
     </textarea>
-    <div id="slideshow"></div>
+    <script src="http://gnab.github.com/remark/downloads/remark-0.5.3.min.js" type="text/javascript"></script>
+    <script type="text/javascript">
+      var hljs = remark.highlighter.engine;
+    </script>
+    <script src="js/remark.language.js" type="text/javascript"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+    <script type="text/javascript">
+      var slideshow = remark.create({
+          highlightStyle: 'solarized_light',
+          highlightLanguage: 'remark'
+        }) ;
+      var a = [];
+      slideshow.addListener("slidein",function(b,c){if(a.indexOf(c)>-1)return;var d=$(b);d.find("p:empty").remove(),d.find(".front-page").length===0&&d.find("h1").wrapInner("<span>"),d.find(".pushed img").parent().wrapInner("<span class='img'>"),a.push(c)})
+    </script>
   </body>
 </html>
