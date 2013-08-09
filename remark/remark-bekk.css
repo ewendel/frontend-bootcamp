@@ -5,6 +5,9 @@ a, a > code {
   color: rgb(249, 38, 114);
   text-decoration: none;
 }
+.remark-position {
+  color: #fff;
+}
 code {
   -moz-border-radius: 5px;
   -web-border-radius: 5px;
@@ -41,6 +44,11 @@ code {
   width: 70%;
   float: right;
   padding-top: 2em;
+}
+
+.two-column {
+  width: 50%;
+  float: left;
 }
 
 .remark-slide {
