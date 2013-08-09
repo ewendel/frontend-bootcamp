@@ -8,7 +8,6 @@
     <style type="text/css" media="screen">
 
       .jquery { background-color: #1E2837; }
-      .nodejs { background-color: #3F4239; }
 
     </style>
   </head>
@@ -98,6 +97,7 @@ class: middle center
 ## Likheter
 
 * Objektorientert
+* Arv
 
 --
 
@@ -168,20 +168,7 @@ Value kan være hva som helst.
     var navn = "Helge Fredheim";
     typeof navn; // "string"
 
-    /* Strengen har metoder og attributter */
-    navn.length; // 14
-    navn.substr(0, 5); // Helge
-    navn.split(" "); // ["Helge", "Fredheim"]
-    navn.replace("Helge", "Kenneth"); // Kenneth Fredheim
-
----
-
-# Objekter
-
-## Nesten alt er objekter i JavaScript!
-
-    var navn = "Helge Fredheim";
-    typeof navn; // "string"
+--
 
     /* Strengen har metoder og attributter */
     navn.length; // 14
@@ -198,6 +185,8 @@ Value kan være hva som helst.
     var frukter = ["eple", "banan"];
     typeof frukter; // "object" (!!)
 
+--
+
     /* Arrayet har metoder og attributter */
     frukter.length; // 2
     frukter.push("drue"); // ["eple", "banan", "drue"];
@@ -213,7 +202,11 @@ En samling av indekserte properties.
 
     var arr = [1, "two", 3];
 
+--
+
     arr.push(4);
+
+--
 
     arr[1];         // "two"
     arr[3] = 4;
@@ -231,8 +224,12 @@ Array er ikke "ekte" arrays:
     var obj = [1, 2, 3];
     obj.speed = 5;      // Høh?
 
+--
+
     obj[1];             // 2
     obj.speed           // 5
+
+--
 
     obj.length;         // 3
     obj[80] = true
@@ -247,10 +244,14 @@ Array er ikke "ekte" arrays:
     var obj = [1, 2, 3];
     obj.speed = 5;
 
+--
+
     var i;
     for (i = 0; i < obj.length; ++i) {
       obj[i];  // 1, 2, 3
     }
+
+--
 
     var key;
     for (key in obj) {
@@ -264,12 +265,26 @@ Array er ikke "ekte" arrays:
 Vi kan bruke **typeof**-operatoren for å sjekke type.
 
     typeof {};          // 'object'
+
+--
     typeof [];          // 'object'     WTF?
+
+--
     typeof 1;           // 'number'
+
+--
     typeof '';          // 'string'
+
+--
     typeof true;        // 'boolean'
+
+--
     typeof false;       // 'boolean'
+
+--
     typeof minVar       // 'undefined'
+
+--
 
     typeof null;        // 'object'     WTF?
 
@@ -301,11 +316,11 @@ class: middle center
     function add (a, b) {
       return a + b;
     }
-
+--
     var multiply = function (a, b) {
       return a * b;
     }
-
+--
     var recur = function (num) {
       if (num === 0) { return num; }
       return recur(num - 1);
@@ -340,9 +355,10 @@ Funksjoner som returnerer andre funksjoner:
         console.log("Hello, " + name);
       };
     }
-
-    var anonymous = createFunction();
-    anonymous();  // "Hello undefined"
+    
+--
+    var sayHello = createFunction();
+    sayHello("Helge");  // "Hello Helge"
 
 ---
 
