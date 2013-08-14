@@ -1,0 +1,227 @@
+/* Reset */
+
+ul, body, h2, h3, h4 {
+    padding:                0;
+    margin:                 0;
+}
+
+.section {
+    clear: both; 
+    padding: 20px 0;
+}
+
+section:after, .section:after, .clearfix:after { 
+    content:                "."; 
+    visibility:             hidden; 
+    display:                block; 
+    height:                 0; 
+    clear:                  both
+}
+
+body {
+    margin:                 0;
+    padding:                0;
+    background-color:       lightgray;
+}
+
+.teaserTitle {
+    text-align:             center;
+}
+
+.sectionHeader {
+    margin:                 20px 0px;
+}
+
+.sectionTitle {
+    border:                 1px solid black;
+}
+
+.imageGallery {
+    padding-top:            0px;
+}
+.container {
+    background-color:       white;
+}
+
+
+/*  CSS LAYOUT
+    -----------------------------------------------*/
+
+/* Oppgave 1: Generell oppstramming */
+
+.container {
+    width:              960px;
+    padding:            40px;
+    margin:             0 auto;
+    position:           relative;
+}
+
+#global-search {
+    position:           absolute;
+    top:                40px;
+    right:              60px;
+}
+
+h1 {
+    text-align:         center;
+}
+
+/* Oppgave 2: Menyen; */
+
+.menuElement {
+    list-style:         none;
+    float:              left;
+    width:              20%;
+    text-align:         center;
+    padding:            20px 0px;
+}
+
+
+/* Oppgave 3: Våre tjenester-seksjonen */
+
+.service {
+    float:              left;
+    width:              25%;
+    padding:            10px;
+    box-sizing:         border-box;
+}
+
+
+/* Oppgave 4: Seksjonsheadere */
+
+.sectionHeader {
+    text-align:         center;
+}
+
+.sectionTitle {
+    display:            inline-block;
+    padding:            8px 25px;
+}
+
+/* Oppgave 5: Selvskryt-seksjonen */
+
+.promo {
+    float:              left;
+    margin-right:       30px;
+    text-align:         center;
+}
+
+.promo:last-of-type {
+    margin-right:       0px;
+}
+
+/* Oppgave 6: Forrige/neste-knapper */
+.imageGallery {
+    position:               relative;
+}
+
+.imageGalleryNav {
+    position:               absolute;
+    right:                  20px;
+    bottom:                 20px;
+}
+
+.imageButton {
+    list-style:             none;
+    padding:                10px 20px;
+    display:                inline-block;
+    background-color:       white;
+}
+
+/* Oppgave 7: Footer-seksjonen */
+
+.footerItem {
+    float:              left;
+    width:              33%;
+}
+
+/* CSS DESIGN 
+    ----------------------------------------------*/
+
+
+/* Oppgave 1 */
+/* Gi riktig utseende til teksten "En alpinist gjenopplivde en sebra..."  */
+
+.teaserTitle {
+	font-size: 1.6em;
+	font-family: Georgia, Times, "Times New Roman", Serif; 
+	font-weight: normal;
+	color: #333333;
+}
+
+.teaserTitle a {
+	color: #ff6600;
+	text-decoration: none;
+	border-bottom: 1px #ff6600 dotted;
+}
+
+/* Oppgave 2 */
+/* Style typografien under "Våre tjenester" */
+
+.serviceTitle {
+	font-family: Georgia, Times, "Times New Roman", Serif;
+	color: #666;
+	font-weight: normal;
+	font-size: 1.2em;
+}
+
+.serviceText {
+	color: #666;
+	line-height: 1.4;
+	font-family: "Helvetica Neue", Helvetica, Arial, Sans-serif; 
+	font-size: .9em;
+}
+
+/* Oppgave 3 */
+/* Gi riktig utseende til selve siden */
+
+body {
+	background: #e0e0e0;
+}
+
+.container {
+	background: #fff;
+	border: 1px solid #ccc;
+	box-shadow: 0 5px 5px rgba(0, 0, 0, 0.3);
+}
+
+footer {
+	margin: 20px -20px -20px -20px;
+	background: #111;
+	color: #fff;
+}
+
+.footerItem {
+	width: 30%;
+	padding: 1.5%;
+}
+
+/* Oppgave 4 */
+/* Gi riktig utseende til innholdet i article-taggene under "Selvskryt" */
+
+.promoTitle {
+	background: #111;
+	padding: 5px;
+	margin: 0;
+	font-family: "Helvetica Neue", Helvetica, Arial, Sans-serif; 
+	font-size: .8em;
+}
+
+.promoTitle a {
+	color: #fff;
+	text-decoration: none;
+}
+
+/* Oppgave 5 */
+/* Styling av seksjonsheadere*/
+
+.sectionTitle {
+    background-color: rgba(0,0,0, 0.75);
+    color:      white;
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.3);
+    border: none;
+    font-family: "Helvetica Neue", Helvetica, Arial, Sans-serif; 
+    text-transform: uppercase;
+    font-size: 15px;
+    font-weight: normal;
+}

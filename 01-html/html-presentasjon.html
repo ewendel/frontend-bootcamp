@@ -1,75 +1,47 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>HTML: FrontendSommer</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <script src="https://github.com/downloads/gnab/remark/remark-0.3.4.min.js" type="text/javascript"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
-    <script src="https://github.com/downloads/kjbekkelund/remark-bekk/bekk-0.0.3.js" type="text/javascript"></script>
-    <link href="https://github.com/downloads/kjbekkelund/remark-bekk/bekk-0.0.3.css" type="text/css" rel="stylesheet">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>BEKK-Remark</title>
+    <link href='http://fonts.googleapis.com/css?family=Inconsolata' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="../remark/remark-bekk.css">
     <style type="text/css" media="screen">
-      #slideshow .slide .content.front-page h1 { width: 100%; }
-      .slide p { padding: 0; margin: 1.1em 0; }
-      .slide ul { padding: 0; margin: 1.1em 0; }
-      .slide img { max-width: 100%; max-height: 600px; }
-      .slide .big { font-size: 4em; }
-      #slideshow .slide .content ul li { padding-left: 1.3em; }
-      #slideshow .slide .attr a { color:#333; font-size:0.8em; }
-      #slideshow .slide .fullscreen img { width:100%; height:100%; position:absolute; top:40px; left:0; }
-      .slide span.alt { color:#FD5158; }
-      .jquery { background-color: #1E2837; }
-      .nodejs { background-color: #3F4239; }
-      #slideshow .position { display: none; }
-
-    /*Egne ninjatriks:*/
-      .whitebg {background: #fff;color:#000;}
-      .hl-text {background:#000;padding:0 .6em 0 0; color: #FD5158; text-transform:uppercase;font-weight: normal;font-size: 1.5em;font-style: italic;}
-      .fullscreen {position: relative;}
-      .fullscreen img {width:100%; min-height:100%; height:auto; top:0 !important;}
-      .fullscreen.higher img {height:115% !important;max-height:115%;}
-      .fullscreen .overlay {position:absolute;left:0;right:0;top:35%;z-index:999;background:rgba(0,0,0,.75);}
-      .slide .source {position: absolute;bottom:3px; left:5px;z-index:999;font-size:.7em;}
       .loud {font-size:2em;}
 
       blockquote, .loud {font-size:2em;}
       blockquote cite, .loud small {font-size:.7em;color:#FD5158;}
-      .slide .overlay h1 > span {background:transparent !important;}
-      .slide .overlay h1:before {border-top:none !important;}
-
-      .css-example {border:1px solid rgba(0,0,0,.2); font-size:.8em;padding:1em;}
-      .css-example .pbox {width:100px;height:100px;line-height: 2;text-align: center;font-size: 3em}
-      .css-example .pbox:nth-child(2) {color:red;}
-      .css-example .pbox:nth-child(3) {color:white;}
-      .css-eaxample-clear:after, .group:after {
-   content: "";
-   visibility: hidden;
-   height: 0;
-   display: block;
-   clear: both;
-}
-
-.specificity {display:inline-block;}
-.specificity tbody {background:#fff;color:#000;}
-.specificity td { height:120px;width:60px;padding:20px;border:4px solid #ccc;color:000;font-size:2em;text-align:center;
-2
-background: -moz-linear-gradient(top, rgba(0,0,0,0.16) 0%, #FDF6E3 49%, rgba(0,0,0,0.12) 100%); /* FF3.6+ */
-background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,0,0,0.16)), color-stop(49%,#FDF6E3), color-stop(100%,rgba(0,0,0,0.12))); /* Chrome,Safari4+ */
-background: -webkit-linear-gradient(top, rgba(0,0,0,0.16) 0%,#FDF6E3 49%,rgba(0,0,0,0.12) 100%); /* Chrome10+,Safari5.1+ */
-background: -o-linear-gradient(top, rgba(0,0,0,0.16) 0%,#FDF6E3 49%,rgba(0,0,0,0.12) 100%); /* Opera 11.10+ */
-background: -ms-linear-gradient(top, rgba(0,0,0,0.16) 0%,#FDF6E3 49%,rgba(0,0,0,0.12) 100%); /* IE10+ */
-background: linear-gradient(to bottom, rgba(0,0,0,0.16) 0%,#FDF6E3 49%,rgba(0,0,0,0.12) 100%); /* W3C */
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#29000000', endColorstr='#1f000000',GradientType=0 ); /* IE6-9 */
-
-}
-
+      .remark-slide .overlay {
+        text-align: center;
+      }
+      .remark-slide .overlay h1 > span {background:transparent !important;}
+      .remark-slide .overlay h1:before {border-top:none !important;}
     </style>
   </head>
   <body>
     <textarea id="source">
 
+layout: true
+class: frontpage
+
+# GSP-kurs
+
+## En introduksjon til HTML, CSS og JavaScript
+
 ---
 
-.agenda
+layout: false
+class: front-page
+
+# Kurs i grensesnittsprogrammering
+
+## En introduksjon til HTML, CSS og JavaScript
+
+Helge Fredheim & Erik Wendel
+
+---
+
+layout: false
+class: agenda
 
 # Agenda
 
@@ -77,29 +49,24 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#29000000', e
 * Nettleseren
 * HTML
 * CSS
+* Responsivt design
 * JavaScript
 
 ---
 
-.middle.center
-
-# INTRODUKSJON
-
----
-
-.middle.center
+class: middle center
 
 # FØRST: GITHUB!
 
 ---
 
-.middle.center
+class: middle center
 
-## http://bit.ly/11LX48r
+## http://goo.gl/FoAi3C
 
 ---
 
-.middle.center
+class: middle center
 
 # Kursholdere
 
@@ -109,90 +76,86 @@ Erik Wendel&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nb
 
 ---
 
-.middle.center
+class: middle center
 
-# Sommerstudenter
+# Nyansatte i BEKK
 
 ---
 
-.middle.center
+class: middle center
 
 # Hvem er dere?
 
 ---
 
-.middle.center
+class: front-page
 
 #Nettleseren
 
 ---
 
-.middle.center.fullscreen
+class: fullscreen middle
 
-![Mosaic info](../img/browser_mosaic_illinois.jpeg)
-
-<div class="source">http://flic.kr/p/FvW5d</div>
-
+![](../img/browser_mosaic_illinois.jpeg);
 ---
 
-.middle.center
+class: middle center
 
 # 1990: WorldWideWeb
 # Tim Berners-Lee
 
 ---
 
-.fullscreen
+class: fullscreen
+
+![](../img/browser_mosaic.6beta2.png)
 
 #1993: Mosaic
-
-![Mosaic browser](../img/browser_mosaic.6beta2.png)
-
 ---
 
-.fullscreen
+class: fullscreen
+
+![](../img/browser_netscape_1.jpeg)
 
 #1994: Netscape
 
-![Netscape 1.0](../img/browser_netscape_1.jpeg)
-
 ---
 
-.fullscreen
+class: fullscreen
+
+![](../img/browser_ie2.gif)
 
 #1995: Internet Explorer
 
-![IE2](../img/browser_ie2.gif)
-
 ---
 
-.middle.center
+class: middle center
 
 # Netscape
 
 ---
 
-.middle.center
+class: middle center
 
 # Netscape
 # Mozilla Firefox
 
 ---
 
-.middle.center
+class: middle center
 
 # Mozilla Firefox
 
 ---
 
-.middle.center
+class: middle center
 
 # Mozilla Firefox
 # Opera
 
 ---
 
-.middle.center
+class: middle center
 
 # Mozilla Firefox
 # Opera
@@ -200,7 +163,7 @@ Erik Wendel&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nb
 
 ---
 
-.middle.center
+class: middle center
 
 # Mozilla Firefox
 # Opera
@@ -209,7 +172,7 @@ Erik Wendel&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nb
 
 ---
 
-.middle.center
+class: middle center
 
 # Mozilla Firefox
 # Opera
@@ -219,7 +182,7 @@ Erik Wendel&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nb
 
 ---
 
-.middle.center
+class: middle center
 
 # Mozilla Firefox
 # Opera
@@ -229,79 +192,70 @@ Erik Wendel&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nb
 
 ---
 
-.middle.center.fullscreen
-
+class: fullscreen middle
 ![](../img/browser_uglysite.jpeg)
 
 ---
 
-.middle.center.fullscreen
-
+class: fullscreen middle
 ![](../img/browser_uglysite_ie.jpg)
 
 ---
 
-.middle.center.fullscreen
+class: fullscreen middle
 
-![Excite search](../img/browser_excite.png)
-
----
-
-.middle.center.fullscreen
-
-![Excite search](../img/browser_excite2.png)
+![](../img/browser_excite.png)
 
 ---
 
-.middle.center
+class: fullscreen middle
+![](../img/browser_excite2.png)
+
+---
+
+class: middle center
 
 # Graceful degradation
 
 ---
 
+class: fullscreen middle inverse
 
-.middle.center.whitebg
-
-![Flash player](../img/browser_noflash.jpeg)
-
----
-
-
-.middle
-
-    &nbsp;
-
-
-    &lt;noscript&gt;
-    Nettleseren din støtter ikke JavaScript! Synd for deg. Snakkes!
-    &lt;/noscript&gt;
+![](../img/browser_noflash.jpeg)
 
 ---
 
+class: middle
 
-.middle
-    
-  &nbsp;
-
-    &lt;script src="fancy-pants-supercool-flyout-menu.js"&gt;&lt;/script&gt;
-
-    &lt;noscript&gt;
-    <ul>
-        <li>
-            <a href="side1.htm">Side 1</a>
-        </li>
-        <li>
-            <a href="side2.htm">Side 2</a>
-        </li>
-    </ul>
-    &lt;/noscript&gt;
-
+```xml
+<noscript>
+  Nettleseren støtter ikke JavaScript. Synd for deg. Snakkes!
+</noscript>
+```
 
 ---
 
-.middle.center.fullscreen
+class: middle
 
-![G1000 cockpit graceful degradation](../img/browser_cockpit_degrading.jpg)
+```xml
+<script src="fancy-pants-supercool-flyout-menu.js"></script>
+<noscript>
+  <ul>
+      <li>
+          <a href="side1.htm">Side 1</a>
+      </li>
+      <li>
+          <a href="side2.htm">Side 2</a>
+      </li>
+  </ul>
+</noscript>
+```
+
+---
+
+class: fullscreen middle
+
+![](../img/browser_cockpit_degrading.jpg)
 
 <div class="overlay loud" style="top:50%">
 <p>
@@ -313,25 +267,23 @@ Erik Wendel&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nb
 
 ---
 
-.middle.center
+class: middle center
 
 # Progressive enhancement
 
 ---
 
-.middle.center.fullscreen
+class: fullscreen middle
 
-![Escalator](../img/browser_escalator.jpeg)
+![](../img/browser_escalator.jpeg)
 
-<div class="source">
-http://flic.kr/p/wzHU
-</div>
+.source[http://flic.kr/p/wzHU]
 
 ---
 
-.middle.center.fullscreen
+class: fullscreen middle
 
-![Escalator](../img/browser_escalator.jpeg)
+![](../img/browser_escalator.jpeg)
 <div class="overlay">
 <blockquote>
     An escalator can never break, <br />
@@ -340,23 +292,19 @@ http://flic.kr/p/wzHU
 </blockquote>
 </div>
 
-<div class="source">
-http://flic.kr/p/wzHU
-</div>
+.source[http://flic.kr/p/wzHU]
 
 ---
-.middle.center.fullscreen
+class: fullscreen middle
 
-![Moped](../img/browser_moped.jpeg)
+![](../img/browser_moped.jpeg)
 
-<div class="source">
-http://flic.kr/p/4W4qfx
-</div>
+.source[http://flic.kr/p/4W4qfx]
 
 ---
-.middle.center.fullscreen
+class: fullscreen middle
 
-![Moped](../img/browser_moped.jpeg)
+![](../img/browser_moped.jpeg)
 
 <div class="overlay loud" style="top:71%">
 <p>
@@ -365,49 +313,39 @@ http://flic.kr/p/4W4qfx
 </p>
 </div>
 
-<div class="source">
-http://flic.kr/p/4W4qfx
-</div>
+.source[http://flic.kr/p/4W4qfx]
+---
+
+class: inverse middle center
+
+.center[![Layered cake](../img/browser_layered_cake.jpeg)]
+
+.source[http://www.alistapart.com/articles/understandingprogressiveenhancement/ ]
 
 ---
 
-.middle.center.whitebg
+class: middle center inverse
 
-![Understanding progressive enhancement](../img/browser_layered_cake.jpeg)
-
-<div class="source">
-http://www.alistapart.com/articles/understandingprogressiveenhancement/
-</div>
+![](../img/browser_stats_10_12.png)
 
 ---
 
-
-.middle.center.whitebg
-
-![Browser Stats fra Wikipedia](../img/browser_stats_10_12.png)
-
-
----
-
-.middle.center
+class: middle center
 
 Men hva består en nettside av?
 
 ---
 
-.middle.center.fullscreen.higher
+class: fullscreen
+![](../img/html.jpeg) 
 
-![HTML](../img/html.jpeg)
-
-<div class="source">
-http://flic.kr/p/5HzQsy
-</div>
+.source[http://flic.kr/p/5HzQsy ]
 
 ---
 
-.middle.center
+class: middle center inverse
 
-![UIT](../img/uit.css.off.png)
+![](../img/uit.css.off.png)
 
 
 ---
@@ -463,9 +401,9 @@ HTML er et markeringsspråk som beskriver semantikken til et dokument.
 
 ---
 
-.middle.center
+class: fullscreen middle
 
-![Bekk.no](../img/bekk.no.png)
+![](../img/bekk.no.png)
 
 [view-source:bekk.no](http://www.bekk.no)
 
@@ -475,23 +413,24 @@ HTML er et markeringsspråk som beskriver semantikken til et dokument.
 
 ## En enkel side
   
-    .html
-    <!doctype html>
+```xml
+<!doctype html>
 
-    <html lang="en">
-        <head>
-
-
-
-
-        </head>
-        <body>
+<html lang="no">
+    <head>
 
 
 
 
-        </body>
-    </html>
+    </head>
+    <body>
+
+
+
+
+    </body>
+</html>
+```
 
 ---
 
@@ -499,264 +438,66 @@ HTML er et markeringsspråk som beskriver semantikken til et dokument.
 
 ## En enkel side
 
-    .html
-    <!doctype html>
+```xml
+<!doctype html>
 
-    <html lang="en">
-        <head>
+<html lang="no">
+    <head>
 
-            <meta charset="utf-8">
-            <title>En enkel HTML-side</title>
+        <meta charset="utf-8">
+        <title>En enkel HTML-side</title>
 
-        </head>
-        <body>
+    </head>
+    <body>
 
-            <h1>Velkommen til min flotte nettside!</h1>
-            <p>Her er litt <a href="mer.html">mer informasjon</a>.</p>
+        <h1>Velkommen til min flotte nettside!</h1>
+        <p>Her er litt <a href="mer.html">mer informasjon</a>.</p>
 
-        </body>
-    </html>
+    </body>
+</html>
+```
+
+---
+
+class: middle center
+
+# Nei, la oss heller live-kode litt!
 
 ---
 
 #HTML
 
-##Tekst: p
-
-    .html
-
-    <p>Dette er et avsnitt</p>
-
 ---
 
 #HTML
 
-##Tekst: strong
+.two-column[
 
-    .html
+  - avsnitt
 
-    <p>Dette er et <strong>avsnitt</strong></p>
+  - uthevet
 
----
+  - kursiv
 
-#HTML
+  - lenke
 
-## Tekst: em
+  - span
 
-    .html
+]
+.two-column[
 
-    <p>Dette er et <em>avsnitt</em></p>
+  - layout
 
----
+  - tabell
 
-#HTML
+  - ulike lister
 
-## Tekst: a
+  - skjemaelementer
 
-    .html
+  - html5 
 
-    <p>Dette er et <a href="link.html">avsnitt</a>!</p>
 
----
-
-#HTML
-
-## Tekst: span
-
-    .html
-
-    <p>Dette er et <span class="my-span">avsnitt</span>!</p>
-
----
-
-# HTML
-
-## Tekst: overskrift
-
-    .html
-
-    <h2>Lorem ipsum</h2>
-
-    <p>Dette er et avsnitt!</p>
-
----
-
-# HTML
-
-## Tekst: sitat
-
-    .html
-
-    <blockquote cite="http://www.worldwildlife.org/who/index.html">
-      For 50 years, WWF has been protecting the future of nature.
-    </blockquote> 
-
----
-
-#HTML
-
-## Bilde
-
-    .html
-
-    <img src="mittBilde.jpg" alt="Beskrivelse av bildet" width="150" height="80" />
-
----
-
-# HTML
-
-## Layout
-
-    .html
-
-    <div id="wrapper">
-        <div id="news" class="index">
-            <div class="news-item"></div>
-            <div class="news-item"></div>
-            <div class="news-item"></div>
-        </div>
-    </div>    
-
----
-
-# HTML
-
-## Tabell
-
-    .html
-
-    <table border="0" cellspacing="0" cellpadding="0">
-      <caption>Caption</caption>
-      <thead>
-        <tr>
-          <th>Navn</th>
-          <th>Alder</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Helge</td>
-          <td>29</td>
-        </tr>
-        <tr>
-          <td>Erik</td>
-          <td>26</td>
-        </tr>
-      </tbody>
-    </table>    
-
----
-
-# HTML
-
-## Uordnet liste
-
-    .html
-
-    <ul>
-        <li>Nøkler</li>
-        <li>Lommebok</li>
-        <li>Mobiltelefon</li>
-    </ul>
-
----
-
-# HTML
-
-## Ordnet liste
-
-    .html
-
-    <ol>
-        <li>Vaske golv</li>
-        <li>Bære ved</li>
-        <li>Sette opp fuggelband</li>
-        <li>Pynte tre</li>
-    </ol>
-
----
-
-# HTML
-
-## Ordnet liste ... kan nøstes!
-
-    .html
-
-    <ol>
-        <li>Vaske golv</li>
-        <li>Bære ved</li>
-        <li>Sette opp fuggelband</li>
-        <li>Pynte tre
-          <ul>
-            <li>Fikse juletrelys</li>
-            <li>Henge opp kurver</li>
-            <li>Hente opp kuler</li>
-          </ul>
-        </li>
-    </ol>
-
----
-
-# HTML
-
-## Definisjonsliste
-
-    .html
-
-    <dl>
-        <dt>BEKK Consulting AS</dt>
-        <dd>Bekk Consulting AS er et norsk konsulentselskap. Vi gjennomfører 
-            prosjekter for store private og offentlige virksomheter innen 
-            strategisk rådgivning, utvikling av IT-systemer og design av 
-            digitale tjenester. Vi er i dag omkring 320 ansatte, 
-            og har kontorer i Oslo og Trondheim.</dd>
-
-        <dt>Snøhetta</dt>
-        <dd>Snøhetta (2286 moh.) er et fjell på Dovrefjell, i Dovre kommune, 
-            nær grensa til Oppdal og Lesja. Fjellet ligger i 
-            Dovrefjell-Sunndalsfjella nasjonalpark.</dd>
-    </dl>
-
----
-
-#Skjemaelementer
-
-    .html 
-
-    <!-- Vanlig input-felt -->
-    <label for="navn">Navn</label>
-    <input type="text" value="" name="navn" id="navn" />
-
----
-
-#Skjemaelementer
-
-    .html 
-
-    <!-- Vanlig input-felt -->
-    <label for="navn">Navn</label>
-    <input type="text" value="" name="navn" id="navn" />
-
-    <!-- Telefon -->
-    <label for="telefon">Telefon</label>
-    <input type="telephone" value="" name="telefon" id="telefon" />    
-
----
-
-#Skjemaelementer
-
-    .html 
-
-    <!-- Vanlig input-felt -->
-    <label for="navn">Navn</label>
-    <input type="text" value="" name="navn" id="navn" />
-
-    <!-- Telefon -->
-    <label for="telefon">Telefon</label>
-    <input type="telephone" value="" name="telefon" id="telefon" />  
-
-    <!-- Søkefelt -->
-    <input type="search" value="" name="sokeord" id="sokeord" placeholder="Søk..." />    
+]
 
 ---
 
@@ -764,15 +505,15 @@ HTML er et markeringsspråk som beskriver semantikken til et dokument.
 
 Mer semantisk riktig HTML
 
-`.html <div id="header">…</div>`
+```<div id="header">…</div>```
 
-`.html <div class="section"></div>`
+```<div class="section"></div>```
 
-`.html <div id="navigation">…</div>`
+```<div id="navigation">…</div>```
 
-`.html <div class="article"></div>`
+```<div class="article"></div>```
 
-`.html <div id="sidebar"></div>`
+```<div id="sidebar"></div>```
 
 ---
 
@@ -780,58 +521,58 @@ Mer semantisk riktig HTML
 
 Mer semantisk riktig HTML
 
-`.html <div id="header">…</div>` &mdash; `.html <header>…</header>`
+```<div id="header">…</div>``` &mdash; ```<header>…</header>```
 
-`.html <div class="section"></div>` &mdash; `.html <section>…</section>`
+```<div class="section"></div>``` &mdash; ```<section>…</section>```
 
-`.html <div id="navigation">…</div>` &mdash; `.html <nav>…</nav>`
+```<div id="navigation">…</div>``` &mdash; ```<nav>…</nav>```
 
-`.html <div class="article"></div>` &mdash; `.html <article>…</article>`
+```<div class="article"></div>``` &mdash; ```<article>…</article>```
 
-`.html <div id="sidebar"></div>` &mdash; `.html <aside>…</aside>`
+```<div id="sidebar"></div>``` &mdash; ```<aside>…</aside>```
 
 ---
-.middle.center
+class: middle center
 
 
 ![HTML vs HTML5](../img/HTML-HTML5.jpeg)
 
-<div class="source">
-    Elijah Manor / http://i.imgur.com/2Kq6Y.jpg
-</div>
-
+.source[Elijah Manor / http://i.imgur.com/2Kq6Y.jpg]
+    
 ---
 
 #HTML4 &amp; HTML5
 
-    .html
-        <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-        <div id="header">
-            <h1>Velkommen</h1>
-            <div id="nav">
-                <a href="/side2.html">Side2</a>
-            </nav>
-        </div>
-        <div id="main">
-            <div id="article">En artikkel</div>
-        </div>
-        <div id="sidebar">Sidebar</div>
-        <div id="footer">The end</div>
+```xml
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<div id="header">
+    <h1>Velkommen</h1>
+    <div id="nav">
+        <a href="/side2.html">Side2</a>
+    </nav>
+</div>
+<div id="main">
+    <div id="article">En artikkel</div>
+</div>
+<div id="sidebar">Sidebar</div>
+<div id="footer">The end</div>
+```
 &nbsp;
 
-    .html
-        <!doctype html>
-        <header>
-            <h1>Velkommen</h1>
-            <nav>
-                <a href="/side2.html">Side2</a>
-            </nav>
-        </header>
-        <main>
-            <article>En artikkel</article>
-        </main>
-        <aside>Sidebar</aside>
-        <footer>The end</footer>
+```xml
+<!doctype html>
+<header>
+    <h1>Velkommen</h1>
+    <nav>
+        <a href="/side2.html">Side2</a>
+    </nav>
+</header>
+<main>
+    <article>En artikkel</article>
+</main>
+<aside>Sidebar</aside>
+<footer>The end</footer>
+```        
 
 ---
 
@@ -922,7 +663,7 @@ Hvilke HTML-elementer passer til:
 
 ---
 
-.middle.center
+class: middle center
 
 # Oppgave
 
@@ -930,19 +671,25 @@ Hvilke HTML-elementer passer til:
 
 # Oppgave
 
-## Skriv HTML for <a href="oppgaver/Mockup.pdf">denne nettsiden</a>.
+## Skriv HTML5 for <a href="oppgaver/Mockup.pdf">denne nettsiden</a>.
 
-## frontendsommer/01-html/oppgaver
-
-## Skriv HTML i _index.html_ eller _index-annotated.html_
-
----
-
-.middle.center.fullscreen
-
-  # <a href="../02-cssintro/cssintro-presentasjon.html">Klikk for neste presentasjon</a>
+* FrontendBootcamp/01-html/oppgaver
+* Skriv HTML i _index.html_ eller _index-annotated.html_
 
     </textarea>
-    <div id="slideshow"></div>
+    <script src="http://gnab.github.com/remark/downloads/remark-0.5.3.min.js" type="text/javascript"></script>
+    <script type="text/javascript">
+      var hljs = remark.highlighter.engine;
+    </script>
+    <script src="js/remark.language.js" type="text/javascript"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+    <script type="text/javascript">
+      var slideshow = remark.create({
+          highlightStyle: 'solarized_light',
+          highlightLanguage: 'remark'
+        }) ;
+      var a = [];
+      slideshow.addListener("slidein",function(b,c){if(a.indexOf(c)>-1)return;var d=$(b);d.find("p:empty").remove(),d.find(".front-page").length===0&&d.find("h1").wrapInner("<span>"),d.find(".pushed img").parent().wrapInner("<span class='img'>"),a.push(c)})
+    </script>
   </body>
 </html>
