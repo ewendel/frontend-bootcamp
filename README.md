@@ -7,7 +7,7 @@ Tre-dagers introduksjonskurs i grensesnittsprogrammering.
 
 ###Nettleseren
 
-Introduksjon til nettleserens historie, og ulike strategier for å imøtekomme krav til nettleser-kompabilitet. 
+Introduksjon til nettleserens historie og ulike strategier for å imøtekomme krav til nettleser-kompabilitet. 
 
 ###HTML 
 
@@ -45,5 +45,7 @@ Vi forklarer hva responsive design er, og hvordan man kan bruke det for å tilpa
 
 Dette er manndomsprøven, hvor vi jobber med alt vi har lært - samtidig!
 
-Oppgave: Lag en "todo"-applikasjon, der en bruker kan legge til gjøremål i en liste. Gjøremålene kan slettes og endres. 
+Oppgave: Lag en "todo"-applikasjon, der en bruker kan legge til gjøremål i en liste. Gjøremålene kan slettes og endres. I oppgaven skal du skrive html, css og javascript, og det kreves at gjøremålene er JavaScript-objekter som lagres i et array.
+
+De som føler at dette er for enkelt, utfordres på følgende vis: Løs oppgaven med Backbone.js. Lagre gjøremålene i nettleseren, slik at den husker dem når siden lastes på nytt. 
 
