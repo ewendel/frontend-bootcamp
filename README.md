@@ -3,35 +3,35 @@ FrontendBootcamp
 
 Tre-dagers introduksjonskurs i grensesnittsprogrammering. 
 
-#Dag 1: Nettleseren, HTML og CSS
+##Dag 1: Nettleseren, HTML og CSS
 
-##Nettleseren
+###Nettleseren
 
 Introduksjon til nettleserens historie, og ulike strategier for å imøtekomme krav til nettleser-kompabilitet. 
 
-##HTML 
+###HTML 
 
 Vi gjennomgår semantikk, forskjellige tags og forklarer forskjellen på HTML og HTML5.
 
 Oppgave: Skriv html for en nettside, ut i fra en skjermdump. 
 
-##CSS
+###CSS
 
-###Layout
+####Layout
 Ulike CSS-egenskaper knyttet til sidelayout. Posisjonering, float, box-model. 
 
 Oppgave: Lag layout til nettsiden som ble kodet, slik at den ser ut som på en skjermdump. 
 
-###Design
+####Design
 Herunder form, farge, typografi, CSS3 med skygger, graderinger, animasjon.
 
 Oppgave: Lag design til nettsiden som ble kodet.
 
-##Responsive design
+###Responsive design
 
-* Vi forklarer hva responsive design er, og hvordan man kan bruke det for å tilpasse en nettside til ulike skjermstørrelser. Oppgave.
+Vi forklarer hva responsive design er, og hvordan man kan bruke det for å tilpasse en nettside til ulike skjermstørrelser. Oppgave tilknyttet nettsiden. 
 
-#Dag 2: JavaScript
+##Dag 2: JavaScript
 
 * Del 1: Introduksjon til JS, herunder de ulike datatypene og hvordan man manipulerer dem. Oppgaver, som går ut på å få automatiserte tester til å passere. 
 
@@ -41,7 +41,7 @@ Oppgave: Lag design til nettsiden som ble kodet.
 
 * Del 4: DOM-del 2: Her introduserer vi eventer, som vi kan få nettleseren til å lytte til og reagere på. Oppgave: Bygg videre på bildegalleriet, slik at en bruker kan søke etter bilder og få opp bilder som passer til søket, samt vise bildene i stort format. 
 
-#Dag 3: Alt i ett
+##Dag 3: Alt i ett
 
 Dette er manndomsprøven, hvor vi jobber med alt vi har lært - samtidig!
 
