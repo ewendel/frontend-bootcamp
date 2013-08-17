@@ -85,6 +85,13 @@ class: middle center
 class: middle center
 
 # Hvem er dere?
+Presentasjon!
+
+???
+
+- Forskjellig bakgrunn
+- Følg kursopplegget!
+- Spør underveis!
 
 ---
 
@@ -97,12 +104,20 @@ class: front-page
 class: fullscreen middle
 
 ![](../img/browser_mosaic_illinois.jpeg);
+
 ---
 
 class: middle center
 
 # 1990: WorldWideWeb
 # Tim Berners-Lee
+
+.source[http://en.wikipedia.org/wiki/History_of_the_web_browser ]
+
+???
+
+WorldWideWeb - den første nettleseren, fikk senere navnet Nexus
+
 
 ---
 
@@ -111,6 +126,16 @@ class: fullscreen
 ![](../img/browser_mosaic.6beta2.png)
 
 #1993: Mosaic
+
+.source[http://en.wikipedia.org/wiki/History_of_the_web_browser ]
+
+???
+
+- Nettleser med grafisk brukergrensesnitt. Lettere å installere og bruke.
+- Kjørte først på unix, senere mac og windows
+- Mens andre nettlesere kunne vise bilder i et eget vindu, kunne denne vise dem inline!
+
+
 ---
 
 class: fullscreen
@@ -118,6 +143,23 @@ class: fullscreen
 ![](../img/browser_netscape_1.jpeg)
 
 #1994: Netscape
+
+.source[http://en.wikipedia.org/wiki/History_of_the_web_browser ]
+
+???
+
+- Laget av en av utviklerne av Mosaic, Marc Andreessen
+- Lansert høsten 94, tok av året etter
+
+.source[http://en.wikipedia.org/wiki/History_of_the_web_browser ]
+
+---
+
+class: middle center
+
+#16. august 1995
+
+.source[http://en.wikipedia.org/wiki/History_of_the_web_browser ]
 
 ---
 
@@ -127,12 +169,23 @@ class: fullscreen
 
 #1995: Internet Explorer
 
+:-)
+
+.source[http://en.wikipedia.org/wiki/History_of_the_web_browser ]
+
+???
+
+- Fun-fact: IE ble ikke utviklet av Microsoft; de kjøpte det av et selskap som het "SpyGlass"
+- Ble etter hvert en integrert i Windows, og tok markedsandeler fra Netscape
+
 ---
 
 class: middle center
 
 # Netscape
 
+.source[http://en.wikipedia.org/wiki/History_of_the_web_browser ]
+
 ---
 
 class: middle center
@@ -140,60 +193,58 @@ class: middle center
 # Netscape
 # Mozilla Firefox
 
----
+.source[http://en.wikipedia.org/wiki/History_of_the_web_browser ]
 
-class: middle center
+???
 
-# Mozilla Firefox
-
----
-
-class: middle center
-
-# Mozilla Firefox
-# Opera
+- Netscape klarte ikke å holde følge med iE
+- Netscape ble open-source under navnet Mozilla
+- Hold følge med IE teknisk, men markedsandeler sank som en stein
 
 ---
 
 class: middle center
 
 # Mozilla Firefox
-# Opera
-# Safari
+
+--
+
+#Opera
+
+--
+
+#Safari
+
+--
+
+#Chrome
+
+--
+
+#...og IE
+
+.source[http://en.wikipedia.org/wiki/History_of_the_web_browser ]
+
+???
+
+- Mozilla Firefox; Lansert i 2002 som en spinoff av hele Mozilla-prosjektet
+- Opera: Kom i 1996, noe populær på mobil, men ikke særlig mye i bruk på desktop
+- Chrome: Kom i 2008
 
 ---
 
 class: middle center
 
-# Mozilla Firefox
-# Opera
-# Safari
-# Chrome
-
----
-
-class: middle center
-
-# Mozilla Firefox
-# Opera
-# Safari
-# Chrome
-# ...og IE :-)
-
----
-
-class: middle center
-
-# Mozilla Firefox
-# Opera
-# Safari
-# Chrome
-# ...og IE :-(
+#Utfordring: Browserkompabilitet!
 
 ---
 
 class: fullscreen middle
 ![](../img/browser_uglysite.jpeg)
+
+???
+
+...og dette har vært en utfordring fra dag 1
 
 ---
 
@@ -216,6 +267,10 @@ class: fullscreen middle
 class: middle center
 
 # Graceful degradation
+
+???
+
+Problemer med kompabilitet kan løses på mange måter...
 
 ---
 
@@ -322,11 +377,20 @@ class: inverse middle center
 
 .source[http://www.alistapart.com/articles/understandingprogressiveenhancement/ ]
 
+???
+
+- Vi skal innom både html, css og javascript på dette kurset
+
 ---
 
 class: middle center inverse
 
 ![](../img/browser_stats_10_12.png)
+
+???
+
+- Viser at alle nettlesere er i bruk, og at man må ta hensyn til alle
+- I praksis: Ting skal funke i IE7. IE6 støttes ikke. 
 
 ---
 
@@ -354,21 +418,11 @@ class: middle center inverse
 
 &nbsp;
 
-
 HTML beskriver strukturen og innholdet til en nettside.
 
 Denne strukturen brukes av CSS og JS.
 
----
-
-# HTML
-
-&nbsp;
-
-
-HTML beskriver strukturen og innholdet til en nettside.
-
-Denne strukturen brukes av CSS og JS.
+--
 
 &nbsp;
 
@@ -376,24 +430,9 @@ HTML sier ingenting om utseende.
 
 HTML sier ingenting om oppførsel.
 
----
+--
 
-# HTML
-
-&nbsp;
-
-
-HTML beskriver strukturen og innholdet til en nettside.
-
-Denne strukturen brukes av CSS og JS.
-
-&nbsp;
-
-HTML sier ingenting om utseende.
-
-HTML sier ingenting om oppførsel.
-
-&nbsp;
+&nbsp; 
 
 HTML er ikke et programmeringsspråk
 
@@ -463,6 +502,8 @@ class: middle center
 
 # Nei, la oss heller live-kode litt!
 
+## Sandbox: http://jsbin.com/etifil/2/edit
+
 ---
 
 #HTML
@@ -493,6 +534,8 @@ class: middle center
   - ulike lister
 
   - skjemaelementer
+
+  - bilde
 
   - html5 
 
@@ -530,6 +573,10 @@ Mer semantisk riktig HTML
 ```<div class="article"></div>``` &mdash; ```<article>…</article>```
 
 ```<div id="sidebar"></div>``` &mdash; ```<aside>…</aside>```
+
+??? 
+
+På dette kurset bruker vi HTML5!
 
 ---
 class: middle center
@@ -591,7 +638,6 @@ class: middle center
 
 ---
 
-<!-- OPPSUMMERING HTML -->
 # HTML
 
 &nbsp;
@@ -602,16 +648,7 @@ HTML beskriver strukturen og innholdet til en nettside.
 
 Denne strukturen brukes av CSS og JS.
 
----
-# HTML
-
-&nbsp;
-
-HTML er enkle tekstfiler.
-
-HTML beskriver strukturen og innholdet til en nettside.
-
-Denne strukturen brukes av CSS og JS.
+--
 
 &nbsp;
 
@@ -619,28 +656,18 @@ HTML sier ingenting om utseende.
 
 HTML sier ingenting om oppførsel.
 
----
-# HTML
-
-&nbsp;
-
-HTML er enkle tekstfiler.
-
-HTML beskriver strukturen og innholdet til en nettside.
-
-Denne strukturen brukes av CSS og JS.
-
-&nbsp;
-
-HTML sier ingenting om utseende.
-
-HTML sier ingenting om oppførsel.
+--
 
 &nbsp;
 
 HTML er ikke et programmeringsspråk
 
 HTML er et markeringsspråk som beskriver semantikken til et dokument.
+
+??? 
+
+- Viktig å bruke riktige tags til en viss type innhold, pga tilgjengelighet, søkemotoroptimalisering
+- 
 
 ---
 
