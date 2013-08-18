@@ -3,9 +3,14 @@
   <head>
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <title>CSS EYE-CANDY</title>
-    <link href='http://fonts.googleapis.com/css?famil=Inconsolata' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="../remark/remark-bekk.css">
     <style type="text/css" media="screen">
+        @font-face {
+            font-family: 'Inconsolata';
+            font-style: normal;
+            font-weight: 400;
+            src: url('../remark/Inconsolata-Regular.ttf'),
+          }
 
           .gradient { background-image:-moz-linear-gradient(red, green, blue, purple, orange); }
           .gradient * { color:#fff !important; background: transparent!important; }
@@ -676,12 +681,11 @@ class: middle center
 
 
     </textarea>
-    <script src="http://gnab.github.com/remark/downloads/remark-0.5.3.min.js" type="text/javascript"></script>
+<script src="../remark/remark-0.5.3.min.js" type="text/javascript"></script>
     <script type="text/javascript">
       var hljs = remark.highlighter.engine;
-    </script>
-    <script src="js/remark.language.js" type="text/javascript"></script>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+    </script>s
+    <script src="../remark/jquery.min.js" type="text/javascript"></script>
     <script type="text/javascript">
       var slideshow = remark.create({
           highlightStyle: 'solarized_light',
