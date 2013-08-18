@@ -20,6 +20,18 @@ a, a:link, a:visited, a:active, a:hover {
     text-decoration: none;
 }
 
+/* 7) Lag en transition i menyen */
+
+a:hover {
+-webkit-transition: all 500ms cubic-bezier(0.250, 0.250, 0.750, 0.750);
+   -moz-transition: all 500ms cubic-bezier(0.250, 0.250, 0.750, 0.750);
+    -ms-transition: all 500ms cubic-bezier(0.250, 0.250, 0.750, 0.750);
+     -o-transition: all 500ms cubic-bezier(0.250, 0.250, 0.750, 0.750);
+        transition: all 500ms cubic-bezier(0.250, 0.250, 0.750, 0.750); /* linear */    
+}
+
+/* Oppgave 1: Gi riktig utseende til teksten "En alpinist gjenopplivde en sebra..."  */
+
 .intro-title {
     text-align: center;
     font-family: 'Port Lligat Slab', Georgia, serif;
@@ -35,6 +47,8 @@ a, a:link, a:visited, a:active, a:hover {
     text-decoration: none;
     border-bottom: 1px dotted;
 }
+
+/* 3) Gi riktig utseende til selve siden */
 
 /* Generell oppstramming */
 
@@ -67,6 +81,8 @@ a, a:link, a:visited, a:active, a:hover {
     text-align:         center;
 }
 
+/* 6) Style menyknappene */
+
 /* Menyen; */
 
 .menu {
@@ -91,6 +107,10 @@ a, a:link, a:visited, a:active, a:hover {
     border-left: 1px solid rgba(255, 255, 255, 0.2);
     background-position: 1em center;
     background-repeat: no-repeat;
+}
+
+.menu-element a:hover {
+    background-color: #000;
 }
 
 .menu-element.active a {
@@ -143,6 +163,8 @@ a, a:link, a:visited, a:active, a:hover {
     padding-right: 1.5em; 
 }
 
+/* 5) Gi riktig utseende til seksjonsheadingene */
+
 /* Seksjonsheadere */
 
 .section-header {
@@ -165,6 +187,8 @@ a, a:link, a:visited, a:active, a:hover {
     -moz-box-shadow: 0 0 .6em rgba(0, 0, 0, 0.5);
     box-shadow: 0 0 .6em rgba(0, 0, 0, 0.5);
 }
+
+/* 2: Style typografien under "Våre tjenester" */
 
 /* "Dette gjør vi"-seksjonen */
 
@@ -189,6 +213,7 @@ a, a:link, a:visited, a:active, a:hover {
     margin: 0;
 }
 
+/* 4) Gi riktig utseende til innholdet i article-taggene under "Selvskryt" */
 
 /* Aktuelt-seksjonen */
 
@@ -261,6 +286,7 @@ a, a:link, a:visited, a:active, a:hover {
     color: #000;
 }
 
+/* 8) Gi rikitg utseende til forrige/neste-knappene i bildegalleriet */
 /* Forrige/neste-knapper */
 .image-gallery {
     position: relative;
