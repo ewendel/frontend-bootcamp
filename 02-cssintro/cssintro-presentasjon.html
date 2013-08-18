@@ -217,14 +217,12 @@ class: middle fullscreen
 ---
 #css
 
-    .css
     selector {property:value}
 
 
 ---
 #css selectors
 
-    .css
     /* <body>...</body> */
     body { padding:0 }   
 
@@ -276,7 +274,6 @@ class: middle center
 
 # CSS layout properties
 
-    .css
     selector {        
         height: 20px;                            /* Dimensjoner */
         width: 30px;
@@ -296,9 +293,10 @@ class: middle center
         border: 1px solid black;
         outline: 1p solid yellow;
 
-        text-align: center;                      /* Horisontal alignment */
+        text-align: center;                      /* Horisontal posisjonering */
+        margin: 0 auto;                          /* ( auto = all tilgjengelig plass ) */
 
-        vertical-align: middle:                  /* Vertikal alignment */
+        vertical-align: middle:                  /* Vertikal posisjonering */
     }
 
 ---
@@ -335,8 +333,6 @@ class: whitebg
 
 <span class="hl-text">Box model</span>
 
-
-    .css
      div { width: 180px}
 
 &nbsp;
@@ -352,7 +348,7 @@ class: whitebg
 
 <span class="hl-text">Box model</span>
 
-    .css
+
      div { width: 180px; padding:40px} /* Ny bredde: 180 + 40 + 40 = 260 */
 
 &nbsp;
@@ -372,7 +368,6 @@ class: whitebg
 
 <span class="hl-text">Box model</span>
 
-    .css
      div { width: 180px; padding:40px; border: 10px} /* Ny bredde: 260 + 10 + 10 = 280*/
 
 &nbsp;
@@ -389,7 +384,6 @@ class: whitebg
 
 <span class="hl-text">Box model</span>
 
-    .css
      div { width: 180px; padding:40px; border: 10px; margin: 20px} /*box + margin = 320*/
 
 &nbsp;
@@ -421,8 +415,7 @@ http://www.mrwallpaper.com/wallpapers/Cat-Box.jpg
 class: whitebg
 
 <span class="hl-text">Box model</span>
-
-    .css
+  
      div { width: 180px; padding:40px; border: 10px; margin: 20px} /*box + margin = 320*/
 
 &nbsp;
@@ -455,7 +448,6 @@ class: whitebg
 
 <span class="hl-text">Eksempel</span>
 
-    .css
     img {}
 
 <div style="border:1px solid rgba(0,0,0,.2); font-size:.8em;padding:1em;">
@@ -472,7 +464,6 @@ class: whitebg
 
 <span class="hl-text">Eksempel</span>
 
-    .css
     img {float:left}
   
 
@@ -490,7 +481,6 @@ class: whitebg
 
 <span class="hl-text">Eksempel</span>
 
-    .css
     img {float:right}
   
 
@@ -508,7 +498,6 @@ class: whitebg
 
 <span class="hl-text">Floating layout</span>
 
-    .css
     article, aside {margin-bottom:10px}
 
 <div class="css-example" style=""> 
@@ -523,7 +512,6 @@ class: whitebg
 
 <span class="hl-text">Floating layout</span>
 
-    .css
     article {width:400px; margin-bottom: 10px; float: left}
 
     aside   {width:200px; margin-bottom: 10px; float: right}
@@ -547,7 +535,6 @@ class: whitebg
 
 <span class="hl-text">Clearing float</span>
 
-    .css
     article {width:400px; margin-bottom: 10px; float: left}
 
     aside   {width:200px; margin-bottom: 10px; float: right}
@@ -571,7 +558,6 @@ class: whitebg
 
 <span class="hl-text">Collapse</span>
 
-    .css
     article {margin-right: 10px; float:left}
 
 <div class="css-example" style="">
@@ -586,7 +572,6 @@ class: whitebg
 
 <span class="hl-text">Clearfix</span>
 
-    .css
     .container:after { 
         content: "."; 
         visibility: hidden; 
@@ -631,7 +616,6 @@ class: whitebg
 
 <span class="hl-text">Static</span>
 
-    .css
     .box { 
         position: static; /* Default */
         width: 100px; 
@@ -649,7 +633,6 @@ class: whitebg
 
 <span class="hl-text">Relative</span>
 
-    .css
     .box { 
         position: static; /* Default */
         width: 100px; 
@@ -672,7 +655,6 @@ class: whitebg
 
 <span class="hl-text">Absolute</span>
 
-    .css
     .box { 
         position: static; /* Default */
         width: 100px; 
@@ -695,7 +677,6 @@ class: whitebg
 
 <span class="hl-text">Absolute</span>
 
-    .css
     .container {
         position:relative;
         }
@@ -721,7 +702,6 @@ class: whitebg
 
 <span class="hl-text">Fixed</span>
 
-    .css
     div:first-child {
         position: fixed;
         z-index: 2
@@ -743,7 +723,6 @@ class: whitebg
 
 <span class="hl-text" style="z-idex:1">Awesome</span>
 
-    .css
     .lightbox {
         position: fixed; top: 0; bottom: 0; left: 0; right: 0; background: rgba (0,0,0,.65)
     }
@@ -800,7 +779,6 @@ class: middle
 
 #3. Specificity
 
-    .css
     * { color:red }
 
 &nbsp;
@@ -833,7 +811,6 @@ CSS Specificity in 138 characters: CSS Specificity is 4 columns: inline=1|0|0|0,
 ---
  #3. Specificity 
 
-    .css
     body div.featured { color:red }
 
 &nbsp;
@@ -852,7 +829,6 @@ CSS Specificity in 138 characters: CSS Specificity is 4 columns: inline=1|0|0|0,
 ---
 #3. specificity
 
-    .css
     body div.featured { color:red }
 
 &nbsp;
@@ -872,7 +848,6 @@ CSS Specificity in 138 characters: CSS Specificity is 4 columns: inline=1|0|0|0,
 ---
 #3. specificity
 
-    .css
     body div.featured { color:red }
 
 &nbsp;
@@ -891,7 +866,6 @@ CSS Specificity in 138 characters: CSS Specificity is 4 columns: inline=1|0|0|0,
 ---
 #3. specificity
 
-    .css
     body div.featured { color:red }
 
 &nbsp;
@@ -910,7 +884,6 @@ CSS Specificity in 138 characters: CSS Specificity is 4 columns: inline=1|0|0|0,
 ---
 #3. specificity
 
-    .css
     body div.featured { color:red }
 
 &nbsp;
@@ -930,7 +903,6 @@ CSS Specificity in 138 characters: CSS Specificity is 4 columns: inline=1|0|0|0,
 
 #3. specificity
 
-    .css
     #main #content a { color:red }
 
 &nbsp;
@@ -950,7 +922,6 @@ CSS Specificity in 138 characters: CSS Specificity is 4 columns: inline=1|0|0|0,
 
 #3. specificity
 
-    .css
     #main #content a { color:red }
 
 &nbsp;
@@ -970,7 +941,6 @@ CSS Specificity in 138 characters: CSS Specificity is 4 columns: inline=1|0|0|0,
 
 #3. specificity
 
-    .css
     #main #content a { color:red }
 
 &nbsp;
@@ -990,7 +960,6 @@ CSS Specificity in 138 characters: CSS Specificity is 4 columns: inline=1|0|0|0,
 
 #3. specificity
 
-    .css
     #main #content a { color:red }
 
 &nbsp;
@@ -1010,7 +979,6 @@ CSS Specificity in 138 characters: CSS Specificity is 4 columns: inline=1|0|0|0,
 
 #3. specificity
 
-    .css
     #main #content a { color:red }
 
 &nbsp;
@@ -1031,7 +999,6 @@ CSS Specificity in 138 characters: CSS Specificity is 4 columns: inline=1|0|0|0,
 #3. specificity
 
 
-    .html
     <p style="color:red" class="preface">Tekst</p>
 
 &nbsp;
@@ -1051,7 +1018,6 @@ CSS Specificity in 138 characters: CSS Specificity is 4 columns: inline=1|0|0|0,
 #3. specificity
 
 
-    .html
     <p style="color:red" class="preface">Tekst</p>
 
 &nbsp;
@@ -1071,7 +1037,6 @@ CSS Specificity in 138 characters: CSS Specificity is 4 columns: inline=1|0|0|0,
 #3. specificity
 
 
-    .html
     <p style="color:red" class="preface">Tekst</p>
 
 &nbsp;
@@ -1091,7 +1056,6 @@ CSS Specificity in 138 characters: CSS Specificity is 4 columns: inline=1|0|0|0,
 #3. specificity
 
 
-    .html
     <p style="color:red" class="preface">Tekst</p>
 
 &nbsp;
@@ -1111,7 +1075,6 @@ CSS Specificity in 138 characters: CSS Specificity is 4 columns: inline=1|0|0|0,
 #3. specificity
 
 
-    .html
     <p style="color:red" class="preface">Tekst</p>
 
 &nbsp;
@@ -1131,14 +1094,12 @@ CSS Specificity in 138 characters: CSS Specificity is 4 columns: inline=1|0|0|0,
 
 #3. specificity
 
-    .css
     .preface {color: red !important}   
 
 
 ---
 #3. specificity NO-NO
 
-    .css
     .preface {color: red !important}
 
 &nbsp;
@@ -1194,7 +1155,6 @@ class: middle
 
 #Arv
 
-    .css
     body { 
         font-size:1em; 
         font-family: 'my-fancy-font', sans-serif; 
@@ -1208,7 +1168,6 @@ class: middle
 &nbsp;
 
 
-    .html
     <body>
         <div>
             <article>
@@ -1232,7 +1191,6 @@ class: middle
 
 #specificity quiz
 
-    .css
     ul#summer-drinks li {
       font-weight: normal;
       font-size: 12px;
@@ -1246,7 +1204,6 @@ class: middle
 
 &nbsp;    
 
-    .html
      <ul id="summer-drinks">
        <li class="favorite">Whiskey and Ginger Ale</li>
        <li>Wheat Beer</li>
@@ -1298,9 +1255,10 @@ class: middle center
   
   ## 1) Stram opp siden ved å
 
-  * Sette en fast bredde (960px) på hele innholdet
-  * Gi denne containeren en padding (40px) på alle sider
-  * Midtstill denne containeren på siden
+  * Sette en fast bredde (960px) på hele innholdet (hovedcontaineren)
+  * Gi hovedcontaineren en passende padding på alle sider
+  * Gi hovedcontaineren en passende margin på topp og bunn
+  * Midtstill hovedcontaineren på siden
   * Midtstill overskriften (BEKK)
   * Plassér søkefeltet øverst i høyre hjørne
 
