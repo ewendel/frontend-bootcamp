@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Responsive Web Design - kurs i Grensesnittsprogrammering</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" href="../remark/remark-bekk.css">
+    <style type="text/css" media="screen">
+      @font-face {
+        font-family: 'Inconsolata';
+        font-style: normal;
+        font-weight: 400;
+        src: url('../remark/Inconsolata-Regular.ttf'),
+      }
+
+      #slideshow .slide .content.front-page h1 { width: 100%; }
+      .slide p { padding: 0; margin: 1.1em 0; }
+      .slide ul { padding: 0; margin: 1.1em 0; }
+      .slide img { max-width: 100%; max-height: 600px; }
+      .slide .big { font-size: 4em; }
+      #slideshow .slide .content ul li { padding-left: 1.3em; }
+      #slideshow .slide .attr a { color:#333; font-size:0.8em; }
+      #slideshow .slide .fullscreen img { width:100%; height:100%; position:absolute; top:40px; left:0; }
+      .slide span.alt { color:#FD5158; }
+      .jquery { background-color: #1E2837; }
+      .nodejs { background-color: #3F4239; }
+      #slideshow .position { display: none; }
+       .code {font-family: Inconsolata, Consolas, Monaco, monospace;font-size:16px;color:#000;padding:3px; margin-bottom: 20px; background:#FDF6E3;}
+    </style>
+  </head>
+  <body>
+    <textarea id="source">
+
+
+class: middle center
+
+# Responsive Web Design
+
+---
+
+![Finn.no Stats](../img/this-is-not-web.png)
+
+[bradfrostweb.com](http://bradfrostweb.com/blog/web/responsive-web-design-missing-the-point/)
+
+---
+
+class: middle center
+
+![Finn.no Stats](../img/this-is-the-web.png)
+
+[bradfrostweb.com](http://bradfrostweb.com/blog/web/responsive-web-design-missing-the-point/)
+
+---
+
+class: middle center
+
+![Finn.no Stats](../img/this-will-bethe-web.png)
+
+[bradfrostweb.com](http://bradfrostweb.com/blog/web/responsive-web-design-missing-the-point/)
+
+---
+
+class: middle center
+
+![Finn.no Stats](../img/finn.stats.device.png)
+
+[labs.finn.no](http://labs.finn.no/)
+
+---
+
+class: middle center
+
+![Finn.no Stats](../img/responsivewebdesignfront.png)
+
+[ethanmarcotte.com](http://etchanmarcotte.com/)
+
+---
+
+class: agenda
+
+# Responsive Web Design
+
+* Fluid Layouts              <span class="alt">(design som skalerer)</span>
+* Flexible Media             <span class="alt">(mediainnhold som skalerer)</span>
+* Media Queries              <span class="alt">(betinget css)</span>
+
+---
+
+class: middle center
+
+# Fluid layouts
+
+design som skalerer
+
+---
+
+class: middle center
+
+# Relative vs statiske enheter
+
+---
+
+# CSS
+
+
+    #content {
+        width: 960px;
+        font-size: 12px;
+        margin: 20px;
+    }
+
+    #content {
+        width: 100%;
+        font-size: 0.75em; /* 12px/16px */
+        margin: 0.02083333333%; /* 20px/960px */
+    }
+
+---
+
+class: middle center
+
+# target / context = result
+
+---
+
+class: middle center
+
+# target / context = result
+12 px / 16 px = 0.75 em
+
+540 px / 960 px = 0.54166666666 %
+
+.. ikke rund av!
+
+---
+
+# Hva er context?
+
+---
+
+# Hva er context?
+
+Default fontstørrelse
+
+    .css 
+        html {
+            font-size: 16px; /* eksplisitt verdi */
+            font-size: 100%; /* browser default */
+            font-size: 62.5%; /* 10px */
+        }
+
+---
+
+# Margins
+
+context = størrelsen på forelderen til elementet
+
+.css
+    #parent {
+        width: 200px;
+    }
+    #child-of-parent {
+        margin: 35px;
+    }
+
+---
+
+# Margins 2
+
+context = størrelsen på forelderen til elementet
+
+.css
+    #parent {
+        width: 200px;
+    }
+    #child-of-parent {
+        margin: 35px;
+    }
+
+
+
+    #parent {
+        width: 200px;
+    }
+    #child-of-parent {
+        margin: 17.5%; /* 35px/200px */
+    }
+
+---
+
+# Padding
+
+context = størrelsen på elementet selv
+
+.css
+    #site {
+        width: 540px;
+        padding: 20px;
+    }
+
+---
+
+# Padding 2
+
+context = størrelsen på elementet
+
+.css
+    #site {
+        width: 540px;
+        padding: 20px;
+    }
+
+
+
+    #site {
+        width: 540px;
+        padding: 0.03703703703%; /* 20px/540px */
+    }
+
+---
+
+class: middle center
+
+# Flexible Media
+
+---
+
+# Flexible Media
+
+1. Bruk større bilder
+2. Bruk max-width for å styre størrelsen
+
+
+    img {
+        max-width: 100%
+    }
+
+---
+
+# Flexible Media
+
+1. Bruk større bilder
+2. Bruk max-width for å styre størrelsen
+
+
+    img {
+        max-width: 100%
+    }
+
+
+### ... en sannhet med modifikasjoner
+
+---
+
+class: middle center
+
+# Retina
+
+![Finn.no Stats](../img/retina.png)
+
+
+---
+
+class: middle center
+
+# Media Queries
+
+---
+
+class: middle center
+
+Media queries gir oss *betinget css* gjennom *nettleserspørringer*
+
+Basically; hvis stor skjerm, så stor skjerm-css.
+
+(legg inn mediaqueri.es bildene her)
+
+
+
+---
+
+# Media queries
+
+
+&nbsp;
+
+    .css
+    /* <= 1000+x*/
+    @media screen and (max-width:1000px) {
+        #content {
+            width:960px;
+        }
+    }
+    /* <= 750 px */
+    @media screen and (max-width:750px) {
+        #content {
+            width:500px;
+        }
+    }
+    /* <= 480px px */
+    @media screen and (max-width:480px) {
+        #content {
+            width: 100%;
+        }
+    }
+
+---
+
+# Retina
+
+    .css
+    
+
+    /* opprinnelig kode */
+    .logo {
+        background-image: url(images/logo.png) no-repeat;
+    }
+    /* retinahåndterende kode */
+    @media
+    only screen and (min-device-pixel-ratio: 1.5) {
+        .logo {
+            background-image: url(logo@2x.png);
+            background-size: 12px 16px;
+        ￼￼} 
+    }
+
+
+
+
+---
+
+class: middle center
+
+##"content defines breakpoints"
+
+-Ethan Marcotte, Responsive Web Design
+
+---
+
+class: middle center
+
+![Mediaqueri.es](../img/mediaq.png)
+
+[mediaqueri.es](http://mediaqueri.es/)
+
+---
+
+# Oppgave
+
+## Bruk media queries til å <a href="oppgave/design-desktop.jpg">responsifisere siden</a>
+
+## frontendsommer/04-responsive/oppgave/
+
+---
+
+# Oppgave
+  
+  ## 1) Grunnleggende
+
+  * Last ned en Chrome addon som viser størrelsen på browservinduet
+  * Finn ut ved hvilken skjermstørrelse innholdet er like stort som vinduet
+  * Sett bredden på container til å følge bredden til skjermen
+  * Sett maxbredden til det store bildet til 100%
+
+---
+
+# Oppgave 
+
+  ## 2) Tilpasning av innhold
+
+#### Våre tjenester
+
+  * Finn ut når det blir for trang til fire i bredden
+  * Bytt til to og to
+
+#### Selvskryt
+
+  * Fjernes når det ikke er plass til tre i bredden
+
+#### Søkefelt
+
+  * Skjul når det ikke er plass
+
+
+---
+
+# Oppgave 
+
+  ## 3) Tilpasning av menyen
+
+  Når menyelementene ikke lenger har plass:
+
+  * Skjul menyelementene
+  * Vis den alternative menyen som ligger skjult i DOM-en
+
+---
+
+# Oppgave 
+
+  ## 4) Mer tilpasning av innhold 
+
+  * Finn ut når det ikke lenger er plass til to artikler i bredden og bytt til én
+  * Fjern forrige/neste-knappene
+
+---
+
+class: middle center fullscreen
+
+  # 5) Gjør noe fett!
+
+---
+
+class: middle center fullscreen
+
+  # <a href="../05-javascript/del1/javascript-intro.html">Klikk for neste presentasjon</a>
+
+    </textarea>
+    <div id="slideshow"></div>
+    <script src="../remark/remark-0.5.3.min.js" type="text/javascript"></script>
+    <script type="text/javascript">
+      var hljs = remark.highlighter.engine;
+    </script>s
+    <script src="../remark/jquery.min.js" type="text/javascript"></script>
+    <script type="text/javascript">
+      var slideshow = remark.create({
+          highlightStyle: 'solarized_light',
+          highlightLanguage: 'remark'
+        }) ;
+      var a = [];
+      slideshow.addListener("slidein",function(b,c){if(a.indexOf(c)>-1)return;var d=$(b);d.find("p:empty").remove(),d.find(".front-page").length===0&&d.find("h1").wrapInner("<span>"),d.find(".pushed img").parent().wrapInner("<span class='img'>"),a.push(c)})
+    </script>
+  </body>
+</html>
