@@ -23,11 +23,11 @@ body {
 	background-color: 		lightgray;
 }
 
-.teaserTitle {
+.teaser-title {
 	text-align: 			center;
 }
 
-.sectionTitle {
+.section-title {
 	border: 				1px solid black;
 }
 
@@ -42,6 +42,7 @@ body {
 	padding: 			40px;
 	margin: 			0 auto;
 	position: 			relative;
+	margin-top: 		40px;
 }
 
 #global-search {
@@ -50,13 +51,13 @@ body {
 	right: 				60px;
 }
 
-h1 {
+.intro-title {
 	text-align: 		center;
 }
 
 /* Oppgave 2: Menyen; */
 
-.menuElement {
+.menu-element {
 	list-style: 		none;
 	float: 				left;
 	width: 				20%;
@@ -65,60 +66,101 @@ h1 {
 }
 
 
-/* Oppgave 3: Våre tjenester-seksjonen */
+/* Oppgave 3: "Dette gjør vi"-seksjonen */
 
-.service {
+.service-item {
 	float: 				left;
 	width: 				25%;
 	padding: 			10px;
+	-moz-box-sizing:    border-box;
 	box-sizing:			border-box;
+	height: 			160px; 
 }
 
 
 /* Oppgave 4: Seksjonsheadere */
 
-.sectionHeader {
+.section-header {
 	text-align: 		center;
 }
 
-.sectionTitle {
+.section-title {
 	display: 			inline-block;
 	padding: 			8px 25px;
 }
 
-/* Oppgave 5: Selvskryt-seksjonen */
+/* Oppgave 5: Aktuelt-seksjonen */
 
-.promo {
+.news-items {
+	padding: 0 50px;
+}
+
+.news-item {
 	float: 				left;
-	margin-right: 		30px;
 	text-align: 		center;
+	width: 				33.33333333333333%;
+	padding-left: 		30px; 
+	padding-right: 		30px;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;		
 }
 
-.promo:last-of-type {
-	margin-right: 		0px;
+.news-item img {
+	width: 100%;
+	height: auto;
 }
 
-/* Oppgave 6: Forrige/neste-knapper */
-.imageGallery {
+.news-item:last-of-type {
+	margin-right: 		0;
+}
+
+/* Oppgave 6: BEKK Open-seksjonen */
+
+.blog-item {
+	float: left; 
+	padding-left: 30px;
+	padding-right: 30px;
+	width: 33.33333333333333%; 
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;	
+}
+
+.blog-item img {
+	width: 100%;
+	height: auto; 
+}
+
+/* Oppgave 7: Forrige/neste-knapper */
+.image-gallery {
 	position: 				relative;
 }
 
-.imageGalleryNav {
+.image-gallery-nav {
 	position: 				absolute;
 	right: 					20px;
 	bottom: 				20px;
 }
 
-.imageButton {
+.image-button {
 	list-style: 			none;
 	padding: 				10px 20px;
 	display: 				inline-block;
 	background-color: 		white;
 }
 
-/* Oppgave 7: Footer-seksjonen */
+/* Oppgave 8: Footer-seksjonen */
 
-.footerItem {
+.footer-item {
 	float: 				left;
-	width: 				33%;
+	width: 				33.33333333333333%;
+}
+
+.project-image {
+	width: 25%;
+	padding: 0 10px 10px 0;
+	float: left;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	margin: 0;
+	height: auto;
 }

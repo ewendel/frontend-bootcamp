@@ -2,11 +2,15 @@
 <html>
   <head>
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-    <title>YTELSE</title>
-    <link href='http://fonts.googleapis.com/css?family=Inconsolata' rel='stylesheet' type='text/css'>
+    <title>Ytelse - Kurs i grensesnittsprogrammering</title>
     <link rel="stylesheet" href="../remark/remark-bekk.css">
     <style type="text/css" media="screen">
-
+        @font-face {
+          font-family: 'Inconsolata';
+          font-style: normal;
+          font-weight: 400;
+          src: url('../remark/Inconsolata-Regular.ttf'),
+        }
     </style>
   </head>
   <body>
@@ -34,6 +38,13 @@ Case-studies
 
 .source[http://programming.oreilly.com/2009/07/velocity-making-your-site-fast.html]
 
+???
+
+- Ytelse påvirker bunnlinja
+- **Google:** Flere søk: 400 ms ventetid -> 0.59% færre søk. Brukerne hadde også færre søk etter at ventetiden ble fjernet. 
+- **Bing:** 2 sekunder mer ventetid -> 1.8% færre søk, 4.3% lavere omsetning per bruker
+- **Shopzilla:** Mer salg. 5 sekunder raskere side førte til 25% flere sidevisninger, 7-12% høyere omsetning og 50% mindre hardware
+
 ---
 
 class: center, middle
@@ -56,12 +67,20 @@ class: center, middle
 
 ## 13% / 87% ##
 
+???
+
+- 87% av ytelsen avgjøres av frontend-kode
+
 .source[http://www.stevesouders.com/blog/2012/02/10/the-performance-golden-rule/]
 ---
 
 class: center middle inverse
 
 ![](http://stevesouders.com/images/golden-top10.png)
+
+???
+
+- Backend vs frontend for verdens 10 mest besøkte nettsteder
 
 .source[http://www.stevesouders.com/blog/2012/02/10/the-performance-golden-rule/]
 
@@ -73,7 +92,8 @@ class: center, middle, inverse
 
 ???
 
-Verdens 50.000 største nettsteder
+- Verdens 50.000 største nettsteder fra HttpArchive
+- HttpArchive crawler sider for å bevare dem for historien, finne endringer i bruksmønstre, hvordan nettsider er laget, osv. 
 
 ---
 
@@ -99,6 +119,12 @@ class: center, middle
 ???
 
 Yslow: Ytelsesverktøy fra Yahoo
+
+---
+
+class: center, middle
+
+#Hva avgjør ytelse i frontend?
 
 ---
 
@@ -336,7 +362,6 @@ kunne kanskje heller skrives
 
 * Vær forsiktig med cookies
 
-
 ???
 
 - Favicon: Nettleseren spør etter den uansett, og 404 er dyrt. Hold den under 1500 bytes (én pakke), og gjør den cachbar, siden den spørres etter overalt
@@ -449,11 +474,11 @@ class: center, middle
 
 ???
 
-Innlasting: Putt derfor _alltid_ script-taggene i bunn av siden
+Innlasting: Putt derfor _alltid_ script-taggene i bunn av siden. Og: Bruk ekstern javascript, pga caching. 
 
 Namespacing: Færre ting for nettleseren å holde styr på, samt lettere å gjøre optimiseringer hvis man går for packing/obfuscating
 
-AJAX: Typisk for one-pagere.
+AJAX: Typisk for one-pagere. Ajax bør dog caches. 
 
 
 ---
@@ -464,7 +489,7 @@ AJAX: Typisk for one-pagere.
 
 --
 
-* Last CSS i toppen. Nettlesere gir ofte blank side frem til CSS er ferdig lastet.
+* Last CSS i toppen. Nettlesere gir ofte blank side frem til CSS er ferdig lastet. Gir en opplevelse av at siden er raskere. 
 
 --
 
@@ -486,6 +511,13 @@ AJAX: Typisk for one-pagere.
 
 * ID er raskest, men ikke spesielt mye raskere enn class.
 
+???
+
+- Ellers: Unngå inline CSS, da ekstern CSS vil bli cachet
+- Unngå såkalte CSS expressions, altså JS i CSS
+- Minifiser CSS
+- Prøv å skrive gjenbrukbar CSS, for å redusere filstørrelsen
+
 ---
 
 class: middle center
@@ -493,12 +525,11 @@ class: middle center
 #?!
 
     </textarea>
-    <script src="http://gnab.github.com/remark/downloads/remark-0.5.3.min.js" type="text/javascript"></script>
+    <script src="../remark/remark-0.5.3.min.js" type="text/javascript"></script>
     <script type="text/javascript">
       var hljs = remark.highlighter.engine;
-    </script>
-    <script src="js/remark.language.js" type="text/javascript"></script>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+    </script>s
+    <script src="../remark/jquery.min.js" type="text/javascript"></script>
     <script type="text/javascript">
       var slideshow = remark.create({
           highlightStyle: 'solarized_light',

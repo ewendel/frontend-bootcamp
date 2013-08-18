@@ -1,0 +1,76 @@
+/* Responsive
+ 	-------------------------------------------- */
+
+ .mobileMenu {
+ 	display: 				none;
+ 	background-color: 		black;
+ 	padding: 				10px 40px;
+ 	text-align: 			right;
+ 	font-size: 				16px;
+ 	color: 					white;	
+ 	font-family:			Georgia;
+ 	cursor:					pointer;
+ 	position:				fixed;
+ 	top:					0;
+ 	left:					0;
+ 	width: 					100%;
+	box-sizing: 			border-box;
+	z-index:				5;
+ }
+
+ 
+
+@media all and (max-width: 1046px) {
+    .container {
+        width:				auto;
+    }
+
+    .imageGallery img {
+    	max-width: 			100%;
+    }
+  
+    .service {
+		width: 				50%;
+	}
+
+	.news {
+		display: 			none;
+	}
+
+	.footerItem {
+    	float: 				none !important;
+    	width:				90% !important;
+    	margin: 			0 auto !important;
+    	text-align: 		center;
+    }
+}
+
+@media all and (max-width: 750px) {
+    #global-search {
+		display: 			none;
+	}
+}
+
+@media all and (max-width: 480px) {
+	nav ul {
+		display: 			none;
+	}
+
+	.imageGalleryNav {
+		display: none;
+	}
+
+	.mobileMenu {
+		display: 			block;
+	}
+
+	h1 {
+		margin-top: 20px;
+	}
+
+    article {
+    	float: 				none !important;
+    	width:				100% !important;
+    	margin: 			0 auto !important;
+    }
+}

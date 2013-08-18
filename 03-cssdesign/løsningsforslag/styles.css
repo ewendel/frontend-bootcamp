@@ -1,227 +1,369 @@
-/* Reset */
+@import url(http://fonts.googleapis.com/css?family=Port+Lligat+Slab);
 
-ul, body, h2, h3, h4 {
-    padding:                0;
-    margin:                 0;
-}
-
-.section {
-    clear: both; 
-    padding: 20px 0;
-}
-
-section:after, .section:after, .clearfix:after { 
-    content:                "."; 
-    visibility:             hidden; 
-    display:                block; 
-    height:                 0; 
-    clear:                  both
+section:after, .clearfix:after { 
+    content: "."; 
+    visibility: hidden; 
+    display: block; 
+    height: 0; 
+    clear: both
 }
 
 body {
-    margin:                 0;
-    padding:                0;
-    background-color:       lightgray;
+    margin: 0;
+    padding:  0;
+    background: #ccc;
+    font-size: 85%;
+    font-family: "Helvetica Neue", Helvetica, Arial, Sans-serif; 
 }
 
-.teaserTitle {
-    text-align:             center;
+a, a:link, a:visited, a:active, a:hover {
+    text-decoration: none;
 }
 
-.sectionHeader {
-    margin:                 20px 0px;
+/* 7) Lag en transition i menyen */
+
+a:hover {
+-webkit-transition: all 500ms cubic-bezier(0.250, 0.250, 0.750, 0.750);
+   -moz-transition: all 500ms cubic-bezier(0.250, 0.250, 0.750, 0.750);
+    -ms-transition: all 500ms cubic-bezier(0.250, 0.250, 0.750, 0.750);
+     -o-transition: all 500ms cubic-bezier(0.250, 0.250, 0.750, 0.750);
+        transition: all 500ms cubic-bezier(0.250, 0.250, 0.750, 0.750); /* linear */    
 }
 
-.sectionTitle {
-    border:                 1px solid black;
+/* Oppgave 1: Gi riktig utseende til teksten "En alpinist gjenopplivde en sebra..."  */
+
+.intro-title {
+    text-align: center;
+    font-family: 'Port Lligat Slab', Georgia, serif;
+    font-weight: normal;
+    font-size: 2.3em;
+    padding: 1.5em 0;
+    margin: 0;
+    color: #2c2c2c;
 }
 
-.imageGallery {
-    padding-top:            0px;
+.intro-title a {
+    color: #ff503b;
+    text-decoration: none;
+    border-bottom: 1px dotted;
 }
+
+/* 3) Gi riktig utseende til selve siden */
+
+/* Generell oppstramming */
+
 .container {
-    background-color:       white;
+    width: 960px;
+    margin: 0 auto;
+    position: relative;
 }
 
+.page {
+    background: url('../../mockup/grafikk/grid_noise.png');
+    -webkit-box-shadow: 0 0 .6em rgba(0, 0, 0, 0.5);
+    -moz-box-shadow: 0 0 .6em rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 .6em rgba(0, 0, 0, 0.5);    
+}
 
-/*  CSS LAYOUT
-    -----------------------------------------------*/
-
-/* Oppgave 1: Generell oppstramming */
-
-.container {
-    width:              960px;
-    padding:            40px;
-    margin:             0 auto;
-    position:           relative;
+.logo {
+    float: left;
 }
 
 #global-search {
-    position:           absolute;
-    top:                40px;
-    right:              60px;
+    float: right;
 }
 
-h1 {
+#search-submit {
+    display: none;
+}
+
+.intro-title {
     text-align:         center;
 }
 
-/* Oppgave 2: Menyen; */
+/* 6) Style menyknappene */
 
-.menuElement {
-    list-style:         none;
-    float:              left;
-    width:              20%;
-    text-align:         center;
-    padding:            20px 0px;
+/* Menyen; */
+
+.menu {
+    margin: 0;
+    padding: 0;
+    background: #2c2c2c;
 }
 
-
-/* Oppgave 3: Våre tjenester-seksjonen */
-
-.service {
-    float:              left;
-    width:              25%;
-    padding:            10px;
-    box-sizing:         border-box;
+.menu-element {
+    list-style: none;
+    float: left;
+    padding: 0;
+    font-size: 1.1em;
 }
 
-
-/* Oppgave 4: Seksjonsheadere */
-
-.sectionHeader {
-    text-align:         center;
+.menu-element a {
+    color: #fff;
+    padding: 1em 1.5em 1em 3em;
+    display: block;
+    background-color: #2c2c2c;
+    border-right: 1px solid rgba(0, 0, 0, 0.4);
+    border-left: 1px solid rgba(255, 255, 255, 0.2);
+    background-position: 1em center;
+    background-repeat: no-repeat;
 }
 
-.sectionTitle {
-    display:            inline-block;
-    padding:            8px 25px;
+.menu-element a:hover {
+    background-color: #000;
 }
 
-/* Oppgave 5: Selvskryt-seksjonen */
-
-.promo {
-    float:              left;
-    margin-right:       30px;
-    text-align:         center;
+.menu-element.active a {
+    background-color: #ff503b;
 }
 
-.promo:last-of-type {
-    margin-right:       0px;
+.menu-element-home a {
+    background-image: url('../../mockup/grafikk/menu-icon/icon-home.png');
+    background-position: center center;
+    text-indent: -9999px;
+    width: .5em;    
 }
 
-/* Oppgave 6: Forrige/neste-knapper */
-.imageGallery {
-    position:               relative;
+.menu-element-clients a {
+    background-image: url('../../mockup/grafikk/menu-icon/icon-briefcase.png');
 }
 
-.imageGalleryNav {
-    position:               absolute;
-    right:                  20px;
-    bottom:                 20px;
+.menu-element-employees a {
+    background-image: url('../../mockup/grafikk/menu-icon/icon-person.png');
 }
 
-.imageButton {
-    list-style:             none;
-    padding:                10px 20px;
-    display:                inline-block;
-    background-color:       white;
+.menu-element-prices a {
+    background-image: url('../../mockup/grafikk/menu-icon/icon-pig.png');
 }
 
-/* Oppgave 7: Footer-seksjonen */
-
-.footerItem {
-    float:              left;
-    width:              33%;
+.menu-element-faq a {
+    background-image: url('../../mockup/grafikk/menu-icon/icon-bulb.png');
 }
 
-/* CSS DESIGN 
-    ----------------------------------------------*/
-
-
-/* Oppgave 1 */
-/* Gi riktig utseende til teksten "En alpinist gjenopplivde en sebra..."  */
-
-.teaserTitle {
-	font-size: 1.6em;
-	font-family: Georgia, Times, "Times New Roman", Serif; 
-	font-weight: normal;
-	color: #333333;
+.menu-element-features a {
+    background-image: url('../../mockup/grafikk/menu-icon/icon-gear.png');
 }
 
-.teaserTitle a {
-	color: #ff6600;
-	text-decoration: none;
-	border-bottom: 1px #ff6600 dotted;
+.menu-element-blog a {
+    background-image: url('../../mockup/grafikk/menu-icon/icon-pencil.png');
 }
 
-/* Oppgave 2 */
-/* Style typografien under "Våre tjenester" */
-
-.serviceTitle {
-	font-family: Georgia, Times, "Times New Roman", Serif;
-	color: #666;
-	font-weight: normal;
-	font-size: 1.2em;
+.menu-element-contact a {
+    background-image: url('../../mockup/grafikk/menu-icon/icon-mail.png');
 }
 
-.serviceText {
-	color: #666;
-	line-height: 1.4;
-	font-family: "Helvetica Neue", Helvetica, Arial, Sans-serif; 
-	font-size: .9em;
+/* Seksjoner */
+
+.section {
+    margin-bottom: 2em;
 }
 
-/* Oppgave 3 */
-/* Gi riktig utseende til selve siden */
-
-body {
-	background: #e0e0e0;
+.services-section {
+    padding-left: 1.5em;
+    padding-right: 1.5em; 
 }
 
-.container {
-	background: #fff;
-	border: 1px solid #ccc;
-	box-shadow: 0 5px 5px rgba(0, 0, 0, 0.3);
+/* 5) Gi riktig utseende til seksjonsheadingene */
+
+/* Seksjonsheadere */
+
+.section-header {
+    text-align: center;
+    position: relative;
+    margin-bottom: 1em;
 }
 
-footer {
-	margin: 20px -20px -20px -20px;
-	background: #111;
-	color: #fff;
-}
-
-.footerItem {
-	width: 30%;
-	padding: 1.5%;
-}
-
-/* Oppgave 4 */
-/* Gi riktig utseende til innholdet i article-taggene under "Selvskryt" */
-
-.promoTitle {
-	background: #111;
-	padding: 5px;
-	margin: 0;
-	font-family: "Helvetica Neue", Helvetica, Arial, Sans-serif; 
-	font-size: .8em;
-}
-
-.promoTitle a {
-	color: #fff;
-	text-decoration: none;
-}
-
-/* Oppgave 5 */
-/* Styling av seksjonsheadere*/
-
-.sectionTitle {
-    background-color: rgba(0,0,0, 0.75);
-    color:      white;
-    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.3);
-    border: none;
-    font-family: "Helvetica Neue", Helvetica, Arial, Sans-serif; 
+.section-title {
+    display: inline-block;
+    padding: .5em 1em;
+    background: #2c2c2c;
+    color: #fff;
+    height: 1em;
+    line-height: 1em;
+    font-size: 1em;
     text-transform: uppercase;
-    font-size: 15px;
+    font-family: Arial, Helvetica;
+    -webkit-box-shadow: 0 0 .6em rgba(0, 0, 0, 0.5);
+    -moz-box-shadow: 0 0 .6em rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 .6em rgba(0, 0, 0, 0.5);
+}
+
+/* 2: Style typografien under "Våre tjenester" */
+
+/* "Dette gjør vi"-seksjonen */
+
+.service-item {
+    float: left;
+    width: 25%;
+    padding: 10px;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    height: 160px; 
+}
+
+.service-item p {
+    line-height: 1.5;
+}
+
+.service-title {
+    font-family: 'Port Lligat Slab', Georgia, serif;
     font-weight: normal;
+    font-size: 1.5em;
+    color: #2c2c2c;
+    margin: 0;
+}
+
+/* 4) Gi riktig utseende til innholdet i article-taggene under "Selvskryt" */
+
+/* Aktuelt-seksjonen */
+
+.news-items {
+    padding: 0 50px;
+    position: relative;
+}
+
+.news-item {
+    float: left;
+    text-align: center;
+    width: 33.33333333333333%;
+    padding-left: 30px; 
+    padding-right: 30px;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;     
+}
+
+.news-item-image {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.news-item-title {
+    padding: 0;
+    margin: 0;
+}
+
+.news-item-title a, .news-item-title a:visited, .news-item-title a:link {
+    color: #fff;
+    text-decoration: none;
+    display: block;
+    padding: .5em 0;
+    background: #2c2c2c;
+    font-size: .8em;
+}
+
+/* BEKK Open-seksjonen */
+
+.blog-section {
+    padding-left: 1em;
+    padding-right: 1em; 
+}
+
+.blog-item {
+    float: left; 
+    padding-left: .75em;
+    padding-right: .75em;
+    width: 33.33333333333333%; 
+    -moz-box-sizing: border-box;
+    box-sizing: border-box; 
+}
+
+.blog-item-image {
+    width: 100%;
+    height: auto; 
+    border: 7px solid #ccc;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box; 
+    margin-bottom: 1em;
+}
+
+.blog-item-title {
+    font-size: 1.1em;
+    margin: 0;
+}
+
+.blog-item-title a {
+    color: #000;
+}
+
+/* 8) Gi rikitg utseende til forrige/neste-knappene i bildegalleriet */
+/* Forrige/neste-knapper */
+.image-gallery {
+    position: relative;
+    border-bottom: 5px solid #ccc;
+}
+
+.image-gallery img {
+    margin: 0;
+    display: block;
+}
+
+.image-gallery-nav {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    margin: 0;
+    padding: 0;
+}
+
+.image-button {
+    list-style:  none;
+    float: left;
+    margin: 0;
+    padding: 0;
+}
+
+.image-button a {
+    display: block;
+    background-color: #2c2c2c;
+    text-indent: -9999px;
+    width: 2em;
+    height: 2em;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+.image-button a:hover {
+    background-color: #111;
+}
+
+.image-button-next {
+    background-image: url('../../mockup/grafikk/sliders/arrow-right.png');
+}
+
+.image-button-prev {
+    background-image: url('../../mockup/grafikk/sliders/arrow-left.png');
+}
+
+/* Footer-seksjonen */
+
+.footer {
+    background: #2c2c2c;
+    padding-left: .5em;
+    padding-right: .5em;
+}
+
+.footer-item {
+    float: left;
+    width: 33.33333333333333%;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding-left: .75em;
+    padding-right: .75em;
+    color: #fff;    
+}
+
+.footer-item h3 {
+    border-bottom: 1px solid #fff;
+    padding-bottom: .5em;
+}
+
+.project-image {
+    width: 22.7%;
+    margin: 0 .5em .5em 0;
+    float: left;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    height: auto;
+    border: 5px solid #222;
 }
