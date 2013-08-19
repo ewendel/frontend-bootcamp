@@ -67,6 +67,7 @@ a:hover {
 
 .logo {
     float: left;
+    margin-left: 40px;
 }
 
 #global-search {
