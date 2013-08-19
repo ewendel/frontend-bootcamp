@@ -23,143 +23,16 @@ body {
     background-color:       lightgray;
 }
 
-.teaser-title {
-    text-align:             center;
-}
-
-.section-title {
-    border:                 1px solid black;
-}
-
-.container {
-    background-color:       white;
-}
-
 /* Oppgave 1: Generell oppstramming */
-
-.container {
-    width:              960px;
-    padding:            40px;
-    margin:             0 auto;
-    position:           relative;
-}
-
-#global-search {
-    position:           absolute;
-    top:                40px;
-    right:              60px;
-}
-
-.intro-title {
-    text-align:         center;
-}
 
 /* Oppgave 2: Menyen; */
 
-.menu-element {
-    list-style:         none;
-    float:              left;
-    width:              20%;
-    text-align:         center;
-    padding:            20px 0px;
-}
-
-
 /* Oppgave 3: "Dette gjør vi"-seksjonen */
-
-.service-item {
-    float:              left;
-    width:              25%;
-    padding:            10px;
-    -moz-box-sizing:    border-box;
-    box-sizing:         border-box;
-    height:             160px; 
-}
-
 
 /* Oppgave 4: Seksjonsheadere */
 
-.section-header {
-    text-align:         center;
-}
-
-.section-title {
-    display:            inline-block;
-    padding:            8px 25px;
-}
-
 /* Oppgave 5: Aktuelt-seksjonen */
-
-.news-items {
-    padding: 0 50px;
-}
-
-.news-item {
-    float:              left;
-    text-align:         center;
-    width:              33.33333333333333%;
-    padding-left:       30px; 
-    padding-right:      30px;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;     
-}
-
-.news-item img {
-    width: 100%;
-    height: auto;
-}
-
-.news-item:last-of-type {
-    margin-right:       0;
-}
 
 /* Oppgave 6: BEKK Open-seksjonen */
 
-.blog-item {
-    float: left; 
-    padding-left: 30px;
-    padding-right: 30px;
-    width: 33.33333333333333%; 
-    -moz-box-sizing: border-box;
-    box-sizing: border-box; 
-}
-
-.blog-item img {
-    width: 100%;
-    height: auto; 
-}
-
-/* Oppgave 7: Forrige/neste-knapper */
-.image-gallery {
-    position:               relative;
-}
-
-.image-gallery-nav {
-    position:               absolute;
-    right:                  20px;
-    bottom:                 20px;
-}
-
-.image-button {
-    list-style:             none;
-    padding:                10px 20px;
-    display:                inline-block;
-    background-color:       white;
-}
-
 /* Oppgave 8: Footer-seksjonen */
-
-.footer-item {
-    float:              left;
-    width:              33.33333333333333%;
-}
-
-.project-image {
-    width: 25%;
-    padding: 0 10px 10px 0;
-    float: left;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-    margin: 0;
-    height: auto;
-}
