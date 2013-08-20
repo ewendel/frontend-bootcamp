@@ -1,5 +1,5 @@
 function slideShow() {
-  var current = $('.imageGallery .show');
+  var current = $('.image-gallery .show');
   var next = current.next().is('img') ? current.next() : current.parent().find('img:first');
   current.hide().removeClass('show');
   current.fadeOut('slow', function() {
