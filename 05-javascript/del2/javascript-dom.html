@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-    <title>JavaScript & DOM - Kurs i grensesnittsprogrammering</title>
+    <title>Javascript i nettleseren - Kurs i Grensesnittsprogrammering</title>
     <link href='http://fonts.googleapis.com/css?famil=Inconsolata' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="../../remark/remark-bekk.css">
     <style type="text/css" media="screen">
@@ -16,152 +16,222 @@
 layout: false
 class: front-page
 
-# Javascript & DOM
+# Javascript i nettleseren
 
 ---
 
-# Legge til tekst
+class: middle center
 
+Ok - så vi bruker javascript til å skape dynamisk oppførsel på nettsidene våre, og språket virker passe drøyt - men hvordan <em>gjør</em> vi det faktisk?
+
+---
+
+# Document Object Model
+
+    <!doctype html>
     <html>
-
-
-
-        <body>
-            <h1>This is HTML</h1>
-        </body>
+     <head>
+      <meta charset="utf-8">
+      <title>All About Cats</title>
+      <style type="text/css">
+       h1 {
+         color: red; 
+       }
+      #mainpicture {
+        border: 1px solid black;
+      }
+      .catname {
+        font-weight: bold;
+      }
+      </style>     
+     </head>
+     <body>
+      <h1>CATS!</h1>
+      <img id="mainpicture" src="http://placekitten.com/200/300">
+      <p>So cute!</p>
+      <ul>
+       <li class="catname">Lizzie</li>
+       <li class="catname">Daemon</li>
+      </ul>
+     </body>
     </html>
 
 ---
 
-# Legge til tekst
+class: inverse
 
-    <html>
-        <head>
-            <script src="addText.js"></script>
-        </head>
-        <body>
-            <h1>This is HTML</h1>
-        </body>
-    </html>
+# Document Object Model
 
-addText.js:
-
-    document.body.appendChild( document.createTextNode( 'Hello World!' ) );
+![dom-tree](../../img/DOM.png)
 
 ---
 
-# Legge til tekst
+# Document Object Model
 
-    <html>
-        <head>
-            <script src="addText.js"></script>
-        </head>
-        <body>
-            <h1>This is HTML</h1>
-        </body>
-    </html>
+Javascript gir oss et rikt API mot DOM-en via [*document*](https://developer.mozilla.org/en/DOM/document)-objektet
 
-addText.js:
+<br><br>
 
-    document.body.appendChild( document.createTextNode( 'Hello World!' ) );
+Hvis HTML-en inneholder dette...
 
-Ny HTML etter at siden er lastet:
+    <img id="mainpicture" src="http://placekitten.com/200/300">
 
-    <html>
-        <head>
-            <script src="addText.js"></script>
-        </head>
-        <body>
-            <h1>This is HTML</h1>
-            Hello World!
-        </body>
-    </html>
+... så kan vi aksessere den slik
+
+    var img = document.getElementById('mainpicture');
 
 ---
 
-class: middle 
-`getElementsByTagName`
+# DOM-aksess: etter elementnavn
 
-`getElementsByClassName`
+vi kan også aksessere noder etter elementnavn:
 
-`getElementById`
+    <li class="catname">Lizzie</li>
+    <li class="catname">Daemon</li>
 
----
+dette vil returnere en liste
 
-class: middle 
-`getElementsByTagName` &mdash; `.html <h1>Overskrift</h1>`
-
-`getElementsByClassName` &mdash; `.html <div class="user">…</div>`
-
-`getElementById` &mdash; `.html <div id="nav">…</div>`
-
----
-
-# Endre tekst
-
-    <html>
-
-
-
-        <body>
-            <h1>This is HTML</h1>
-        </body>
-    </html>
+    var listItems = document.getElementsByTagName('li'); // array
+    
+    for (var i = 0; i < listItems.length; i++) {
+      var listItem = listItems[i];
+      doSomething(listItem);
+    }
 
 ---
 
-# Endre tekst
+# DOM-aksess: HTML5
 
-    <html>
-        <head>
-            <script src="changeText.js"></script>
-        </head>
-        <body>
-            <h1>This is HTML</h1>
-        </body>
-    </html>
+HTML5 åpner for flere nyttige aksessmetoder.
 
-changeText.js:
+Tilgjengelig in IE9+, FF3.6+, Chrome 17+, Safari 5+:
+    
+    document.getElementsByClassName(className);
 
-    var headers = document.getElementsByTagName("h1");
-    var header = headers[0];
+    var catNames = document.getElementsByClassName('catname'); // array
+    for (var i =0; i < catNames.length; i++) {
+      var catName = catNames[i];
+      doSomething(catName);
+    }
 
-    header.textContent = "Ny tittel!";
+Tilgjengelig i IE8+, FF3.6+, Chrome 17+, Safari 5+:
 
----
-
-# Endre tekst
-
-    <html>
-        <head>
-            <script src="changeText.js"></script>
-        </head>
-        <body>
-            <h1>This is HTML</h1>
-        </body>
-    </html>
-
-changeText.js:
-
-    var headers = document.getElementsByTagName("h1");
-    var header = headers[0];
-
-    header.textContent = "Ny tittel!";
-
-Ny HTML etter at siden er lastet:
-
-    <html>
-        <head>
-            <script src="changeText.js"></script>
-        </head>
-        <body>
-            <h1>Ny tittel!</h1>
-        </body>
-    </html>
+    document.querySelector(cssQuery); // returnerer første eller null
+    document.querySelectorAll(cssQuery); // alle
+    var catNames = document.querySelectorAll('ul li.catname');
 
 ---
 
-# Lytte på klikk
+# DOM: Attributter
+
+Vi kan endre attributter hos DOM-noder med dot-notasjon.
+    
+    <img id="mainpicture" src="http://placekitten.com/200/300">
+
+Endre "src"-attributten:
+
+    var img = document.getElementById('mainpicture');
+    img.src = 'http://placekitten.com/100/500';
+
+Alternativt:
+
+    img.setAttribute('src', 'http://placekitten.com/100/500');
+
+Sette css-klasser:
+    
+    var oldClasses = img.className;
+    img.className = oldClasses + " picture";
+
+---
+
+# DOM: Styling
+
+Endring av stilregler på DOM-noder:
+    
+    body {
+      color: red;
+    }
+    
+    var pageNode = document.getElementsByTagName('body')[0];
+    pageNode.style.color = 'red';
+
+Noen regler:
+
+1) CSS-egenskaper med bindestrek må camelcases<br>
+2) CSS-egenskaper med tallverdier må ha en enhet
+    
+    body {
+      background-color: pink;
+      padding-top: 10px;
+    }
+    pageNode.style.backgroundColor = 'pink';
+    pageNode.style.paddingTop = '10px';
+
+---
+
+# DOM: innerHTML
+
+Alle DOM-noder har et innerHTML-felt med all HTML for alle sine barneelementer
+
+    var pageNode = document.getElementsByTagName('body')[0];
+
+HTML kan skrives ut slik:
+
+    console.log(pageNode.innerHTML);
+
+Ved å endre innerHTML direkte kan man endre innholdet til en node:
+
+    pageNode.innerHTML = "<h1>Oh Noes!</h1> <p>I just changed the whole page!</p>"
+
+Man kan også legge til innerHTML i stedet for å overskrive:
+
+    pageNode.innerHTML += "...just adding this bit at the end of the page.";
+
+---
+
+# DOM: Modifisering
+
+[*document*](https://developer.mozilla.org/en/DOM/document)-objektet tilbyr også en del andre metoder for opprette DOM-noder fra scratch:
+
+    document.createElement(tagName);
+    document.createTextNode(text);
+    document.appendChild();
+
+    var pageNode = document.getElementsByTagName('body')[0];
+
+    var newImg = document.createElement('img');
+    newImg.src = 'http://placekitten.com/400/300';
+    newImg.style.border = '1px solid black';
+    pageNode.appendChild(newImg);
+
+    var newParagraph = document.createElement('p');
+    var paragraphText = document.createTextNode('Squee!');
+    newParagraph.appendChild(paragraphText);
+    pageNode.appendChild(newParagraph);
+
+---
+
+# Oppgave: The Logo Hijack
+
+No homepage is safe from the logo bandit!
+
+Open up www.google.com in Chrome or Firefox, and open up the console.<br><br>
+Find the Google logo and store it in a variable.<br><br>
+Modify the source of the logo IMG so that it's a Yahoo logo instead.<br><br>
+Find the Google search button and store it in a variable.<br><br>
+Modify the text of the button so that it says "Yahooo!" instead.
+
+---
+
+class: middle center
+
+# Events
+
+For å utføre js-kode ved andre tidspunkt enn ved lasting av siden, trenger vi å håndtere input fra brukeren
+
+---
+
+# Lytte på brukerinput
 
     var headers = document.getElementsByTagName("h1");
     var header = headers[0];
@@ -183,27 +253,97 @@ Vi kan blant annet lytte på:
 
 ---
 
-# Endre design
+# window
 
-    var list = document.getElementsByClassName("technologies");
-    list[0].style.color = "red";
+JS tilbyr et objekt [window](https://developer.mozilla.org/en-US/docs/Web/API/Window?redirectlocale=en-US&redirectslug=DOM%2Fwindow) med mange nyttige tjenester
 
-[http://jsbin.com/icalon/2/edit](http://jsbin.com/icalon/2/edit)
+    window.location.href;
+
+    window.navigator.userAgent;
+
+    window.scrollTo(10, 50);
+
+    window.alert("Hello world!");
+
+window er også (som regel) det globale objektet:
+
+    window.alert("Hi!"); 
+    alert("Hi");    // same same
+    this.alert("Hi!") // but different
+
+---
+
+# Animering i JS
+
+For å kalle en funksjon etter en delay:
+
+    window.setTimeout(callbackFunction, delayMilliseconds);
+
+For å kalle en funksjon gjentatte ganger hvert X-te ms:
+    
+    window.setInterval(callbackFunction, delayMilliseconds);
+
+Eksempel:
+
+    function makeImageBigger() {
+      var img = document.getElementsByTagName('img')[0];
+      img.setAttribute('width', img.width+10);
+    }
+    window.setInterval(makeImageBigger, 1000);
+
+---
+
+# Animering i JS
+
+setInterval og setTimeout returnerer en referanse som kan brukes til å stoppe utføringen:
+
+    var delayedAction = setTimeout(callback, delay);
+    var repeatingAction = setInterval(callback, interval);
+
+    window.clearTimeout(delayedAction);
+    window.clearInterval(repeatingAction);
+
+---
+
+# Animering i JS
+
+    var img = document.getElementsByTagName('img')[0];
+    img.style.opacity = 1.0;
+    function fadeAway() {
+      
+      img.style.opacity = img.style.opacity - .1;
+      if (img.style.opacity < .5) {
+        window.clearInterval(fadeTimer);
+      }
+    }
+    var fadeTimer = window.setInterval(fadeAway, 100);
 
 ---
 
 class: middle center
 
-Stress å skrive `getElementsByClassName`, `getElementsByTagName` og
-`getElementById` hele tiden.
+# But wait...
 
-![sleepy](../../img/sleepy.gif)
+![wtfcat](../../img/wtfcat.png)
 
 ---
 
 class: fullscreen
 
 ![jQuery](../../img/jquery_logo.png)
+
+<div class="overlay" style="top: 70%; text-align: center">
+# 65%+ / 10,000
+</div>
+
+---
+
+# jQuery
+
+- abstraherer bort nettleserforskjeller i DOM-APIet
+- har et enda enklere og mer konsistent API enn DOM-en
+- tilbyr en bråte med plugins
+- "write less, do more"
 
 ---
 
@@ -248,7 +388,6 @@ Lytte på klikk
 
 Endre CSS
  
-
     // Javascript
     var technologies = document.getElementsByClassName("technologies");
     for(i = 0; i < technologies.length; i++) {
@@ -260,71 +399,68 @@ Endre CSS
 
 ---
 
+# jQuery
+
+Vi kan også opprette noder som ikke finnes i DOM-en
+
+    var newNode = $('<p class="intro">Lorem ipsum</p>')
+
+Denne noden finnes kun i nettleserens minne og ikke i DOM. For å legge den til må vi gjøre f.eks dette:
+
+    $('body').append('newNode');
+
+---
+
+# jQuery Method Chaining
+
+    $('<p class="intro">Lorem ipsum</p>').appendTo('body').hide().css('height', '20px').fadeIn();
+
+Ethvert kall til $ returnerer et nytt jQuery-objekt
+
+---
+
 # jQuery Cheat Sheet
 
 
     var element = $(selektor); // lagre referanse til DOM-element
---
-
-???
-Dette bør heller demonstreres i JSBIN!
-
     $(selektor).next(); // hente neste element i DOM-treet
---
     $(selektor).is('type'); // returnerer true om elementer er av gitt type
---
     $(selektor).parent(); // returnerer forelderen til elementet
---
     $(selektor).find(selektor); // utfører søk innenfor elementets barn
-
---
     $(selektor).addClass('myClass'); // legge til klasse
---
     $(selektor).removeClass('myClass'); // fjerne klasse
---
     $(selektor).toggleClass('myClass'); // toggle
-
---
     $(selektor).show(); // vise element
---
     $(selektor).hide(); // skjule element
---
     $(selektor).toggle(); // vise/skjule element
-
---
     $(selektor).fadeIn(); // vise med delay
---
     $(selektor).fadeOut(); // skjule med delay
+
+<div style="text-align: center">
+[Les mer om jQuery API-et her](http://api.jquery.com/)
+</div>
 
 ---
 
 # jQuery Cheat Sheet 
 
     setTimeout(myFunction, delay); //kaller myFunction() hvert &lt;delay&gt; ms
-
---
     $(selektor).remove();   // fjerner elementet fra DOM-en
-
---
     $(selektor).append(element); // legger til i DOM-en
-
-
---
     $(selektor).on("click", function() { doSomething() }); // Lytte til events
-
-
---
     $(selektor).height(); // Finne høyden på element
-
---
     $(selektor).width(); // Finne bredden på element
 
-    $(document).ready(function() { doSomething(); }); 
-      // Kjøre kode når siden er ferdig lastet
+    $(document).ready(function() { // Kjøre kode når siden er ferdig lastet
+        myAwesomeFunction(); 
+    }); 
+      
 
     console.log("Hello World!"); // Skrive til konsollet
 
-
+<div style="text-align: center">
+[Les mer om jQuery API-et her](http://api.jquery.com/)
+</div>
 ---
 
 # Først litt oppvarming
@@ -371,7 +507,7 @@ Dette bør heller demonstreres i JSBIN!
   ## 2) Hvis tid: bytte bilde ved hjelp av knappene
 
   * Lag metoder for å bytte til neste/forrige bilde umiddelbart
-  * Reset timer vha clearTimeout (google it!)
+  * Reset timer vha clearTimeout
   * Kall metodene dine ved 'click'-events på knappene
   * Restart timeren
   * WIN!
