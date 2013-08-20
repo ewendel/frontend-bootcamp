@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-    <title>JAVASCRIPT & DOM</title>
+    <title>jQuery Events</title>
     <link href='http://fonts.googleapis.com/css?famil=Inconsolata' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="../../remark/remark-bekk.css">
     <style type="text/css" media="screen">
@@ -319,7 +319,7 @@ Trigger the event handler only once.
 
 # ONE
 
-Trigger the event handler only once.
+Fire the event handler only once.
 
     .one( events [, data ], handler(eventObject) )
 
@@ -335,7 +335,7 @@ Trigger the event handler only once.
 
 # ONE
 
-Trigger the event handler only once.
+Fire the event handler only once.
 
     .one( events [, data ], handler(eventObject) )
 
@@ -490,8 +490,33 @@ The .triggerHandler() method behaves similarly to .trigger(), with the following
 
     });
 
+<br />
 
     $("input").trigger("focus");
+
+---
+
+# Trigger / TriggerHandler
+
+The .triggerHandler() method behaves similarly to .trigger(), with the following exceptions:
+
+<ul>
+    <li>The .triggerHandler() method does not cause the default behavior of an event to occur (such as a form submission, .submit()).</li>
+</ul>
+    
+<br />
+
+    $("input").focus(function(){
+    
+        $(this).css("border", "1px solid red");
+
+    });
+
+<br />
+
+    $("input").trigger("focus");
+
+<br />
 
     $("input").triggerHandler("focus");
 
@@ -513,7 +538,7 @@ The .triggerHandler() method behaves similarly to .trigger(), with the following
 
 <br />
 
-    $("a").on("click", function(event){
+    $(".foo").on("click", function(event){
         
         $(this).css({"color" : "red"});
 
@@ -529,15 +554,39 @@ The .triggerHandler() method behaves similarly to .trigger(), with the following
 
 <br />
 
-    $("a").on("click", function(event){
+    $(".foo").on("click", function(event){
         
         $(this).css({"color" : "red"});
 
     });
 
-    $("a").trigger("click");
+<br />
 
-    $("a").triggerHandler("click");
+    $(".foo").trigger("click");
+
+---
+
+# Trigger / TriggerHandler
+
+<ul>    
+    <li>While .trigger() will operate on all elements matched by the jQuery object, .triggerHandler() only affects the first matched element.</li>
+</ul>
+
+<br />
+
+    $(".foo").on("click", function(event){
+        
+        $(this).css({"color" : "red"});
+
+    });
+
+<br />
+
+    $(".foo").trigger("click");
+
+<br />
+
+    $(".foo").triggerHandler("click");
 
 ---
 
@@ -550,26 +599,607 @@ The .triggerHandler() method behaves similarly to .trigger(), with the following
 ---
 
 # Trigger / TriggerHandler
+    
+<ul>    
+    <li>Events created with .triggerHandler() do not bubble up the DOM hierarchy; if they are not handled by the target element directly, they do nothing.</li>
+</ul>
 
+    <div id="parent">
+        <div id="child"></div>
+    </div>
+
+---
+
+# Trigger / TriggerHandler
+    
+<ul>    
+    <li>Events created with .triggerHandler() do not bubble up the DOM hierarchy; if they are not handled by the target element directly, they do nothing.</li>
+</ul>
+
+    <div id="parent">
+        <div id="child"></div>
+    </div>
+
+<br />
+
+    $("#child").on("click", function(event){
+        $(this).css({"background-color" : "pink"});
+    });
+
+    $("#parent").on("click", function(event){
+        $(this).css({"border" : "1px solid red"});
+    });
+    
+---
+
+# Trigger / TriggerHandler
+    
+<ul>    
+    <li>Events created with .triggerHandler() do not bubble up the DOM hierarchy; if they are not handled by the target element directly, they do nothing.</li>
+</ul>
+
+    <div id="parent">
+        <div id="child"></div>
+    </div>
+
+<br />
+
+    $("#child").on("click", function(event){
+        $(this).css({"background-color" : "pink"});
+    });
+
+    $("#parent").on("click", function(event){
+        $(this).css({"border" : "1px solid red"});
+    });
+
+<br />
+
+    $("#child").triggerHandler("click");
+    
+---
+
+# Trigger / TriggerHandler
 <ul>    
     <li>Instead of returning the jQuery object (to allow chaining), .triggerHandler() returns whatever value was returned by the last handler it caused to be executed. If no handlers are triggered, it returns undefined</li>
 </ul>
 
 ---
 
+# Trigger / TriggerHandler
+<ul>    
+    <li>Instead of returning the jQuery object (to allow chaining), .triggerHandler() returns whatever value was returned by the last handler it caused to be executed. If no handlers are triggered, it returns undefined</li>
+</ul>
+
+<br />
+
+    $("#foo").trigger("click").addClass("click");
+
+---
+
+# CUSTOM EVENTS
+
+## Why custom?
+
+Focus on the element being acted on and not the element(s), triggering the event.
+
+<ul>
+    <li>Target element can easily be triggered by different elements using the same code.</li>
+    <li>Events can be triggered across multiple, similar, target elements at once.</li>
+    <li>Events are associated with the target element in code, making code easier to read and maintain.</li>
+</ul>
+
+---
+
+# CUSTOM EVENTS
+
+    <div class="target unselected">
+
+        <div class="selector"></div>
+
+    </div>
+    
+    <div class="target unselected">
+
+        <div class="selector"></div>
+
+    </div>
+    
+    <div id="toggle_all"></div>
+
+---
+
+# CUSTOM EVENTS
+
+Custom events on target element:
+    
+    $(".target").on("selectorToggle", function(event) {
+        
+        if ($(this).hasClass("selected")) {
+
+            $(this).trigger("unselect");
+
+        } else {
+
+            $(this).trigger("select");
+        }
+
+    }).on("select", function(event) {
+
+        $(this).removeClass("unselected").addClass("selected");
+
+    }).on( "unselect", function(event) {
+
+        $(this).removeClass("selected").addClass("unselected");
+
+    });
+
+---
+
+# CUSTOM EVENTS
+ 
+Trigger custom event on parent:
+
+    $(".selector").click(function() {
+
+        $(this).parent().trigger("selectorToggle");
+
+    });
+
+---
+
+# CUSTOM EVENTS
+
+Trigger custom event on all elements:
+
+    $("#toggle_all").click(function() {
+
+        if ($(".target.selected").length) {
+
+            $(".target").trigger("unselect");
+
+        } else {
+
+            $(".target").trigger("select");
+
+        }
+
+    });
+
+---
+
 # EVENT OBJECT
+
+## The event object is sent into the jQuery event.handler. 
+
+---
+
+# EVENT OBJECT
+
+## The event object is sent into the jQuery event.handler. 
+
+event.preventDefault();
+
+    <a href="#">LINK</a>
+
+---
+
+# EVENT OBJECT
+
+## The event object is sent into the jQuery event.handler. 
+
+event.preventDefault();
+
+    <a href="#">LINK</a>
+
+<br />
+
+    $("a").click(function(event){
+
+        // Prevent the link from being followed
+        event.preventDefault();
+
+        ... DO SOMETHING
+    })
+
+---
+
+# EVENT OBJECT
+
+event.target and event.currentTarget
+
+---
+
+# EVENT OBJECT
+
+event.target and event.currentTarget
+
+currentTarget: Current DOM element within the event bubbling phase. "this"
+
+---
+
+# EVENT OBJECT
+
+event.target and event.currentTarget
+
+currentTarget: Current DOM element within the event bubbling phase. "this"
+
+target: The element that is registered for the event or a descendant of it.
+
+---
+
+# EVENT OBJECT
+
+event.target and event.currentTarget
+
+currentTarget: Current DOM element within the event bubbling phase. "this"
+
+target: The element that is registered for the event or a descendant of it.
+
+<br />
+
+    <div>
+        <a href="#">
+            <span></span>
+        </a>
+    </div>
+
+---
+
+# EVENT OBJECT
+
+event.target and event.currentTarget
+
+currentTarget: Current DOM element within the event bubbling phase. "this"
+
+target: The element that is registered for the event or a descendant of it.
+
+<br />
+
+    <div>
+        <a href="#">
+            <span></span>
+        </a>
+    </div>
+
+<br />
+
+    $("div").click(function(event){ 
+
+        console.log(event.currentTarget, event.target);
+
+    });
+
+---
+
+# EVENT OBJECT
+
+event.stopPropagation()
+
+Prevents the event from bubbling up the DOM tree, preventing any parent handlers from being notified of the event.
+
+---
+
+# EVENT OBJECT
+
+event.stopPropagation()
+
+Prevents the event from bubbling up the DOM tree, preventing any parent handlers from being notified of the event.
+
+    <div>
+        <a href="#">
+            <span></span>
+        </a>
+    </div>
+
+---
+
+# EVENT OBJECT
+
+event.stopPropagation()
+
+Prevents the event from bubbling up the DOM tree, preventing any parent handlers from being notified of the event.
+
+    <div>
+        <a href="#">
+            <span></span>
+        </a>
+    </div>
+
+<br />
+
+    $("span").click(function(event){
+
+        event.stopPropagation();
+        ... DO SOMETHING
+
+    })
+
+    $("div").click(function(event){ 
+        console.log(event.currentTarget, event.target);
+    });
+
+---
+
+# EVENT OBJECT
+
+event.data
+
+An optional object of data passed to an event method when the current executing handler is bound.
+    
+---
+
+# EVENT OBJECT
+
+event.data
+
+An optional object of data passed to an event method when the current executing handler is bound.
+
+    $("a").on("click", "My DATA", function(event){
+
+        console.log(event.data); // My DATA
+
+    })
+    
+---
+
+# EVENT OBJECT
+
+event.data
+
+An optional object of data passed to an event method when the current executing handler is bound.
+
+    $("a").on("click", "My DATA", function(event){
+
+        console.log(event.data); // My DATA
+
+    })
+    
+<br />
+
+http://api.jquery.com/category/events/
 
 ---
 
 # Continuous Events
 
-TODO: eg.RESIZE, TIMEOUT / REQUEST ANIMATION FRAME
+Some events can fire tens or hundreds of times in a short period.
+
+---
+
+# Continuous Events
+
+Some events can fire tens or hundreds of times in a short period.
+
+    $(window).resize(function(){
+
+        ... DO SOMETHING
+
+    });
+
+---
+
+# Continuous Events
+
+Some events can fire tens or hundreds of times in a short period.
+
+    $(window).resize(function(){
+
+        ... DO SOMETHING
+
+    });
+
+<br />
+
+setTimeout:
+
+    $(window).resize(function(){
+
+        clearTimeout(timer);
+        
+        timer = setTimeout(function () {
+            
+            ... DO SOMETHING.
+
+        }, 300);
+
+    });
+
+---
+
+# Continuous Events
+
+requestAnimationFrame:
+
+    $(window).resize(function(){
+
+        requestAnimationFrame(doSomething);
+
+    });
+
+    function doSomething(){
+
+        ...DO SOMETHING.
+
+    }
 
 ---
 
 # TOUCH EVENTS
 
-TODO: TOUCH NOT INCLUDED IN jQUERY EVENTS
+## jQuery does not support, touch events.
+
+jQuery Mobile does:
+
+http://jquerymobile.com/demos/1.2.1/docs/api/events.html
+
+---
+# Get and Set
+
+## Getting and setting values, attributes and properties with jQuery
+
+---
+# Get and Set
+
+## Getting and setting values, attributes and properties with jQuery
+
+.val(): Get the current value of the first element in the set of matched elements or set the value of every matched element.
+
+---
+# Get and Set
+
+## Getting and setting values, attributes and properties with jQuery
+
+.val(): Get the current value of the first element in the set of matched elements or set the value of every matched element.
+
+.attr(): Get the value of an attribute for the first element in the set of matched elements or set one or more attributes for every matched element.
+
+---
+# Get and Set
+
+## Getting and setting values, attributes and properties with jQuery
+
+.val(): Get the current value of the first element in the set of matched elements or set the value of every matched element.
+
+.attr(): Get the value of an attribute for the first element in the set of matched elements or set one or more attributes for every matched element.
+
+.prop(): Get the value of a property for the first element in the set of matched elements or set one or more properties for every matched element.
+
+---
+
+# VAL()
+
+    <input value="Default Text">
+
+---
+
+# VAL()
+
+    <input value="Default Text">
+
+<br>
+
+    var myVal = $("input").val(); // "Defaul Text"
+
+---
+
+# VAL()
+
+    <input value="Default Text">
+
+<br>
+
+    var myVal = $("input").val(); // "Defaul Text"
+
+<br>
+
+    $("input").val("New Text");
+
+    var myVal = $("input").val(); // "New Text"
+
+---
+
+# Attr()
+
+    <input id="myInput" data-foobar="foo" value="Default Text">
+
+---
+
+# Attr()
+
+    <input id="myInput" data-foobar="foo" value="Default Text">
+
+<br>
+
+    var myAttr = $("input").attr("data-foobar"); // foo
+
+---
+
+# Attr()
+
+    <input id="myInput" data-foobar="foo" value="Default Text">
+
+<br>
+
+    var myAttr = $("input").attr("data-foobar"); // foo
+
+<br>
+
+    $("input").attr("data-foobar", "bar");
+
+    var myAttr = $("input").attr("data-foobar"); // bar
+
+---
+
+# PROP()
+
+<ul>
+    <li>.prop() method provides a way to explicitly retrieve property values, while .attr() retrieves attributes.</li>
+</ul>
+
+---
+
+# PROP()
+
+<ul>
+    <li>.prop() method provides a way to explicitly retrieve property values, while .attr() retrieves attributes.</li>
+</ul>
+
+    <input type="checkbox" checked="checked">
+
+---
+
+# PROP()
+
+<ul>
+    <li>.prop() method provides a way to explicitly retrieve property values, while .attr() retrieves attributes.</li>
+</ul>
+
+    <input type="checkbox" checked="checked">
+
+<br>
+
+    $("input").change(function() {
+
+        var myAttr = $input.attr("checked"); // Checked
+        
+        var myProp = $input.prop("checked"); // Boolean value
+
+    })
+
+---
+
+# CSS
+
+    <div class="myDiv">My Content</div>
+
+---
+
+# CSS
+
+    <div class="myDiv">My Content</div>
+
+<br>
+
+    $("div.myDiv").css("color", "red");
+
+---
+
+# CSS
+
+    <div class="myDiv">My Content</div>
+
+<br>
+
+    $("div.myDiv").css("color", "red");
+
+    $("div.myDiv")
+        .css({
+            "color" : "red", 
+            "border" : "1px solid pink", 
+            "width" : "100px", 
+            "height" : "200px" 
+        });
+
 
 
     </textarea>

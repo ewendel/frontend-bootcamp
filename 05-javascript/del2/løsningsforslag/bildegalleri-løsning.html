@@ -4,156 +4,178 @@
 
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-		<link href="../../../03-cssdesign/løsningsforslag/styles.css" rel="stylesheet" type="text/css"/>
-		<link href="../resources/bildegalleri.css" rel="stylesheet" type="text/css"/>
-		<script src="../resources/jquery.js" type="text/javascript"></script>
-		<script src="løsningsforslag-bildegalleri.js" type="text/javascript"></script>
 		<title>BEKK</title>
+		<link rel="stylesheet" href="../../../03-cssdesign/løsningsforslag/styles.css" type="text/css" />
+		
 	</head>
 
 	<body>
-		<div class="container">
-
-			<header>
-				<h1>BEKK</h1>
+		<div class="container page">
+			<header class="clearfix">
+				<h1 class="logo">BEKK</h1>
 				<form action="search" id="global-search">
 					<input type="search" name="query" id="search-query" placeholder="Skriv søkeord" />
-					<input type="submit"  name="search-submit" value="Søk" />
+					<input type="submit" name="search-submit" id="search-submit" value="Søk" />
 				</form>
 			</header>
 
-			<nav>
-				<ul class="mainMenu">
-					<li class="menuElement"><a href="aktuelt.html">Aktuelt</a></li>
-					<li class="menuElement"><a href="tjenester.html">Tjenester</a></li>
-					<li class="menuElement"><a href="om-bekk.html">Om BEKK</a></li>
-					<li class="menuElement"><a href="jobb.html">Jobb</a></li>
-					<li class="menuElement"><a href="kontakt.html">Kontakt</a></li>
+			<nav class="clearfix">
+				<ul class="menu clearfix">
+					<li class="menu-element menu-element-home active"><a href="home.html">Hjem</a></li>
+					<li class="menu-element menu-element-clients"><a href="clients.html">Kunder</a></li>
+					<li class="menu-element menu-element-employees"><a href="employees.html">Ansatte</a></li>
+					<li class="menu-element menu-element-prices"><a href="prices.html">Priser</a></li>
+					<li class="menu-element menu-element-faq"><a href="faq.html">FAQ</a></li>
+					<li class="menu-element menu-element-features"><a href="features.html">Features</a></li>
+					<li class="menu-element menu-element-blog"><a href="blog.html">Blog</a></li>
+					<li class="menu-element menu-element-contact"><a href="kontakt.html">Contact</a></li>
 				</ul>
 			</nav>
 
-			<section class="section imageGallery">
-				<img class="show" src="../../../img/bg1.jpg" alt="Bilde"/>
-				<img src="../../../img/bg2.jpeg" alt="Bilde"/>
-				<img src="../../../img/bg3.jpeg" alt="Bilde"/>
-				<img src="../../../img/bg4.jpeg" alt="Bilde"/>
-				<img src="../../../img/bg5.jpeg" alt="Bilde"/>
+			<section class="section image-gallery">
 				
-				<ul class="imageGalleryNav">
-					<li class="imageButton"><a href="#" id="">Forrige</a></li>
-					<li class="imageButton"><a href="#" id="">Neste</a></li>
+				<img class="show" src="../../../mockup/bilder/bilde-header-1.jpeg" alt="Bilde" width="960" height="300" />
+				<img src="../../../mockup/bilder/bilde-header-2.jpeg" alt="Bilde" width="960" height="300" />
+				
+
+				<ul class="image-gallery-nav">
+					<li class="image-button"><a href="#" id="prev-image" class="image-button-prev">Forrige</a></li>
+					<li class="image-button"><a href="#" id="next-image" class="image-button-next">Neste</a></li>
 				</ul>
 			</section>
 
 			<section class="section">
-				<header>
-					<h2 class="teaserTitle">En alpinist gjenopplivde en <a href="#">sebra</a> til han satt nært den kraftige motoren</h2>
-				</header>
+				<h2 class="intro-title">En alpinist gjenopplivde <a href="#">en sebra</a> til han satt nært den kraftige motoren</h2>
 			</section>
 
-			<section class="section aboutUs">
-				<header class="sectionHeader">
-					<h3  class="sectionTitle">Våre tjenester</h3>
+			<section class="section services-section">
+				<header class="section-header">
+					<h2 class="section-title">Dette gjør vi</h2>
+				</header>
+				
+				<article class="service-item">
+					<h3 class="service-title">Interactive</h3>
+					<p>Duis aute irure dolor in reprehenderit in voluptate velit esse
+					cillum dolore.</p>
+				</article>
+				<article class="service-item">
+					<h3 class="service-title">Management</h3>
+					<p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt.</p>
+				</article>
+				<article class="service-item">
+					<h3 class="service-title">Technology</h3>
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+					tempor incididunt ut labore et dolore magna aliqua.</p>
+				</article>
+				<article class="service-item">
+					<h3 class="service-title">Spirit</h3>
+					<p>Adipisicing elit, sed do eiusmod
+					tempor incididunt ut labore et dolore magna aliqua.</p>
+				</article>
+				<article class="service-item">
+					<h3 class="service-title">Idrett</h3>
+					<p>Sit amet, consectetur adipisicing elit, sed do eiusmod
+					tempor incididunt ut </p>
+				</article>
+				<article class="service-item">
+					<h3 class="service-title">Faggrupper</h3>
+					<p>Labore et dolore magna aliqua.</p>
+				</article>
+				<article class="service-item">
+					<h3 class="service-title">Hytter</h3>
+					<p>Consectetur adipisicing elit, sed do eiusmod
+					tempor incididunt ut labore et dolore magna aliqua.</p>
+				</article>
+				<article class="service-item">
+					<h3 class="service-title">BEKK Band</h3>
+					<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco </p>
+				</article>
+			</section>
+
+			<section class="section news-section">
+				<header class="section-header">
+					<h2 class="section-title">Aktuelt</h2>
 				</header>
 
-				<article class="service">
-					<h2 class="serviceTitle">Interactive</h2>
-					<p class="serviceText">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod </p>
+				<div class="news-items">
+					<article class="news-item">
+						<img class="news-item-image" src="../../../mockup/bilder/bilde-selvskryt-1.jpeg" width="215" height="140" alt="Operaen" />
+						<h3 class="news-item-title"><a title="Operaen velger BEKK" href="#">Operaen velger BEKK</a></h3>
+					</article>
+					<article class="news-item">
+						<img class="news-item-image" src="../../../mockup/bilder/bilde-selvskryt-2.jpeg" width="215" height="140" alt="NAV" />
+						<h3 class="news-item-title"><a title="Bekk inngår avtale med NAV" href="#">BEKK inngår avtale med NAV</a></h3>
+					</article>
+					<article class="news-item">
+						<img class="news-item-image" src="../../../mockup/bilder/bilde-selvskryt-3.jpeg" width="215" height="140" alt="Gulltaggen" />
+						<h3 class="news-item-title"><a title="Gulltaggen 2012" href="#">Gulltaggen 2012</a></h3>
+					</article>
+				</div>
+			</section>
+
+			<section class="section blog-section">
+				<header class="section-header">
+					<h2 class="section-title">BEKK Open</h2>
+				</header>
+				
+				<article class="blog-item">
+					<img class="blog-item-image" src="../../../mockup/bilder/bilde-blogg-1.jpeg" width="280" height="92" alt="Hva kan og bør vi lære?" />
+					<h4 class="blog-item-title"><a href="#">Hva kan og bør vi lære?</a></h4>
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+					tempor incididunt ut labore et dolore magna aliqua. </p>
 				</article>
-				<article class="service">
-					<h2 class="serviceTitle">Management</h2>
-					<p class="serviceText">Ut enim ad minim veniam,
+				<article class="blog-item">
+					<img class="blog-item-image" src="../../../mockup/bilder/bilde-blogg-2.jpeg" width="280" height="92" alt="Strategi" />
+					<h4 class="blog-item-title"><a href="#">Tør du sette penger på strategien din?</a></h4>
+					<p>Ut enim ad minim veniam,
 					quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-					consequat.</p>
-				</article>
-				<article class="service">
-					<h2 class="serviceTitle">Technology</h2>
-					<p class="serviceText">Duis aute irure dolor in reprehenderit in voluptate velit esse
+					consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
 					cillum dolore eu fugiat nulla pariatur. </p>
 				</article>
-				<article class="service">
-					<h2 class="serviceTitle">Spirit</h2>
-					<p class="serviceText">Excepteur sint occaecat cupidatat non
-					proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
-				</article>
-				<article class="service">
-					<h2 class="serviceTitle">Idrett</h2>
-					<p class="serviceText">Excepteur sint occaecat cupidatat non
-					proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
-				</article>
-				<article class="service">
-					<h2 class="serviceTitle">Hytter</h2>
-					<p class="serviceText">Excepteur sint occaecat cupidatat non
-					proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
-				</article>
-				<article class="service">
-					<h2 class="serviceTitle">Faggrupper</h2>
-					<p class="serviceText">Excepteur sint occaecat cupidatat non
-					proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
-				</article>
-				<article class="service">
-					<h2 class="serviceTitle">BEKK Band</h2>
-					<p class="serviceText">Excepteur sint occaecat cupidatat non
-					proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+				<article class="blog-item">
+					<img class="blog-item-image" src="../../../mockup/bilder/bilde-blogg-3.jpeg" width="280" height="92" alt="Backbone" />
+					<h4 class="blog-item-title"><a href="#">Step by step from jQuery to Backbone</a></h4>
+					<p>Excepteur sint occaecat cupidatat non
+					proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 				</article>
 			</section>
-
-			<section class="section news">
-				<header class="sectionHeader">
-					<h3 class="sectionTitle">Selvskryt</h3>
-				</header>
-
-				<article class="promo">
-					<img class="promoImage" src="../../../img/small1.jpg" width="300" height="200" alt="Operaen" />
-					<h3 class="promoTitle"><a title="Operaen velger BEKK" href="#">Operaen velger BEKK</a></h3>
-				</article>
-				<article class="promo">
-					<img class="promoImage" src="../../../img/small2.jpg" width="300" height="200" alt="NAV" />
-					<h3 class="promoTitle"><a title="Bekk inngår avtale med NAV" href="#">BEKK inngår avtale med NAV</a></h3>
-				</article>
-				<article class="promo">
-					<img class="promoImage" src="../../../img/small3.jpg" width="300" height="200" alt="Gulltaggen" />
-					<h3 class="promoTitle"><a title="Gulltaggen 2012" href="#">Gulltaggen 2012</a></h3>
-				</article>
-			</section>
-
-			<footer class="section">
-				<div class="clearfix">
-					<div class="footerItem">
-						<h3>Kort om BEKK</h3>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-						tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-						quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-						consequat. </p>
-					</div>
-					<div class="footerItem">
-						<h3>Referanser</h3>
-						<blockquote>
-							Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-						</blockquote>
-						<blockquote>
-							Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-						</blockquote>
-						<blockquote>
-							Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
-						</blockquote>
-					</div>
-					<div class="footerItem">
-						<h3>Oppgaver vi har løst</h3>
-						<img src="../../../img/tiny1.jpeg" alt="Oppgave"/>
-						<img src="../../../img/tiny1.jpeg" alt="Oppgave"/>
-						<img src="../../../img/tiny1.jpeg" alt="Oppgave"/>
-						<img src="../../../img/tiny1.jpeg" alt="Oppgave"/>
-						<img src="../../../img/tiny1.jpeg" alt="Oppgave"/>
-						<img src="../../../img/tiny1.jpeg" alt="Oppgave"/>
-						<img src="../../../img/tiny1.jpeg" alt="Oppgave"/>
-						<img src="../../../img/tiny1.jpeg" alt="Oppgave"/>
-
-					</div>
+			
+			<footer class="clearfix footer">
+				<div class="footer-item">
+					<h3>Kort om BEKK</h3>
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+					tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+					quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+					consequat. </p>
 				</div>
-			</footer>
-
+				<div class="footer-item">
+					<h3>Referanser</h3>
+					<blockquote>
+						Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+					</blockquote>
+					<blockquote>
+						Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+					</blockquote>
+					<blockquote>
+						Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
+					</blockquote>
+				</div>
+				<div class="footer-item">
+					<h3>Oppgaver vi har løst</h3>
+					<img class="project-image" src="../../../mockup/bilder/bilde-prosjekt-1.jpeg" alt="Oppgave" width="54" height="54" />
+					<img class="project-image" src="../../../mockup/bilder/bilde-prosjekt-2.jpeg" alt="Oppgave" width="54" height="54" />
+					<img class="project-image" src="../../../mockup/bilder/bilde-prosjekt-3.jpeg" alt="Oppgave" width="54" height="54" />
+					<img class="project-image" src="../../../mockup/bilder/bilde-prosjekt-4.jpeg" alt="Oppgave" width="54" height="54" />
+					<img class="project-image" src="../../../mockup/bilder/bilde-prosjekt-5.jpeg" alt="Oppgave" width="54" height="54" />
+					<img class="project-image" src="../../../mockup/bilder/bilde-prosjekt-6.jpeg" alt="Oppgave" width="54" height="54" />
+					<img class="project-image" src="../../../mockup/bilder/bilde-prosjekt-7.jpeg" alt="Oppgave" width="54" height="54" />
+					<img class="project-image" src="../../../mockup/bilder/bilde-prosjekt-8.jpeg" alt="Oppgave" width="54" height="54" />
+				</div>
+			</footer>			
 		</div>
 	</body>
+
+	<script src="../resources/jquery.js" type="text/javascript"></script>
+	<script src="løsningsforslag-bildegalleri.js" type="text/javascript"></script>
 
 </html>
