@@ -34,12 +34,11 @@ Oppgavedefinisjon;
 DOKUMENTASJON:  dokumentasjon om REST-endepunktene og formatet til JSON-dataene ligger på http://bekkopen.github.io/ios-kurs/#87
 				(men husk at adressen er http://mac-erikwendel.local:3000/message)
 
-STYLING: en skjermdump av en eksempelside (uten inputfelt til å kunne sende meldinger) ligger i 07-oppgaver/oppgave2/twitter2.0.png
+STYLING: en skjermdump av en eksempelside (mangler inputfelt for å sende) ligger i 07-oppgaver/oppgave2/twitter2.0.png
 		 
 		 rødfargen: #FD5157
 		 bakgrunn: 	#272727
 		 grå:		#666666
-
 		 font: 	'Titillium Web' fra Google Web Fonts
 
 
