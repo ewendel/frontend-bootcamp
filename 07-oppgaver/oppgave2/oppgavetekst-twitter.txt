@@ -8,12 +8,12 @@ Alle meldingene dere sender vil vises på projektoren :-)
 
 Oppgavedefinisjon;
 
-1)	Hent alle meldinger ved å sende et ajax GET-request til http://mac-erikwendel.local:3000/message.
+1)	Hent alle meldinger ved å sende et ajax GET-request. (Se dokumentasjon)
 	Det er viktig at dataType settes til JSONP - ellers vil ikke requesten tillates ettersom den går til en ekstern server.	
 
 2)  Vis meldingene på skjermen
 
-3)  Lag en måte å skrive inn navn, melding og send dette via ajax POST til http://mac-erikwendel.local:3000/message
+3)  Send melding til serveren med navn, melding og dato (de to første fra inputfelt)
 
 	For å få til POST-requests til et eksternt domene må Google Chrome åpnes med flagget --disable-web-security. 
 	Dette gjøres slik på Mac: (windowsfolk - google it!)
@@ -21,7 +21,7 @@ Oppgavedefinisjon;
 		2. Åpne terminalen
 		3. Skriv "open -a Google\ Chrome --args --disable-web-security" uten fnutter
 		4. Hvis chrome viser meldingen "You are using an unsupported command-line flag: --disable-web-security......" var det vellykket!
-		(5. Pass på å ikke surf på shady nettsteder i denne modusen :> )
+		(5. Pass på å ikke surfe på shady nettsteder i denne modusen :> )
 		(Du trenger bare lukke og gjenåpne Chrome for skru det av)
 
 4)  Vis statistikk over hvem som har sendt flest meldinger, som på skjermbildet
@@ -30,11 +30,9 @@ Oppgavedefinisjon;
 
 6) 	For de viderekomne: Legg til støtte for å kunne slette dine egne meldinger (ikke slett andres meldinger, vi har IP-en din :>)
 
+DOKUMENTASJON:  serverdokumentasjon finnes i 07-oppgaver/oppgave2/dokumentasjon.html
 
-DOKUMENTASJON:  dokumentasjon om REST-endepunktene og formatet til JSON-dataene ligger på http://bekkopen.github.io/ios-kurs/#87
-				(men husk at adressen er http://mac-erikwendel.local:3000/message)
-
-STYLING: en skjermdump av en eksempelside (mangler inputfelt for å sende) ligger i 07-oppgaver/oppgave2/twitter2.0.png
+STYLING: eksempelskjermdump finnes i 07-oppgaver/oppgave2/twitter2.0.png (mangler inputfelt for å sende)
 		 
 		 rødfargen: #FD5157
 		 bakgrunn: 	#272727
