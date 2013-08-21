@@ -1,0 +1,56 @@
+#################
+TWITTER 2.0
+#################
+
+Lag en chatapplikasjon! Vi har satt opp en server som sender og mottar JSON-meldinger via REST. 
+Se oppgavebeskrivelsen for dokumentasjon om serverens virkemåte.
+Alle meldingene dere sender vil vises på projektoren :-)
+
+Oppgavedefinisjon;
+
+1)	Hent alle meldinger ved å sende et ajax GET-request til http://mac-erikwendel.local:3000/message.
+	Det er viktig at dataType settes til JSONP - ellers vil ikke requesten tillates ettersom den går til en ekstern server.	
+
+2)  Vis meldingene på skjermen
+
+3)  Lag en måte å skrive inn navn, melding og send dette via ajax POST til http://mac-erikwendel.local:3000/message
+
+	For å få til POST-requests til et eksternt domene må Google Chrome åpnes med flagget --disable-web-security. 
+	Dette gjøres slik på Mac: (windowsfolk - google it!)
+		1. Lukk åpen Google Chrome
+		2. Åpne terminalen
+		3. Skriv "open -a Google\ Chrome --args --disable-web-security" uten fnutter
+		4. Hvis chrome viser meldingen "You are using an unsupported command-line flag: --disable-web-security......" var det vellykket!
+		(5. Pass på å ikke surf på shady nettsteder i denne modusen :> )
+		(Du trenger bare lukke og gjenåpne Chrome for skru det av)
+
+4)  Vis statistikk over hvem som har sendt flest meldinger, som på skjermbildet
+
+5) 	For de viderekomne: Legg til støtte for å kunne endre dine egne meldinger (f.eks ved å dobbeltklikke på dem)
+
+6) 	For de viderekomne: Legg til støtte for å kunne slette dine egne meldinger (ikke slett andres meldinger, vi har IP-en din :>)
+
+
+DOKUMENTASJON:  dokumentasjon om REST-endepunktene og formatet til JSON-dataene ligger på http://bekkopen.github.io/ios-kurs/#87
+				(men husk at adressen er http://mac-erikwendel.local:3000/message)
+
+STYLING: en skjermdump av en eksempelside (uten inputfelt til å kunne sende meldinger) ligger i 07-oppgaver/oppgave2/twitter2.0.png
+		 
+		 rødfargen: #FD5157
+		 bakgrunn: 	#272727
+		 grå:		#666666
+
+		 font: 	'Titillium Web' fra Google Web Fonts
+
+
+####
+HINT
+####
+
+* Begynn som med forrige oppgave, med å lage funksjoner for de enkelte funksjonene som skal gjøres: f.eks hente alle meldinger, rendre én melding, sende en melding etc
+
+	- getMessages(); 
+	- renderMessage(message); 
+	- sendMessage(message);
+
+* Dersom du synes ovenstående virker lett, så prøv å løse oppgaven ved å bruke et MV*-rammeverk som f.eks. Backbone.js.
