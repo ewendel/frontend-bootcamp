@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>Ytelse - Kurs i grensesnittsprogrammering</title>
+    <link rel="stylesheet" href="../remark/remark-bekk.css">
+    <style type="text/css" media="screen">
+        @font-face {
+          font-family: 'Inconsolata';
+          font-style: normal;
+          font-weight: 400;
+          src: url('../remark/Inconsolata-Regular.ttf'),
+        }
+    </style>
+  </head>
+  <body>
+    <textarea id="source">
+
+class: front-page
+
+# Ytelse i front-end 
+
+## Hvordan lage *raske* nettsider
+
+---
+
+class: center, middle
+
+## Why care? ##
+
+---
+
+class: center, middle
+
+#Google - Bing - Shopzilla#
+
+Case-studies
+
+.source[http://programming.oreilly.com/2009/07/velocity-making-your-site-fast.html]
+
+???
+
+- Ytelse påvirker bunnlinja
+- **Google:** Flere søk: 400 ms ventetid -> 0.59% færre søk. Brukerne hadde også færre søk etter at ventetiden ble fjernet. 
+- **Bing:** 2 sekunder mer ventetid -> 1.8% færre søk, 4.3% lavere omsetning per bruker
+- **Shopzilla:** Mer salg. 5 sekunder raskere side førte til 25% flere sidevisninger, 7-12% høyere omsetning og 50% mindre hardware
+
+---
+
+class: center, middle
+
+"Like us, our users place a lot of value in speed — that's why we've decided to take site speed into account in our search rankings."
+
+.source[http://googlewebmastercentral.blogspot.no/2010/04/using-site-speed-in-web-search-ranking.html]
+
+---
+
+class: fullscreen
+
+![](http://hjemmehos.finn.no/filestore/labs/2013/05/Kanalfordelingbesokfinn.noper201304.png)
+
+.source[http://hjemmehos.finn.no/no/webfolk_+_entusiaster/finn_labs/FINN-statistikken+for+april+2013.9UFRnO0N.ips]
+
+---
+
+class: center, middle
+
+## 13% / 87% ##
+
+???
+
+- 87% av ytelsen avgjøres av frontend-kode
+
+.source[http://www.stevesouders.com/blog/2012/02/10/the-performance-golden-rule/]
+---
+
+class: center middle inverse
+
+![](http://stevesouders.com/images/golden-top10.png)
+
+???
+
+- Backend vs frontend for verdens 10 mest besøkte nettsteder
+
+.source[http://www.stevesouders.com/blog/2012/02/10/the-performance-golden-rule/]
+
+---
+
+class: center, middle, inverse
+
+![](http://stevesouders.com/images/golden-top50K.png)
+
+???
+
+- Verdens 50.000 største nettsteder fra HttpArchive
+- HttpArchive crawler sider for å bevare dem for historien, finne endringer i bruksmønstre, hvordan nettsider er laget, osv. 
+
+---
+
+class: center, middle
+
+## "Størrelsen på startsiden er under 300kB" ##
+
+*http://kvalitet.difi.no/2012/10/2-1-nettstedet-er-optimalisert-for-god-ytelse-og-rask-nedlasting/*
+
+???
+
+Krav fra DIFI
+Måler offentlige nettsider, gir karakter
+
+---
+
+class: center, middle
+
+## "Nettstedet oppnår graderingen A i tilpasset test med Yslow" ##
+
+*http://kvalitet.difi.no/2012/10/2-1-nettstedet-er-optimalisert-for-god-ytelse-og-rask-nedlasting/*
+
+???
+
+Yslow: Ytelsesverktøy fra Yahoo
+
+---
+
+class: center, middle
+
+#Hva avgjør ytelse i frontend?
+
+---
+
+class: center, middle
+
+## Antall kilobytes ##
+
+--
+
+## Antall requests ##
+
+--
+
+## Ytelse i nettleseren ##
+
+---
+
+# Antall kilobytes - komprimering #
+
+## Komprimer med GZIP ##
+
+--
+
+*Reduserer tekstfiler (HTML, CSS, JS, XML, JSON etc) med rundt 75%*  
+
+???
+
+- Browser: Hey, can I GET index.html? I'll take a compressed version if you've got it.
+- Server: Let me find the file... yep, it's here. And you'll take a compressed version? Awesome.
+- Server: Ok, I've found index.html (200 OK), am zipping it and sending it over.
+- Browser: Great! It's only 10KB. I'll unzip it and show the user.
+
+---
+
+class: inverse middle center
+
+![](http://betterexplained.com/wp-content/uploads/compression/HTTP_request.png)
+
+---
+
+class: inverse middle center
+
+![](http://betterexplained.com/wp-content/uploads/compression/HTTP_request_compressed.png)
+
+---
+
+# Antall kilobytes - minifying #
+
+## Minify HTML ##
+
+--
+
+    <!doctype html>
+
+    <html lang="no">
+        <head>
+          ...
+        </head>
+        <body>
+          ...
+        </body>
+    </html>
+
+--
+
+vs.
+
+    <!doctype html><html lang="no"><head>...</head><body>...</body></html>
+
+---
+
+# Antall kilobytes - minifying #
+
+## Minify CSS ##
+
+--
+
+  ```css
+  background-color: #ffffff;
+  background-image: url(image.png);
+  background-repeat: no-repeat;
+  background-position: top right;
+  background-attachment: fixed;
+  ```
+--
+
+kan skrives som
+
+--
+
+  ```css
+  background: #fff url(image.png) no-repeat top right fixed;
+  ```
+--
+
+* Automatisk minfication gir typisk rundt 35% besparelse
+
+---
+
+# Antall kilobytes - minifying #
+
+## Minify JavaScript ##
+
+### jQuery 1.8.3: ###
+* Development: 252 KB
+* Minified: 91 KB
+* Minified + Gzip: 32 KB
+
+NB: Unngå obfuscation/"packing" - utsatt for feil, og liten gevinst
+
+---
+
+# Antall kilobytes - forenkling #
+
+## Skriv bedre HTML
+
+Gir både færre KB pga mindre HTML, og i tillegg potensielt bedre ytelse på JS og CSS pga mindre DOM-tre
+
+--
+
+    <div class=“pagination-container”>
+      <span class=“pagination-prev”>
+        <a href=“prev.html”><< Forrige</a>
+      </span>
+      <div class=“spacer”></div>
+      <span class=“pagination-next>
+        <a href=“next.html”>Neste >></a>
+      </span>
+      <div class=“clearer”></div>
+    </div>
+
+--
+
+kunne kanskje heller skrives
+
+--
+
+    <div class=“pagination”>
+      <a href=“prev.html”><< Forrige</a>
+      <a href=“next.html”>Neste >></a>
+    </div>
+
+---
+
+# Antall kilobytes - forenkling #
+
+## Bruk JSON fremfor XML/HTML for APIer
+
+--
+
+<br />
+
+*http://api.flickr.com/services/feeds/photos_public.gne?format=rss2*
+
+### 31.29KB ###
+
+--
+
+<br />
+
+*http://api.flickr.com/services/feeds/photos_public.gne?format=json*
+
+###15.39KB###
+
+---
+
+# Antall kilobytes - bilder #
+
+<br />
+<br />
+
+--
+
+* Unngå bilder hvis det samme kan løses med CSS
+
+--
+
+* Ikke last ned retina-bilder på vanlig skjerm
+
+--
+
+* Ikke last ned full-size-bilder på mobil, hvis de skaleres ned
+
+--
+
+* Bilder kan ofte komprimeres hardere enn man tror
+
+---
+
+# Antall kilobytes - caching #
+
+--
+
+<br />
+## Cache them if you can! ##
+
+--
+
+<br />
+*"The fastest HTTP request is the one not made"*
+
+*http://www.stevesouders.com/blog/2012/03/22/cache-them-if-you-can/*
+
+---
+
+# Antall kilobytes - caching #
+
+<br />
+
+--
+
+* Sett caching på statiske ressurser (bilder, css, js etc) til "far future", og gi dem heller nytt navn når du oppdaterer
+
+--
+
+* Vurder appcache (vanskelig) eller localStorage for store mengder data som kan lagres hos klienten (Gmail-style)
+
+--
+
+* Vurder å hente populære rammeverk fra en CDN. Øker sannsynligheten for at brukeren allerede har den cachet
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+
+---
+
+# Antall kilobytes - diverse #
+
+<br />
+
+--
+
+* Lag alltid et favicon. 
+
+--
+
+* Vær forsiktig med cookies
+
+???
+
+- Favicon: Nettleseren spør etter den uansett, og 404 er dyrt. Hold den under 1500 bytes (én pakke), og gjør den cachbar, siden den spørres etter overalt
+- Cookies: siden de blir med på hver eneste request til serveren. Sett smalt scope med domain/path. Ikke legg mye data i dem (under 1500 bytes).
+
+---
+
+class: center, middle
+
+## Antall requests ##
+
+---
+
+# Antall requests - kombiner #
+
+## To filer tar opptil 40% mer tid enn samme filer kombinert til én pga HTTP-overhead ##
+
+--
+
+1. Kombiner JS og CSS til så få filer som mulig
+
+--
+
+2. Kombiner ofte brukte "småbilder" til image sprites
+
+        .prev-icon { 
+          background-image: url('sprites.gif');
+          background-position: -260px -90px;
+          width: 26px;
+          height: 24px;
+        }
+
+
+--
+
+3. Inline bilder i CSS (best) eller HTML (hvis de ikke brukes på flere sider)
+
+        background-image: url(data:image/gif;base64,R0lGODlhDAAMALLAADSADS...);
+
+--
+
+4. I enkelte tilfeller _kan_ CSS og JS vurderes å inlines
+
+???
+
+- Eksempel på sprite: www.vegvesen.no
+
+- Inlining av CSS kan f.eks. gjøres på mobil for å spare HTTP-requests
+
+---
+
+class: center, middle
+
+## Ytelse i nettleseren ##
+
+---
+
+# Ytelse i nettleseren - parallelle nedlastinger
+
+<br />
+
+--
+
+* Nettlesere har en maksgrense på antall parallelle nedlastinger fra samme domene 
+
+--
+
+* Vurder derfor CDN eller egne subdomener for statisk innhold 
+
+???
+
+- CDN: Content delivery network
+- CDN (eks gfx.dagbladet.no, politicss.no, politijs.no), men helst ikke over 4 pga flere DNS-oppslag også koster
+
+---
+
+# Ytelse i nettleseren - JavaScript
+
+<br />
+
+--
+
+* Operer minst mulig på DOM!
+
+--
+
+      $('<div />').appendTo(someElement).doSomeManipulation();
+
+  er mye dyrere enn 
+
+--
+
+        $('<div />').doSomeManipulation().appendTo(someElement);
+
+---
+
+# Ytelse i nettleseren - JavaScript
+
+<br />
+
+* Innlasting av script blokkerer alt annet
+
+--
+
+* Bruk namespacing og scoping
+
+--
+
+* Hente enkeltkomponenter med AJAX?
+
+???
+
+Innlasting: Putt derfor _alltid_ script-taggene i bunn av siden. Og: Bruk ekstern javascript, pga caching. 
+
+Namespacing: Færre ting for nettleseren å holde styr på, samt lettere å gjøre optimiseringer hvis man går for packing/obfuscating
+
+AJAX: Typisk for one-pagere. Ajax bør dog caches. 
+
+
+---
+
+# Ytelse i nettleseren - CSS
+
+<br />
+
+--
+
+* Last CSS i toppen. Nettlesere gir ofte blank side frem til CSS er ferdig lastet. Gir en opplevelse av at siden er raskere. 
+
+--
+
+* Unngå generelle selectorer hvis mulig:
+
+--
+
+        body #nav a { text-decoration: underline }
+
+--
+
+  er dyrere enn
+
+--
+
+        .nav-link { text-decoration: underline }
+
+--
+
+* ID er raskest, men ikke spesielt mye raskere enn class.
+
+???
+
+- Ellers: Unngå inline CSS, da ekstern CSS vil bli cachet
+- Unngå såkalte CSS expressions, altså JS i CSS
+- Minifiser CSS
+- Prøv å skrive gjenbrukbar CSS, for å redusere filstørrelsen
+
+---
+
+class: middle center
+
+#?!
+
+    </textarea>
+    <script src="../remark/remark-0.5.3.min.js" type="text/javascript"></script>
+    <script type="text/javascript">
+      var hljs = remark.highlighter.engine;
+    </script>s
+    <script src="../remark/jquery.min.js" type="text/javascript"></script>
+    <script type="text/javascript">
+      var slideshow = remark.create({
+          highlightStyle: 'solarized_light',
+          highlightLanguage: 'remark'
+        }) ;
+      var a = [];
+      slideshow.addListener("slidein",function(b,c){if(a.indexOf(c)>-1)return;var d=$(b);d.find("p:empty").remove(),d.find(".front-page").length===0&&d.find("h1").wrapInner("<span>"),d.find(".pushed img").parent().wrapInner("<span class='img'>"),a.push(c)})
+    </script>
+  </body>
+</html>

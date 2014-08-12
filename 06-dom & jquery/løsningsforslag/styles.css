@@ -1,0 +1,352 @@
+@import url(http://fonts.googleapis.com/css?family=Port+Lligat+Slab);
+
+/* Oppgave 1: Gi riktig utseende til teksten "En alpinist gjenopplivde en sebra..."  */
+
+.intro-title {
+    text-align: center;
+    font-family: 'Port Lligat Slab', Georgia, serif;
+    font-weight: normal;
+    font-size: 2.3em;
+    padding: 1.5em 0;
+    margin: 0;
+    color: #2c2c2c;
+}
+
+.intro-title a {
+    color: #ff503b;
+    text-decoration: none;
+    border-bottom: 1px dotted; 
+}
+
+/* 2: Style typografien under "Våre tjenester" */
+
+/* "Dette gjør vi"-seksjonen */
+
+.service-item {
+    float: left;
+    width: 25%;
+    padding: 10px;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    height: 160px; 
+}
+
+.service-item p {
+    line-height: 1.5;
+}
+
+.service-title {
+    font-family: 'Port Lligat Slab', Georgia, serif;
+    font-weight: normal;
+    font-size: 1.5em;
+    color: #2c2c2c;
+    margin: 0;
+}
+
+/* 3) Gi riktig utseende til selve siden */
+
+/* Generell oppstramming */
+
+.container {
+    width: 960px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.page {
+    background: url('../../mockup/grafikk/grid_noise.png');
+    -webkit-box-shadow: 0 0 .6em rgba(0, 0, 0, 0.5);
+    -moz-box-shadow: 0 0 .6em rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 .6em rgba(0, 0, 0, 0.5);    
+}
+
+.logo {
+    float: left;
+    margin-left: 40px;
+}
+
+#global-search {
+    float: right;
+}
+
+#search-submit {
+    display: none;
+}
+
+.intro-title {
+    text-align:         center;
+}
+
+/* 4) Gi riktig utseende til innholdet i article-taggene under "Selvskryt" */
+
+/* Aktuelt-seksjonen */
+
+.news-items {
+    padding: 0 50px;
+    position: relative;
+}
+
+.news-item {
+    float: left;
+    text-align: center;
+    width: 33.33333333333333%;
+    padding-left: 30px; 
+    padding-right: 30px;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;     
+}
+
+.news-item-image {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.news-item-title {
+    padding: 0;
+    margin: 0;
+}
+
+.news-item-title a, .news-item-title a:visited, .news-item-title a:link {
+    color: #fff;
+    text-decoration: none;
+    display: block;
+    padding: .5em 0;
+    background: #2c2c2c;
+    font-size: .8em;
+}
+
+/* BEKK Open-seksjonen */
+
+.blog-section {
+    padding-left: 1em;
+    padding-right: 1em; 
+}
+
+.blog-item {
+    float: left; 
+    padding-left: .75em;
+    padding-right: .75em;
+    width: 33.33333333333333%; 
+    -moz-box-sizing: border-box;
+    box-sizing: border-box; 
+}
+
+.blog-item-image {
+    width: 100%;
+    height: auto; 
+    border: 7px solid #ccc;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box; 
+    margin-bottom: 1em;
+}
+
+.blog-item-title {
+    font-size: 1.1em;
+    margin: 0;
+}
+
+.blog-item-title a {
+    color: #000;
+}
+
+/* 5) Gi riktig utseende til seksjonsheadingene */
+
+/* Seksjonsheadere */
+
+.section-header {
+    text-align: center;
+    position: relative;
+    margin-bottom: 1em;
+}
+
+.section-title {
+    display: inline-block;
+    padding: .5em 1em;
+    background: #2c2c2c;
+    color: #fff;
+    height: 1em;
+    line-height: 1em;
+    font-size: 1em;
+    text-transform: uppercase;
+    font-family: Arial, Helvetica;
+    -webkit-box-shadow: 0 0 .6em rgba(0, 0, 0, 0.5);
+    -moz-box-shadow: 0 0 .6em rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 .6em rgba(0, 0, 0, 0.5);
+}
+
+/* 6) Style menyknappene */
+
+/* Menyen; */
+
+.menu {
+    margin: 0;
+    padding: 0;
+    background: #2c2c2c;
+}
+
+.menu-element {
+    list-style: none;
+    float: left;
+    padding: 0;
+    font-size: 1.1em;
+}
+
+.menu-element a {
+    color: #fff;
+    padding: 1em 1.5em 1em 3em;
+    display: block;
+    background-color: #2c2c2c;
+    border-right: 1px solid rgba(0, 0, 0, 0.4);
+    border-left: 1px solid rgba(255, 255, 255, 0.2);
+    background-position: 1em center;
+    background-repeat: no-repeat;
+}
+
+.menu-element a:hover {
+    background-color: #000;
+}
+
+.menu-element.active a {
+    background-color: #ff503b;
+}
+
+.menu-element-home a {
+    background-image: url('../../mockup/grafikk/menu-icon/icon-home.png');
+    background-position: center center;
+    text-indent: -9999px;
+    width: .5em;    
+}
+
+.menu-element-clients a {
+    background-image: url('../../mockup/grafikk/menu-icon/icon-briefcase.png');
+}
+
+.menu-element-employees a {
+    background-image: url('../../mockup/grafikk/menu-icon/icon-person.png');
+}
+
+.menu-element-prices a {
+    background-image: url('../../mockup/grafikk/menu-icon/icon-pig.png');
+}
+
+.menu-element-faq a {
+    background-image: url('../../mockup/grafikk/menu-icon/icon-bulb.png');
+}
+
+.menu-element-features a {
+    background-image: url('../../mockup/grafikk/menu-icon/icon-gear.png');
+}
+
+.menu-element-blog a {
+    background-image: url('../../mockup/grafikk/menu-icon/icon-pencil.png');
+}
+
+.menu-element-contact a {
+    background-image: url('../../mockup/grafikk/menu-icon/icon-mail.png');
+}
+
+/* Seksjoner */
+
+.section {
+    margin-bottom: 2em;
+}
+
+.services-section {
+    padding-left: 1.5em;
+    padding-right: 1.5em; 
+}
+
+
+/* 7) Lag en transition i menyen */
+
+a:hover {
+-webkit-transition: all 500ms cubic-bezier(0.250, 0.250, 0.750, 0.750);
+   -moz-transition: all 500ms cubic-bezier(0.250, 0.250, 0.750, 0.750);
+    -ms-transition: all 500ms cubic-bezier(0.250, 0.250, 0.750, 0.750);
+     -o-transition: all 500ms cubic-bezier(0.250, 0.250, 0.750, 0.750);
+        transition: all 500ms cubic-bezier(0.250, 0.250, 0.750, 0.750); /* linear */    
+}
+
+/* 8) Gi riktig utseende til forrige/neste-knappene i bildegalleriet */
+/* Forrige/neste-knapper */
+.image-gallery {
+    position: relative;
+    border-bottom: 5px solid #ccc;
+}
+
+.image-gallery img {
+    margin: 0;
+    display: block;
+}
+
+.image-gallery-nav {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    margin: 0;
+    padding: 0;
+}
+
+.image-button {
+    list-style:  none;
+    float: left;
+    margin: 0;
+    padding: 0;
+}
+
+.image-button a {
+    display: block;
+    background-color: #2c2c2c;
+    text-indent: -9999px;
+    width: 2em;
+    height: 2em;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+.image-button a:hover {
+    background-color: #111;
+}
+
+.image-button-next {
+    background-image: url('../../mockup/grafikk/sliders/arrow-right.png');
+}
+
+.image-button-prev {
+    background-image: url('../../mockup/grafikk/sliders/arrow-left.png');
+}
+
+/* Footer-seksjonen */
+
+.footer {
+    background: #2c2c2c;
+    padding-left: .5em;
+    padding-right: .5em;
+}
+
+.footer-item {
+    float: left;
+    width: 33.33333333333333%;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding-left: .75em;
+    padding-right: .75em;
+    color: #fff;    
+}
+
+.footer-item h3 {
+    border-bottom: 1px solid #fff;
+    padding-bottom: .5em;
+}
+
+.project-image {
+    width: 22.7%;
+    margin: 0 .5em .5em 0;
+    float: left;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    height: auto;
+    border: 5px solid #222;
+}
+

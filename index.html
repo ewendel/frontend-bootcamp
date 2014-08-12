@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>Kurs i frontendutvikling</title>
+    <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300italic,400|Dosis:300,400|Source+Code+Pro:200,300,400,400bold' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="remark/kimjoe.css">
+    <style type="text/css" media="screen">
+
+      .jquery { background-color: #1E2837; }
+
+    </style>
+  </head>
+  <body>
+    <textarea id="source">
+
+class: yellow center
+
+# Kursoversikt
+
+###  <a href="01-html/html-presentasjon.html">01-html</a>
+###  <a href="02-cssintro/cssintro-presentasjon.html">02-cssintro</a>
+###  <a href="03-cssdesign/cssdesign-presentasjon.html">03-cssdesign</a>
+###  <a href="04-responsive/responsive-presentasjon.html">04-responsive</a>
+###  <a href="05-javascript intro/javascript-intro.html">05-javascript intro</a>
+###  <a href="06-dom & jquery/javascript-dom.html">06-dom & jquery</a>
+###  <a href="07-mer javascript/mer javascript.html">07-mer javascript</a>
+
+
+    </textarea>
+    <script src="http://gnab.github.com/remark/downloads/remark-0.5.3.min.js" type="text/javascript"></script>
+    <script type="text/javascript">
+      var hljs = remark.highlighter.engine;
+    </script>
+    <script src="js/remark.language.js" type="text/javascript"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+    <script type="text/javascript">
+      var slideshow = remark.create({
+          highlightStyle: 'tomorrow',
+          highlightLanguage: 'javascript'
+        }) ;
+      var a = [];
+      slideshow.addListener("slidein",function(b,c){if(a.indexOf(c)>-1)return;var d=$(b);d.find("p:empty").remove(),d.find(".front-page").length===0&&d.find("h1").wrapInner("<span>"),d.find(".pushed img").parent().wrapInner("<span class='img'>"),a.push(c)})
+    </script>
+  </body>
+</html>

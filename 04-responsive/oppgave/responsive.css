@@ -1,0 +1,19 @@
+/* Responsive
+    -------------------------------------------- */
+
+ .mobile-menu {
+    display:                none;
+    width:                  100%;
+ }
+
+ .mobile-menu a {
+    background-image: url('../../mockup/grafikk/menu-icon/icon-home.png');
+    background-position: 20px 13px;
+ }
+
+
+@media all and (max-width: 1900px) {
+    .selector {
+        color: pink;
+    }
+}

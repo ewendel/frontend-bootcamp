@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>Javascript i nettleseren - Kurs i Grensesnittsprogrammering</title>
+    <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300italic,400|Dosis:300,400|Source+Code+Pro:200,300,400,400bold' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="../remark/kimjoe.css">
+    <style type="text/css" media="screen">
+
+
+    </style>
+  </head>
+  <body>
+    <textarea id="source">
+
+class: fullscreen
+
+![code](https://raw.githubusercontent.com/ewendel/frontend--bilder/master/code.jpeg)
+
+<div class="overlay loud" style="text-align: center; top: 70%">
+<p>
+    JavaScript i nettleseren
+    <small style="display:block;">DOM og jQuery</small>
+</p>
+</div>
+
+---
+
+class: middle center
+
+# Historie
+
+---
+
+class: middle center
+
+Ok - så vi bruker javascript til å skape dynamisk oppførsel på nettsidene våre, og språket er fullt av black magic - men hvordan <em>gjør</em> vi det faktisk?
+
+---
+
+# Document Object Model
+
+    <!doctype html>
+    <html>
+     <head>
+      <meta charset="utf-8">
+      <title>All About Cats</title>
+      <style type="text/css">
+       h1 {
+         color: red;
+       }
+      #mainpicture {
+        border: 1px solid black;
+      }
+      .catname {
+        font-weight: bold;
+      }
+      </style>
+     </head>
+     <body>
+      <h1>CATS!</h1>
+      <img id="mainpicture" src="http://placekitten.com/200/300">
+      <p>So cute!</p>
+      <ul>
+       <li class="catname">Lizzie</li>
+       <li class="catname">Daemon</li>
+      </ul>
+     </body>
+    </html>
+
+---
+
+class: center
+
+# Document Object Model
+
+![dom-tree](https://raw.githubusercontent.com/ewendel/frontend--bilder/master/DOM.png)
+
+---
+
+# Document Object Model
+
+Javascript gir oss et rikt API mot DOM-en via [*document*](https://developer.mozilla.org/en/DOM/document)-objektet
+
+<br><br>
+
+Hvis HTML-en inneholder dette...
+
+    <img id="mainpicture" src="http://placekitten.com/200/300">
+
+... så kan vi aksessere den slik
+
+    var img = document.getElementById('mainpicture');
+
+---
+
+# DOM-aksess: etter elementnavn
+
+vi kan også aksessere noder etter elementnavn:
+
+    <li class="catname">Lizzie</li>
+    <li class="catname">Daemon</li>
+
+dette vil returnere en liste
+
+    var listItems = document.getElementsByTagName('li'); // array
+
+---
+
+# DOM-aksess: HTML5
+
+HTML5 åpner for flere nyttige aksessmetoder.
+
+Tilgjengelig in IE9+, FF3.6+, Chrome 17+, Safari 5+:
+
+    document.getElementsByClassName(className);
+
+    var catNames = document.getElementsByClassName('catname'); // array
+
+Tilgjengelig i IE8+, FF3.6+, Chrome 17+, Safari 5+:
+
+    document.querySelector(cssQuery); // returnerer første eller null
+
+    document.querySelectorAll(cssQuery); // alle
+    var catNames = document.querySelectorAll('ul li.catname'); // array
+
+---
+
+# DOM: Attributter
+
+Vi kan endre attributter hos DOM-noder med dot-notasjon.
+
+    <img id="mainpicture" src="http://placekitten.com/200/300">
+
+Endre "src"-attributten:
+
+    var img = document.getElementById('mainpicture');
+    img.src = 'http://placekitten.com/100/500';
+
+Alternativt:
+
+    img.setAttribute('src', 'http://placekitten.com/100/500');
+
+Sette css-klasser:
+
+    var oldClasses = img.className;
+    img.className = oldClasses + " picture";
+
+---
+
+# DOM: Styling
+
+Endring av stilregler på DOM-noder:
+
+    body {
+      color: red;
+    }
+
+    var pageNode = document.getElementsByTagName('body')[0];
+    pageNode.style.color = 'red';
+
+Noen regler:
+
+1) CSS-egenskaper med bindestrek må camelcases<br>
+2) CSS-egenskaper med tallverdier må ha en enhet
+
+    body {
+      background-color: pink;
+      padding-top: 10px;
+    }
+    pageNode.style.backgroundColor = 'pink';
+    pageNode.style.paddingTop = '10px';
+
+---
+
+# DOM: innerHTML
+
+Alle DOM-noder har et innerHTML-felt med all HTML for alle sine barneelementer
+
+    var pageNode = document.getElementsByTagName('body')[0];
+
+HTML kan skrives ut slik:
+
+    console.log(pageNode.innerHTML);
+
+Ved å endre innerHTML direkte kan man endre innholdet til en node:
+
+    pageNode.innerHTML = "<h1>Oh Noes!</h1> <p>I just changed the whole page!</p>"
+
+Man kan også legge til innerHTML i stedet for å overskrive:
+
+    pageNode.innerHTML += "...just adding this bit at the end of the page.";
+
+---
+
+# DOM: Modifisering
+
+[*document*](https://developer.mozilla.org/en/DOM/document)-objektet tilbyr også en del andre metoder for opprette DOM-noder fra scratch:
+
+    document.createElement(tagName);
+    document.createTextNode(text);
+    document.appendChild();
+
+    var pageNode = document.getElementsByTagName('body')[0];
+
+    var newImg = document.createElement('img');
+    newImg.src = 'http://placekitten.com/400/300';
+    newImg.style.border = '1px solid black';
+    pageNode.appendChild(newImg);
+
+    var newParagraph = document.createElement('p');
+    var paragraphText = document.createTextNode('Squee!');
+    newParagraph.appendChild(paragraphText);
+    pageNode.appendChild(newParagraph);
+
+---
+
+class: middle center
+
+![devtools](https://raw.githubusercontent.com/ewendel/frontend--bilder/master/devtools.jpg)
+
+---
+
+class: yellow
+
+# Oppgave: The Logo Hijack
+
+No homepage is safe from the logo bandit!
+
+Open www.google.com in Chrome and open up the console.<br><br>
+Find the Google logo and store it in a variable.<br><br>
+Modify the source of the logo IMG so that it's a Yahoo logo instead.<br><br>
+Find the Google search button and store it in a variable.<br><br>
+Modify the text of the button so that it says "Yahooo!" instead.
+
+---
+
+class: middle center
+
+# Brukerinput
+
+For å utføre js-kode ved andre tidspunkt enn sidelast, må vi lytte på input fra bruker
+
+---
+
+# Lytte på brukerinput
+
+    var headers = document.getElementsByTagName("h1");
+    var header = headers[0];
+
+    header.addEventListener("click", function() {
+        header.textContent = header.textContent + "!";
+    });
+
+[http://jsbin.com/uqawuq/1/edit](http://jsbin.com/uqawuq/1/edit)
+
+Vi kan blant annet lytte på:
+
+* dblclick
+* keyup
+* mousedown
+* resize
+* scroll
+* touchstart
+
+---
+
+# window
+
+JS tilbyr et objekt [window](https://developer.mozilla.org/en-US/docs/Web/API/Window?redirectlocale=en-US&redirectslug=DOM%2Fwindow) med mange nyttige tjenester
+
+    window.location.href;
+
+    window.navigator.userAgent;
+
+    window.scrollTo(10, 50);
+
+    window.alert("Hello world!");
+
+window er også (som regel) det globale objektet:
+
+    window.alert("Hi!");
+    alert("Hi");    // same same
+    this.alert("Hi!") // but different
+
+---
+
+# Tidsstyring
+
+For å kalle en funksjon etter en delay:
+
+    window.setTimeout(callbackFunction, delayMilliseconds);
+
+For å kalle en funksjon gjentatte ganger hvert X-te ms:
+
+    window.setInterval(callbackFunction, delayMilliseconds);
+
+Eksempel:
+
+    function makeImageBigger() {
+      var img = document.getElementsByTagName('img')[0];
+      img.setAttribute('width', img.width+10);
+    }
+    window.setInterval(makeImageBigger, 1000);
+
+---
+
+# Tidsstyring
+
+setInterval og setTimeout returnerer en referanse som kan brukes til å stoppe utføringen:
+
+
+    var delayedAction = setTimeout(callback, delay);
+    var repeatingAction = setInterval(callback, interval);
+
+    window.clearTimeout(delayedAction);
+    window.clearInterval(repeatingAction);
+
+---
+
+# Tidsstyring
+
+
+    var img = document.getElementsByTagName('img')[0];
+    img.style.opacity = 1.0;
+    function fadeAway() {
+
+      img.style.opacity = img.style.opacity - .1;
+      if (img.style.opacity < .5) {
+        window.clearInterval(fadeTimer);
+      }
+    }
+    var fadeTimer = window.setInterval(fadeAway, 100);
+---
+
+class: middle center red
+
+![browsers](https://raw.githubusercontent.com/ewendel/frontend--bilder/master/browsers.png)
+
+---
+
+class: middle center
+
+![jQuery](https://raw.githubusercontent.com/ewendel/frontend--bilder/master/jQuery-logo.png)
+
+# 65%+ / 10,000
+
+???
+
+- abstraherer bort nettleserforskjeller i DOM-APIet
+- har et enda enklere og mer konsistent API enn DOM-en
+- tilbyr en bråte med plugins
+- "write less, do more"
+
+---
+
+class: middle center
+
+    jQuery *wrapper* vanlige DOM-elementer
+
+
+---
+
+# jQuery
+
+Selektere elementer
+
+
+
+    // JS
+    document.getElementsByTagName('h1');
+    document.getElementsByClassName('container');
+    document.getElementsById('main-button');
+    document.querySelectorAll('.container .link a')
+
+
+    // jQuery
+    $('h1') // element
+    $('.container') // class
+    $('#main-button') // id
+    $('.container .link a') // css-style
+
+---
+
+# jQuery
+
+Endre tekst
+
+
+    // JS
+    var headings = document.getElementsByTagName("h1");
+    for(i = 0; i < headings.length; i++) {
+        headings[i].textContent = "Ny tittel!";
+    }
+
+    // jQuery
+    $("h1").text("Ny tittel!")
+
+---
+
+# jQuery
+
+Lytte på klikk
+
+
+    // JS
+    var headings = document.getElementsByTagName("h1");
+    for(i = 0; i < headings.length; i++) {
+        headings[i].addEventListener("click", function() {
+            header.textContent = header.textContent + "!";
+        });
+    }
+
+    // jQuery
+    $("h1").click(function(e) {
+      $(this).text(header.text() + "!");
+    });
+
+---
+
+# jQuery
+
+Endre CSS
+
+
+    // Javascript
+    var technologies = document.getElementsByClassName("technologies");
+    for(i = 0; i < technologies.length; i++) {
+        technologies[i].style.color = "red";
+    }
+
+    // jQuery
+    $(".technologies").css("color", "red");
+---
+
+# jQuery
+
+Vi kan også opprette noder som ikke finnes i DOM-en
+
+
+    var newNode = $('<p class="intro">Lorem ipsum</p>')
+
+Denne noden finnes kun i nettleserens minne og ikke i DOM. For å legge den til må vi gjøre f.eks dette:
+
+
+    $('body').append('newNode');
+
+---
+
+class: middle center
+
+![devtools](https://raw.githubusercontent.com/ewendel/frontend--bilder/master/devtools.jpg)
+
+---
+
+# jQuery Method Chaining
+
+
+    $('<p class="intro">Lorem ipsum</p>').appendTo('body').hide().fadeIn();
+
+Ethvert kall til $ returnerer et nytt jQuery-objekt, som muliggjør å koble sammen kallene i en kjede
+
+---
+
+# jQuery Cheat Sheet
+
+
+    var element = $(selektor); // lagre referanse til DOM-element
+    $(selektor).next(); // hente neste element i DOM-treet
+    $(selektor).is('type'); // returnerer true om elementer er av gitt type
+    $(selektor).parent(); // returnerer forelderen til elementet
+    $(selektor).find(selektor); // utfører søk innenfor elementets barn
+    $(selektor).addClass('myClass'); // legge til klasse
+    $(selektor).removeClass('myClass'); // fjerne klasse
+    $(selektor).toggleClass('myClass'); // toggle
+    $(selektor).show(); // vise element
+    $(selektor).hide(); // skjule element
+    $(selektor).toggle(); // vise/skjule element
+    $(selektor).fadeIn(); // vise med delay
+    $(selektor).fadeOut(); // skjule med delay
+
+.center[[Les mer om jQuery API-et her](http://api.jquery.com/)]
+
+---
+
+# jQuery Cheat Sheet 2
+
+    setTimeout(myFunction, delay); //kaller myFunction() hvert &lt;delay&gt; ms
+    $(selektor).remove();   // fjerner elementet fra DOM-en
+    $(selektor).append(element); // legger til i DOM-en
+    $(selektor).on("click", function() { doSomething() }); // Lytte til events
+    $(selektor).height(); // Finne høyden på element
+    $(selektor).width(); // Finne bredden på element
+
+    $(document).ready(function() { // Kjøre kode når siden er ferdig lastet
+        myAwesomeFunction();
+    });
+
+
+    console.log("Hello World!"); // Skrive til konsollet
+
+.center[[Les mer om jQuery API-et her](http://api.jquery.com/)]
+---
+
+class: yellow
+
+# Først litt oppvarming
+
+1. Fjern handlelisten: http://jsbin.com/oketic/5/edit
+2. Legg til .checked: http://jsbin.com/ijodut/1/edit
+3. Legg til .checked på noen: http://jsbin.com/apahoq/6/edit
+4. Fjern .checked fra bananer: http://jsbin.com/ahozeb/2/edit
+5. Legg til .checked på 1-5 med 1 sekunds mellomrom: http://jsbin.com/akacaj/2/edit
+6. Fade ut notatet om kvittering m.m: http://jsbin.com/abewac/5/edit
+7.
+
+
+---
+
+class: yellow
+
+# Oppgave
+
+  ## Bruk alt du har lært til nå til å lage et slide-show
+
+  ## 05-javascript/del2/oppgave/
+
+  Se neste slide for detaljert anvisning!
+
+  Dette løses ved å ha mange img-elementer liggende i DOM-en og kun ha ett av disse synlig om gangen. Ved å vise dem i rekkefølge med en timer får vi en slideshow-effekt.
+
+---
+
+class: yellow
+
+# Oppgave
+
+  ## 1) Lag et bildegalleri, explained
+
+  ## 05-javascript/del2/oppgave/
+
+  * Lag en funksjon som kaller seg selv hvert 5. sekund vha setTimeout
+  * Finn bildet som er synlig for øyeblikket og lagre en referanse til det
+  * Finn det neste bildet i rekken
+  * Skjul det forrige og vis det nye
+  * Hvis det ikke finnes flere bilder, gå tilbake til det første (bruk :first)
+  * Bruk fadeIn() for å vise
+
+---
+
+class: yellow
+
+# Oppgave
+
+  ## 2) Hvis tid: bytte bilde ved hjelp av knappene
+
+  * Lag metoder for å bytte til neste/forrige bilde umiddelbart
+  * Reset timer vha clearTimeout
+  * Kall metodene dine ved 'click'-events på knappene
+  * Restart timeren
+  * WIN!
+
+---
+
+class: middle center yellow
+
+# <a href="../07-mer javascript/mer javascript.html">Neste del</a>
+
+    </textarea>
+    <script src="http://gnab.github.com/remark/downloads/remark-0.5.3.min.js" type="text/javascript"></script>
+    <script type="text/javascript">
+      var hljs = remark.highlighter.engine;
+    </script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+    <script type="text/javascript">
+      var slideshow = remark.create({
+          highlightStyle: 'tomorrow',
+          highlightLanguage: 'javascript'
+        }) ;
+      var a = [];
+      slideshow.addListener("slidein",function(b,c){if(a.indexOf(c)>-1)return;var d=$(b);d.find("p:empty").remove(),d.find(".front-page").length===0&&d.find("h1").wrapInner("<span>"),d.find(".pushed img").parent().wrapInner("<span class='img'>"),a.push(c)})
+    </script>
+  </body>
+</html>

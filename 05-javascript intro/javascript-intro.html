@@ -1,0 +1,938 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>Introduksjon til JavaScript - Kurs i grensesnittsprogrammering</title>
+    <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300italic,400|Dosis:300,400|Source+Code+Pro:200,300,400,400bold' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="../remark/kimjoe.css">
+    <style type="text/css" media="screen">
+
+      .jquery { background-color: #1E2837; }
+
+    </style>
+  </head>
+  <body>
+    <textarea id="source">
+
+class: fullscreen
+
+![code](https://raw.githubusercontent.com/ewendel/frontend--bilder/master/code.jpeg)
+
+<div class="overlay loud" style="text-align: center; top: 70%">
+<p>
+    JavaScript
+    <small style="display:block;">En introduksjon til språket</small>
+</p>
+</div>
+
+---
+
+class: middle center
+
+HTML beskriver hva innholdet er.
+
+CSS beskriver hvordan innholdet ser ut.
+
+Men hva hvis vi trenger dynamisk oppførsel?
+
+???
+
+For å ta en kort recap: 
+
+( les opp )
+
+
+---
+
+class: center
+
+![Javascript](https://raw.githubusercontent.com/ewendel/frontend--bilder/master/javascript.png)
+
+???
+
+Det er her JS kommer inn.
+Weben har gått fra å levere statiske dokumenter til å bli verdens største, distribuerte applikasjonsplattform.
+Det merkes.
+JS er ikke egentlig laget for å skrive svære apps, men med tiden har man fått crowbaret til inn på en sjarmerende måte.
+
+For å ta litt historie:
+JS ble skrevet av Brendan Eich da han jobbet for Netscape (som laget NN) i 1995.
+På ti dager. Hvorfor? Fordi de sloss mot IE, som hadde sitt eget VBscript og senere JScript, som var en kopi av JavaScript.
+
+JS var for viktig til å legge dets utviklings i hendene til to rivaliserende teknologiselskapet, så de sendte inn JS til et selskap som drev med standarder og het ECMA. Dermed var ECMAScript født, som er standarden dagens JavaScript-implementasjone er basert på.
+Som med HTML-tags, HTML5 features og CSS-properties er man avhengig av at nettleserne selv implementerer og støtter standerden, slik at også her finnes plenty forskjeller mellom nettleserne.
+
+---
+
+class: fullscreen
+
+![Google instant search](https://raw.githubusercontent.com/ewendel/frontend--bilder/master/google.png)
+
+---
+
+class: fullscreen
+
+![Google Maps](https://raw.githubusercontent.com/ewendel/frontend--bilder/master/googlemaps.png)
+
+---
+
+class: middle center
+
+#[Car visualization with Three.js](http://www.carvisualizer.plus360degrees.com/threejs/)
+
+---
+
+class: middle center
+
+#[BananaBread](https://developer.mozilla.org/en-US/demos/detail/bananabread)
+
+---
+
+class: middle center
+
+JavaScript er et programmeringspråk
+
+---
+
+class: middle center
+
+ ... men det har ingenting med Java å gjøre.
+
+---
+
+# JavaScript vs. Java
+
+* Dynamisk språk vs. kompilert språk
+* Dynamisk typing vs. statisk typing
+* Prototypebasert arv vs. klassebasert arv
+
+---
+
+class: middle center
+
+# La oss ta en rask introduksjon
+
+???
+
+Okei, nok bakgrunnspreik. Det vi skal gjøre nå er å ha en teknisk og syntaxmessig gjennom av JavaScript.
+Dette er delt opp i bolker, og på slutten av hver bolk vil det være praktiske oppgaver.
+
+Dersom noen aldri har vært noe borti JS fra før, og kanskje heller ikke andre dynamiske språk, kan dette være serious brainfuck.
+SPØR OM HJELP DERSOM NOE ER VANSKELIG! Serr!
+
+---
+
+# Variabler, objekter og datatyper
+
+Variabler er typeløse i JS
+
+    var errorText = 'Det har oppstått en feil'; // String
+    var successText = "Hurra! Alt gikk bra."; // også String
+
+    var loggedIn = true; // Boolean
+
+    var authLevel = 2; Number (int)
+
+    var interestRate = 2.5; // Number (flyttall)
+
+    interestRate = false; // endre type
+
+    var serviceList = []; // array
+
+---
+
+# Typer
+
+Vi kan bruke **typeof**-operatoren for å sjekke type.
+
+    typeof {};          // 'object'
+
+--
+    typeof [];          // 'object'     WTF?
+
+--
+    typeof 1;           // 'number'
+
+--
+    typeof '';          // 'string'
+
+--
+    typeof true;        // 'boolean'
+
+--
+    typeof false;       // 'boolean'
+
+--
+    typeof minVar       // 'undefined'
+
+--
+
+    typeof null;        // 'object'     WTF?
+
+---
+
+# Variabler, objekter og datatyper
+
+En samling av "key-value"
+
+    var obj = {
+      key1: 'value1',
+      key2: 13
+    };
+
+    obj.key1;         // 'value1'
+    obj['key2'];      // 13
+    obj.key3;         // undefined
+
+    delete obj.key1;
+    obj.key1;         // undefined
+
+???
+
+I Java måtte man typisk først ha laget en klasse og definert at objekter av denne typen vil ha disse feltene. 
+I JS kan man bare slenge på og ta bort felter som man ønsker, runtime.
+
+Dette gjør det lett å referere til felter som ikke finnes og dermed skape trøbbel.
+
+---
+
+# Variabler, objekter og datatyper
+
+Value kan være hva som helst.
+
+    var obj = {
+        nestedObj: {
+            nestedProperty: 'en feit streng'
+        },
+        log: function() {
+            console.log('Hello World!');
+        }
+    };
+
+    obj.log(); // Kaller på metoden
+    obj.nestedObj.nestedProperty // Nøster oss nedover
+
+---
+
+# Variabler, objekter og datatyper
+
+Nesten alt er objekter i JavaScript
+
+    var navn = "Erik Wendel";
+    typeof navn; // "string"
+
+--
+
+    /* Strengen har metoder og attributter */
+    navn.length; // 14
+    navn.substr(0, 5); // Erik
+    navn.split(" "); // ["Erik", "Wendel"]
+    navn.replace("Wendel", "Solbakken"); // Erik Solbakken
+
+---
+
+# Variabler, objekter og datatyper
+
+Nesten alt er objekter i JavaScript
+
+    var frukter = ["eple", "banan"];
+    typeof frukter; // "object" (!!)
+
+--
+
+    /* Arrayet har metoder og attributter */
+    frukter.length; // 2
+    frukter.push("drue"); // ["eple", "banan", "drue"];
+    frukter.pop(); // ["eple"];
+
+---
+
+# Variabler, objekter og datatyper
+
+## Arrays vs. objekter
+
+En samling av indekserte properties.
+
+    var arr = [1, "two", 3];
+
+--
+
+    arr.push(4);
+
+--
+
+    arr[1];         // "two"
+    arr[3] = 4;
+    arr.length;     // 4    
+
+---
+
+# Variabler, objekter og datatyper
+
+## Arrays vs. objekter
+
+Array er ikke "ekte" arrays:
+
+
+    var obj = [1, 2, 3];
+    obj.speed = 5;      // Høh?
+
+--
+
+    obj[1];             // 2
+    obj.speed           // 5
+
+--
+
+    obj.length;         // 3
+    obj[80] = true
+    obj.length          // 81 ... høh?
+
+---
+
+# Arrays vs. objekter
+
+*for (... in ...)* løper igjennom alle property'ene i et objekt
+
+    var obj = [1, 2, 3];
+    obj.speed = 5;
+
+--
+
+    var i;
+    for (i = 0; i < obj.length; ++i) {
+      obj[i];  // 1, 2, 3
+    }
+
+--
+
+    var key;
+    for (key in obj) {
+      obj[key];  // 1, 2, 3, 5
+    }
+
+---
+
+class: yellow
+
+# Oppgaver
+
+## Prøv å få testene til å bli grønne
+
+1. Mr. Setter: http://jsbin.com/hojez/1/edit
+2. Populate array: http://jsbin.com/vusan/2/edit
+3. Object property types: http://jsbin.com/muqof/2/edit
+4. Array iteration: http://jsbin.com/tuguv/4/edit
+5. doubleMe: http://jsbin.com/yutep/4/edit
+
+---
+
+class: middle center
+
+# Funksjoner
+
+---
+
+# Funksjoner
+
+## En rask intro:
+
+    function () {}
+
+    function add (a, b) {
+      return a + b;
+    }
+--
+    var multiply = function (a, b) {
+      return a * b;
+    }
+--
+    var recur = function (num) {
+      if (num === 0) { return num; }
+      return recur(num - 1);
+    }
+
+---
+
+# Funksjoner
+
+## Arguments
+
+Alle funksjoner har tilgang til _arguments_:
+
+    function countArguments () {
+      return arguments.length;
+    }
+
+    countArguments();              // 0
+    countArguments('one');         // 1
+    countArguments('one', 'two');  // 2
+
+---
+
+# Funksjoner
+
+## Høyereordens funksjoner.
+
+Funksjoner som returnerer andre funksjoner:
+
+    function createFunction () {
+      return function (name) {
+        console.log("Hello, " + name);
+      };
+    }
+    
+--
+    var sayHello = createFunction();
+    sayHello("World");  // "Hello World"
+
+---
+
+# Funksjoner
+
+## Førsteklasses objekter
+
+Funksjoner kan sendes rundt:
+
+    function doSomething(arr, callback) {
+        for(i = 0; i < arr.length; i++) {
+            // do something cool 
+        }
+        callback(); 
+    }
+    
+    var myCallback = function() {
+        console.log("Ferdig!")
+    }
+    doSomething([1,2], myCallback);
+
+---
+
+# Funksjoner
+
+## Scope
+
+JavaScript har *funksjonscope* - ikke blokkscope
+
+    function () {
+      i;  // undefined    WTF?
+
+      for (var i = 0; i < 10; i++) {
+
+      }
+
+      i;  // 10
+    }   
+
+---
+
+# Funksjoner
+
+## Scope
+
+Deklarer variabler på toppen av en funksjon!
+
+    function () {
+      var i;
+
+      for (i = 0; i < 10; i++) {
+
+      }
+
+      i;  // 10
+    } 
+
+---
+
+# Funksjoner
+
+## Scope
+
+Funksjoner har tilgang til alt i ytre skop
+
+    var a = 1;
+
+    function doSomething () {
+      a;  // 1
+
+      function doMore () {
+        a;  // 1
+      }
+    }       
+
+---
+
+# Funksjoner
+
+## Scope
+
+Men ikke motsatt
+
+    function doSomething () {
+      var b = 1;
+
+      function doMore () {
+        b;  // 1
+      }
+    }
+    doSomething();
+
+    b;  // ReferenceError
+
+---
+
+# Funksjoner
+
+## Skop
+
+Husk var - ellers blir variabelen global!
+
+    function doSomething () {
+      c = 1;
+
+      function doMore () {
+        c;  // 1
+      }
+    }
+    doSomething();
+
+    c;  // 1
+
+---
+
+# Funksjoner
+
+## Closure
+
+Funksjoner kan binde skop:
+
+    var counter = function () {
+      var i = 0;
+
+      return function () {
+        return i++;
+      };
+    };
+
+    var inc = counter();
+    inc();  // 0
+    inc();  // 1
+
+---
+
+# Funksjoner
+
+## Closure
+
+Funksjoner kan kalles umiddelbart:
+
+    var inc = function () {
+      var i = 0;
+
+      return function () {
+        return i++;
+      };
+    }();  // Note the trailing ()!
+
+    inc();  // 0
+    inc();  // 1
+
+---
+
+# Funksjoner
+
+## Closure
+
+Lag moduler med privat tilstand:
+
+    var lib = {};
+    lib.module = (function () {
+
+      var privateVariable;
+
+      var privateFunction = function () {};
+
+      return {
+        publicProperty: 1,
+        privilegedMethod: function (arg) {
+          // privateVariable = arg;
+        }
+      };
+
+    })();
+
+---
+
+# Funksjoner
+
+## Function Invocation
+
+Funksjoner som kalles direkte
+
+    var countArguments = function () {
+      // this === window
+
+      return arguments.length;
+    };
+
+    countArguments();  // 0
+
+---
+
+# Funksjoner
+
+## Constructor Invocation
+
+Når vi kaller en funksjon med nøkkelordet *new*, blir funksjonen en konstruktør:
+
+    function Person (name) {
+      // this === en instans av Person
+
+      this.name = name;
+    }
+
+    var bob = new Person('bob');
+    var ed = new Person('ed');
+
+    ed.name = 'fred';
+
+---
+
+# Funksjoner
+
+## Constructor Invocation
+
+Ooops!
+
+    function Person (name) {
+      this.name = name;
+    }
+
+    var bob = Person('bob');
+    var ed = new Person('ed');
+
+    window.name === 'bob'  // true    WTF?
+
+---
+
+class: yellow
+
+# Oppgaver
+
+Funksjoner
+
+1. Number of arguments: [jsbin.com/riveh/1/edit](http://jsbin.com/riveh/1/edit)
+2. Higher order functions: [jsbin.com/noxal/1/edit](http://jsbin.com/noxal/1/edit)
+3. Variables by reference: [jsbin.com/yataz/1/edit](http://jsbin.com/yataz/1/edit)
+4. Constructing objects: [jsbin.com/qihow/3/edit](http://jsbin.com/qihow/3/edit)
+5. Binding scope: [jsbin.com/toneq/5/edit](http://jsbin.com/toneq/5/edit)
+6. Scope: [jsbin.com/nujupa/2/edit](http://jsbin.com/nujupa/2/edit)
+
+---
+
+class: middle center
+
+# Arv
+
+---
+
+# Arv
+
+## Liten recap: 
+
+* Alt er objekter i javascript
+* Typer: function, number, boolean, string
+
+---
+
+# Arv
+
+## Liten recap: 
+
+* Alt er objekter i javascript
+* Typer: function, number, boolean, string
+* Har egenskaper som de **arver fra prototypen sin**
+
+---
+
+# Arv
+
+## Arver egenskaper fra prototypen sin: 
+  
+    var navn = "Erik";
+    navn.charAt(0); // "H"
+
+    // charAt() arves fra String.prototype
+
+---
+
+# Arv
+
+## Vi kan dermed utvide en prototype:
+
+For eksempel **String**: 
+
+    String.prototype.log = function () {
+        console.log("Logged string: " + String(this));
+    };
+
+    var navn = "Erik Wendel"
+    navn.log(); // "Logged string: Erik Wendel"
+
+---
+
+# Arv
+
+
+Eller **Array**
+
+    if (!Array.prototype.filter) {
+      Array.prototype.filter = function(filterFunction) {
+        
+      }
+    }
+
+---
+
+# Arv
+
+## Men ofte lager vi våre egne objekter
+
+Disse arver fra sin prototype
+
+...Og de arver fra Object.prototype
+
+---
+
+# Arv
+
+## Constructor Invocation
+
+Som vi vet: 
+
+    var Person = function(navn) {
+        this.navn = navn;
+    };
+
+---
+
+# Arv
+
+## Constructor Invocation
+
+Som vi vet: 
+
+    var Person = function(navn) {
+        this.navn = navn;
+    };
+
+    var erik = new Person("erik");
+    erik.navn // "erik"
+
+---
+
+class: middle center
+
+# Prototype Chain
+
+---
+
+# Arv
+
+    var Person = function (navn, stilling, firma) {
+        this.navn = navn;
+        this.stilling = stilling;
+        this.firma = firma;
+        this.hils = function() {
+            console.log("Hei, jeg heter " + this.navn);
+        };
+    };
+
+---
+
+# Arv 
+
+    var Person = function (navn, stilling, firma) {
+        this.navn = navn;
+        this.stilling = stilling;
+        this.firma = firma;
+        this.hils = function() {
+            console.log("Hei, jeg heter " + this.navn);
+        };
+    };
+
+    var pat = new Person("Pat", "postmann", "Posten");
+    var nils_arne = new Person("Nils Arne", "trener", "Rosenborg");
+
+---
+
+# Arv 
+
+    var Person = function (navn, stilling, firma) {
+        this.navn = navn;
+        this.stilling = stilling;
+        this.firma = firma;
+        this.hils = function() {
+            console.log("Hei, jeg heter " + this.navn);
+        };
+    };
+
+    var pat = new Person("Pat", "postmann", "Posten");
+    var nils_arne = new Person("Nils Arne", "trener", "Rosenborg");
+
+    pat.hils(); // "Hei, jeg heter Pat"
+
+---
+
+# Arv 
+
+    var Person = function (navn, stilling, firma) {
+        this.navn = navn;
+        this.stilling = stilling;
+        this.firma = firma;
+        /* this.hils = function() {
+            console.log("Hei, jeg heter " + this.navn);
+        }; */
+    };
+
+    var pat = new Person("Pat", "postmann", "Posten");
+    var nils_arne = new Person("Nils Arne", "trener", "Rosenborg");
+
+---
+
+# Arv 
+
+    var Person = function (navn, stilling, firma) {
+        this.navn = navn;
+        this.stilling = stilling;
+        this.firma = firma;
+    };
+
+    var pat = new Person("Pat", "postmann", "Posten");
+    var nils_arne = new Person("Nils Arne", "trener", "Rosenborg");
+
+---
+
+# Arv 
+
+    var Person = function (navn, stilling, firma) {
+        this.navn = navn;
+        this.stilling = stilling;
+        this.firma = firma;
+    };
+
+    var pat = new Person("Pat", "postmann", "Posten");
+    var nils_arne = new Person("Nils Arne", "trener", "Rosenborg");
+
+    Person.prototype.hils = function() {
+        console.log("Hei, jeg heter " + this.navn);
+    };
+
+---
+
+# Arv 
+
+    var Person = function (navn, stilling, firma) {
+        this.navn = navn;
+        this.stilling = stilling;
+        this.firma = firma;
+    };
+
+    var pat = new Person("Pat", "postmann", "Posten");
+    var nils_arne = new Person("Nils Arne", "trener", "Rosenborg");
+
+    Person.prototype.hils = function() {
+        console.log("Hei, jeg heter " + this.navn);
+    }
+
+    nils_arne.hils(); // "Hei, jeg heter Nils Arne"
+    pat.hils(); // "Hei, jeg heter Pat"
+
+---
+
+# Arv 
+
+    var Person = function (navn, stilling, firma) {
+        this.navn = navn;
+        this.stilling = stilling;
+        this.firma = firma;
+    };
+
+    var pat = new Person("Pat", "postmann", "Posten");
+    var nils_arne = new Person("Nils Arne", "trener", "Rosenborg");
+
+    Person.prototype.hils = function() {
+        console.log("Hei, jeg heter " + this.navn);
+    }
+
+    nils_arne.hils(); // "Hei, jeg heter Nils Arne"
+    pat.hils(); // "Hei, jeg heter Pat"
+
+    pat.katt = "Miss"; 
+
+---
+
+# Arv 
+
+    var Person = function (navn, stilling, firma) {
+        this.navn = navn;
+        this.stilling = stilling;
+        this.firma = firma;
+    };
+
+    var pat = new Person("Pat", "postmann", "Posten");
+    var nils_arne = new Person("Nils Arne", "trener", "Rosenborg");
+
+    Person.prototype.hils = function() {
+        console.log("Hei, jeg heter " + this.navn);
+    }
+
+    nils_arne.hils(); // "Hei, jeg heter Nils Arne"
+    pat.hils(); // "Hei, jeg heter Pat"
+
+    pat.katt = "Miss"; 
+
+    console.log(pat.katt); // "Miss"
+    console.log(per.katt); // undefined   
+
+---
+
+class: yellow
+
+# Oppgaver
+
+##Prototype
+
+1. http://jsbin.com/evaguq/3/edit
+2. http://jsbin.com/asupex/2/edit
+
+##Iterering
+
+1. Lag din egen "forEach"-funksjon: http://jsbin.com/utawod/2/edit
+2. Lag en "filter"-funksjon: http://jsbin.com/eqalol/3/edit
+3. Lag en "every"-funksjon: http://jsbin.com/uguhex/2/edit
+
+---
+
+class: middle center yellow
+
+  # <a href="../06-dom & jquery/javascript-dom.html">Neste del</a>
+
+
+    </textarea>
+    <script src="http://gnab.github.com/remark/downloads/remark-0.5.3.min.js" type="text/javascript"></script>
+    <script type="text/javascript">
+      var hljs = remark.highlighter.engine;
+    </script>
+    <script src="js/remark.language.js" type="text/javascript"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+    <script type="text/javascript">
+      var slideshow = remark.create({
+          highlightStyle: 'tomorrow',
+          highlightLanguage: 'javascript'
+        }) ;
+      var a = [];
+      slideshow.addListener("slidein",function(b,c){if(a.indexOf(c)>-1)return;var d=$(b);d.find("p:empty").remove(),d.find(".front-page").length===0&&d.find("h1").wrapInner("<span>"),d.find(".pushed img").parent().wrapInner("<span class='img'>"),a.push(c)})
+    </script>
+  </body>
+</html>
