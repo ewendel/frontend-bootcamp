@@ -103,13 +103,13 @@ class: middle center
 # CSS
 
 
-    #content {
+    .content {
         width: 960px;
         font-size: 12px;
         margin: 20px;
     }
 
-    #content {
+    .content {
         width: 100%;
         font-size: 0.75em; /* 12px/16px */
         margin: 0.02083333333%; /* 20px/960px */
@@ -142,12 +142,11 @@ class: middle center
 
 Default fontstørrelse
 
-    .css 
-        html {
-            font-size: 16px; /* eksplisitt verdi */
-            font-size: 100%; /* browser default */
-            font-size: 62.5%; /* 10px */
-        }
+    html {
+        font-size: 16px; /* eksplisitt verdi */
+        font-size: 100%; /* browser default */
+        font-size: 62.5%; /* 10px */
+    }
 
 ---
 
@@ -155,34 +154,32 @@ Default fontstørrelse
 
 context = størrelsen på forelderen til elementet
 
-.css
-    #parent {
+    .parent {
         width: 200px;
     }
-    #child-of-parent {
+    .child-of-parent {
         margin: 35px;
     }
 
 ---
 
-# Margins 2
+# Margins
 
 context = størrelsen på forelderen til elementet
 
-.css
-    #parent {
+    .parent {
         width: 200px;
     }
-    #child-of-parent {
+    .child-of-parent {
         margin: 35px;
     }
 
 
 
-    #parent {
+    .parent {
         width: 200px;
     }
-    #child-of-parent {
+    .child-of-parent {
         margin: 17.5%; /* 35px/200px */
     }
 
@@ -192,8 +189,7 @@ context = størrelsen på forelderen til elementet
 
 context = størrelsen på elementet selv
 
-.css
-    #site {
+    .site {
         width: 540px;
         padding: 20px;
     }
@@ -204,15 +200,14 @@ context = størrelsen på elementet selv
 
 context = størrelsen på elementet
 
-.css
-    #site {
+    .site {
         width: 540px;
         padding: 20px;
     }
 
 
 
-    #site {
+    .site {
         width: 540px;
         padding: 0.03703703703%; /* 20px/540px */
     }
@@ -279,40 +274,28 @@ class: middle center
 # Media queries
 
 
-&nbsp;
 
-    .css
-    /* <= 1000+x*/
-    @media screen and (max-width:1000px) {
-        #content {
-            width:960px;
-        }
+    <!-- CSS media query on a link element -->
+    <link rel="stylesheet" media="(max-width: 800px)" href="example.css" />
+
+    <!-- CSS media query within a stylesheet -->
+    <style>
+    @media (max-width: 600px) {
+      .sidebar {
+        display: none;
+      }
     }
-    /* <= 750 px */
-    @media screen and (max-width:750px) {
-        #content {
-            width:500px;
-        }
-    }
-    /* <= 480px px */
-    @media screen and (max-width:480px) {
-        #content {
-            width: 100%;
-        }
-    }
+    </style>
 
 ---
 
 # Retina
-
-    .css
     
 
-    /* opprinnelig kode */
     .logo {
-        background-image: url(images/logo.png) no-repeat;
+        background-image: url(images/logo.png);
     }
-    /* retinahåndterende kode */
+
     @media
     only screen and (min-device-pixel-ratio: 1.5) {
         .logo {
@@ -320,8 +303,6 @@ class: middle center
             background-size: 12px 16px;
         ￼￼} 
     }
-
-
 
 
 ---
@@ -348,7 +329,7 @@ class: orange
 
 ## Bruk media queries til å <a href="oppgave/design-desktop.jpg">responsifisere siden</a>
 
-## frontend-sommerstudenter/04-responsive/oppgave/
+## frontend-bootcamp/04-responsive/oppgave/
 
 ---
 
@@ -357,10 +338,8 @@ class: orange
 # Oppgave
   
   ## 1) Grunnleggende
-
-  Last ned en Chrome addon som viser størrelsen på browservinduet
   
-  Finn ut ved hvilken skjermstørrelse innholdet er like stort som vinduet
+  Avgjør ved hvilken skjermbredde innholdet er like stort som vinduet
   
   Sett bredden på container til å følge bredden til skjermen
   
