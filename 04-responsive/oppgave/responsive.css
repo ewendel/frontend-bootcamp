@@ -12,7 +12,7 @@
  }
 
 
-@media all and (max-width: 1900px) {
+@media (max-width: 1900px) {
     .selector {
         color: pink;
     }

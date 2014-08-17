@@ -18,7 +18,7 @@
 }
 
 
-@media all and (max-width: 1046px) {
+@media (max-width: 1046px) {
     .container {
         width:              auto;
     }
@@ -41,7 +41,7 @@
     }
 }
 
-@media all and (max-width: 875px) {
+@media (max-width: 875px) {
     .menu-element {
 		display: 			none;
 
@@ -52,13 +52,13 @@
 	}
 }
 
-@media all and (max-width: 750px) {
+@media (max-width: 750px) {
     #global-search {
 		display: 			none;
 	}
 }
 
-@media all and (max-width: 480px) {
+@media (max-width: 480px) {
 	.image-gallery-nav {
 		display: 			none;
 	}
