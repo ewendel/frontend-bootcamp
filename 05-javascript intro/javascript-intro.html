@@ -313,6 +313,58 @@ Array er ikke "ekte" arrays:
 
 ---
 
+# Truthy- and falsyness
+
+    false
+    null
+    undefined
+    0
+    '' // empty string
+    person.undefinedProperty
+
+---
+
+# Truthy- and falsyness
+
+    var person = { name: 'David' }
+
+    if (person.name) {
+        // Gjør ting hvis feltet finnes og ikke er falsy
+    }
+---
+
+# Equality
+
+    1 == 1 // -> true
+    1 == ‘1' // -> true
+    1 == 2 // -> false
+
+    // Now things get weird
+    '' == false // -> true
+    [] == false // -> true, [] not falsy though
+    null == undefined // -> true
+
+---
+
+# Equality
+
+    1 === 1 // -> true
+    1 === '1' // -> false
+    1 === parseInt('1') // -> true
+    [] === false // -> false
+    null === undefined // -> false
+
+---
+
+# Equality
+
+    var person = { name: 'David' };
+    var otherPerson = person;
+    person === { name: 'David' } // -> false, nyskapt objekt
+    person === otherPerson // -> true, same referanse
+
+---
+
 class: yellow
 
 # Oppgaver
