@@ -31,7 +31,7 @@
           .shadow-slide, .shadow-slide h1 span { background: #e0e0e0; }
           .shadow-slide h1 span { text-shadow:1px 1px 0 rgba(0,0,0,0.3); }
           .shadow-slide code { border: none; box-shadow: 8px 8px 5px 3px rgba(0,0,0,0.3); }
-
+          .shadow-slide-inset code { box-shadow: inset 0px 0px 16px 13px rgba(0,0,0,0.3); }
 
     </style>
   </head>
@@ -209,12 +209,6 @@ class: fullscreen
 class: fullscreen
 
 ![Eg1](https://raw.githubusercontent.com/ewendel/frontend--bilder/master/fonts3.png)
-
----
-
-class: fullscreen
-
-![Eg2](https://raw.githubusercontent.com/ewendel/frontend-bilder/master/img/fonts4.png)
 
 ---
 
@@ -417,13 +411,34 @@ class: shadow-slide
         text-shadow:1px 1px 1px rgba(0,0,0,0.1);
     }
 --
+
     /*
      * box-shadow: x y blur color;
      */
     .box1 {
         box-shadow:0 2px 3px rgba(0,0,0,0.2);
     }
---
+
+---
+
+class: shadow-slide shadow-slide-inset
+
+# Skygger
+
+    /*
+     * text-shadow: x y blur color;
+     */
+    p {
+        text-shadow:1px 1px 1px rgba(0,0,0,0.1);
+    }
+
+    /*
+     * box-shadow: x y blur color;
+     */
+    .box1 {
+        box-shadow:0 2px 3px rgba(0,0,0,0.2);
+    }
+
     /*
      * box-shadow: inset x y blur color;
      */
@@ -457,7 +472,7 @@ Sandkasse: http://jsbin.com/wokub/2/edit
      * Roter elementet 45 grader, i 2D.
      */
     .foo {
-        transform: rotateX(45deg);
+        transform: rotate(45deg);
     }
 
 ---
@@ -480,11 +495,11 @@ Sandkasse: http://jsbin.com/wokub/2/edit
      * Roter elementet 45 grader, i 2D.
      */
     .foo {
-        -webkit-transform: rotateX(45deg); /* webkit */
-        -moz-transform: rotateX(45deg);    /* firefox */
-        -ms-transform: rotateX(45deg);     /* IE */
-        -o-transform: rotateX(45deg);      /* Opera */
-        transform: rotateX(45deg);         /* W3C */
+        -webkit-transform: rotate(45deg); /* webkit */
+        -moz-transform: rotate(45deg);    /* firefox */
+        -ms-transform: rotate(45deg);     /* IE */
+        -o-transform: rotate(45deg);      /* Opera */
+        transform: rotate(45deg);         /* W3C */
     }
 
 ???
@@ -495,13 +510,38 @@ Man må i virkeligheten ha med vendor-prefix, pga nettleserkompabilitet
 
 class: middle center imgtranslate
 
-![Icomoon](https://raw.githubusercontent.com/ewendel/frontend--bilder/master/typekit.png)
+![typekit](https://raw.githubusercontent.com/ewendel/frontend--bilder/master/typekit.png)
+
+    img { transform: scale(0.5,0.5) rotate(45deg) }
+
+<style>
+  img[alt=typekit] { -webkit-transform: scale(0.5,0.5) rotate(45deg) }
+</style>
+
+---
+
+class: middle center imgtranslate
+
+![typekit2](https://raw.githubusercontent.com/ewendel/frontend--bilder/master/typekit.png)
 
     img { transform: perspective(600px) rotateY(20deg) scale(0.8) translateX(60px); }
 
 <style>
-  img[alt=Icomoon] { -webkit-transform: perspective(600px) rotateY(20deg) scale(0.8) translateX(60px); }
+  img[alt=typekit2] { -webkit-transform: perspective(600px) rotateY(20deg) scale(0.8) translateX(60px); }
 </style>
+---
+
+class: middle center imgtranslate
+
+![typekit3](https://raw.githubusercontent.com/ewendel/frontend--bilder/master/typekit.png)
+
+    img { transform: matrix(-1.414,-0.2,-0.8,0.586,39,32); }
+    transform: rotate(15deg) translateX(230px)  scale(1.5, 2.6) skew(220deg, -150deg) translateX(230px)
+
+<style>
+  img[alt=typekit3] { -webkit-transform: matrix(-1.414,-0.2,-0.8,0.586,39,32); }
+</style>
+
 ---
 
 class: fullscreen caniuse
@@ -605,28 +645,139 @@ Demo: http://jsbin.com/cayotu/1/edit
         transition: color 100ms ease-in-out;
     }
 
+---
+
+class: middle center imgtranslate
+
+<div class="flip-container">
+  <div class="flipper">
+    <div class="front">
+      ![erikw](https://raw.githubusercontent.com/ewendel/frontend--bilder/master/erik-kort.png)
+    </div>
+    <div class="back">
+      ![kenta](https://raw.githubusercontent.com/ewendel/frontend--bilder/master/kent-kort.png)
+    </div>
+  </div>
+</div>
+
+Hentet fra [David Walsh Blog](http://davidwalsh.name/css-flip).
+
+<style type="text/css">
+  .flip-container {
+    margin: 0 auto;
+    -webkit-perspective: 1000;
+    border: 1px solid rgb(204, 204, 204);
+  }
+  .flip-container:hover .flipper {
+    transform: rotateY(180deg);
+  }
+  .flip-container,
+  .flip-container .front,
+  .flip-container .back {
+    width: 320px;
+    height: 480px;
+  }
+  .flip-container .flipper {
+    transition: 0.6s;
+    transform-style: preserve-3d;
+    position: relative;
+  }
+  .flip-container  .front,
+  .flip-container  .back {
+    backface-visibility: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  .flip-container .front {
+    z-index: 2;
+    background-color: blue;
+  }
+  .flip-container .back {
+    transform: rotateY(180deg);
+    background-color: red;
+  }
+</style>
+
 
 ---
 
-class: middle center imganim
+class: middle
 
-![Icomoon2](https://raw.githubusercontent.com/ewendel/frontend--bilder/master/typekit.png)
+<div class="lain">
+  <div class="runner"></div>
+</div>
+
+<style type="text/css">
+  .lain {
+    width: 95%;
+    height: 40px;
+    position: relative;
+    margin-bottom: 100px;
+  }
+  .lain:hover .runner {
+    left: -webkit-calc(100% - 40px);
+  }
+  .lain .runner {
+    transition: 3s left linear;
+    left: 0;
+    position:absolute;
+    width:40px;
+    height:40px;
+    background-color:pink;
+  }
+</style>
+
+
+    .lain:hover .runner {
+      left: -webkit-calc(100% - 40px);
+    }
+    .lain .runner {
+      transition: 6s left linear;
+      left: 0;
+---
+
+
+class: middle center
+
+![typekit4](https://raw.githubusercontent.com/ewendel/frontend--bilder/master/typekit.png)
 
     img { transition: transform 300ms ease-in-out; }
     img:hover { transform: perspective(600px) rotateY(20deg) scale(0.8) translateX(60px); }
 
 <style type="text/css">
-    img[alt="Icomoon2"] { -webkit-transition: -webkit-transform 300ms ease-in-out; }
-    img[alt="Icomoon2"]:hover { -webkit-transform: perspective(600px) rotateY(20deg) scale(0.8) translateX(60px); }
+    img[alt="typekit4"] { -webkit-transition: -webkit-transform 300ms ease-in-out; }
+    img[alt="typekit4"]:hover { -webkit-transform: perspective(600px) rotateY(20deg) scale(0.8) translateX(60px); }
 </style>
 
-???
+---
+class: center middle
 
-# CSS3
+<div class="background-animation">
+  Gi blod!
+</div>
 
-&nbsp;
-## Les mer på nettet:
-* http://ww3files.com/
+<style type="text/css">
+  .background-animation {
+    margin: 0 auto;
+    font-size: 60px;
+    text-align: left;
+    font-family: "monaco";
+    transition: background-color .3s ease-in-out, color 0.3s ease-in-out;
+    background-color: red;
+    color: white;
+    padding: 20px;
+    height: 200px;
+    width: 200px;
+  }
+  .background-animation:hover {
+    background-color: white;
+    color: red;
+  }
+</style>
+
+
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
 
 ---
 
