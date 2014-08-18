@@ -163,7 +163,7 @@ Vi kan bruke **typeof**-operatoren for å sjekke type.
     typeof false;       // 'boolean'
 
 --
-    typeof minVar       // 'undefined'
+    typeof minVar;      // 'undefined'
 
 --
 
@@ -335,14 +335,14 @@ Array er ikke "ekte" arrays:
 
 # Equality
 
-    1 == 1 // -> true
-    1 == ‘1' // -> true
-    1 == 2 // -> false
+    1 == 1                      // -> true
+    1 == ‘1'                    // -> true
+    1 == 2                      // -> false
 
     // Now things get weird
-    '' == false // -> true
-    [] == false // -> true, [] not falsy though
-    null == undefined // -> true
+    '' == false                 // -> true
+    [] == false                 // -> true, [] not falsy though
+    null == undefined           // -> true
 
 ---
 
