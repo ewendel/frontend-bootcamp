@@ -100,11 +100,19 @@ class: middle center
 
 ---
 
+class: middle center
+
 # JavaScript vs. Java
 
-* Dynamisk språk vs. kompilert språk
-* Dynamisk typing vs. statisk typing
-* Prototypebasert arv vs. klassebasert arv
+&nbsp;
+&nbsp;
+&nbsp;
+
+### Dynamisk språk vs. kompilert språk
+
+### Dynamisk typing vs. statisk typing
+
+### Prototypebasert arv vs. klassebasert arv
 
 ---
 
@@ -299,15 +307,13 @@ Array er ikke "ekte" arrays:
 
 --
 
-    var i;
-    for (i = 0; i < obj.length; ++i) {
+    for (var i = 0; i < obj.length; ++i) {
       obj[i];  // 1, 2, 3
     }
 
 --
 
-    var key;
-    for (key in obj) {
+    for (var key in obj) {
       obj[key];  // 1, 2, 3, 5
     }
 
@@ -365,17 +371,32 @@ Array er ikke "ekte" arrays:
 
 ---
 
+class: middle center
+
+# Reserved keywords
+
+        break case catch continue debugger default delete
+        do else false finally for function if implements
+        in instanceof interface let new null package private
+        protected public return static switch throw true
+        try typeof var void while with yield this
+
+---
+
 class: yellow
 
 # Oppgaver
 
 ## Prøv å få testene til å bli grønne
 
+(Husk å åpne JavaScript-tabben)
+
 1. Mr. Setter: http://jsbin.com/hojez/1/edit
 2. Populate array: http://jsbin.com/vusan/2/edit
 3. Object property types: http://jsbin.com/muqof/2/edit
 4. Array iteration: http://jsbin.com/tuguv/4/edit
-5. doubleMe: http://jsbin.com/yutep/4/edit
+5. doubleMe: http://jsbin.com/mozagalifasu/3/edit
+6. isPalindrome: http://jsbin.com/mozagalifasu/8/edit
 
 ---
 
