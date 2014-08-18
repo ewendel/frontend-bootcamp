@@ -43,14 +43,14 @@ $(document).ready(function() {
     $imageGallery.find(".featured").html('<img src="' + url + '" />');
   });
 
-  var timeoutId;
+  var keyupTimeout;
   $imageGallery.on("keyup", "#search", function(event) {
-    clearTimeout(timeoutId);
+    clearTimeout(keyupTimeout);
     var $element = $(event.currentTarget);
 
     var search = $element.val();
 
-    timeoutId = setTimeout(function() {
+    keyupTimeout = setTimeout(function() {
       getImages($imageGallery, search);
     },800)
   });
