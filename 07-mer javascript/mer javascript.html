@@ -76,9 +76,9 @@ class: middle center jquery
 
 ![jQuery](https://raw.githubusercontent.com/ewendel/frontend--bilder/master/jquery_logo.png)
 
-&nbsp;
 
-… igjen
+
+<em style="color:white">…igjen</em>
 
 ---
 
@@ -102,55 +102,6 @@ Ajax med jQuery:
 
 ---
 
-# AJAX - utvekslingsformat
-
-## JSON: JavaScript Object Notation
-
-    // Server returnerer følgende (som en streng)
-    '{data: [{navn: "Kent", alder: 28}, {navn: "Erik", alder: 26}]}'
-
-    //JavaScript konverterer det til et objekt:
-    {
-        data: [
-        {
-            navn: "Kent",
-            alder: 28
-        },
-        {
-            navn: "Erik",
-            alder: 26
-        }]
-    }
-
----
-
-
-# AJAX - utvekslingsformat
-
-## JSON: JavaScript Object Notation
-
-    // Server returnerer følgende (som en streng)
-    '{data: [{navn: "Kent", alder: 28}, {navn: "Erik", alder: 26}]}'
-
-    //JavaScript konverterer det til et objekt:
-    {
-        data: [
-        {
-            navn: "Kent",
-            alder: 28
-        },
-        {
-            navn: "Erik",
-            alder: 26
-        }]
-    }
-
-### Under huden
-
-    JSON.parse('{data: [{navn: "Kent", alder: 28}, {navn: "Erik", alder: 26}]}')
-
----
-
 class: middle center
 
 #Same origin policy
@@ -163,151 +114,163 @@ class: middle center
 
 ## Same origin policy
 
-* Samme domene
-* Samme protokoll
-* Samme port
-* Samme host
+    Samme domene
+    // bekk.no
+
+--
+
+    Samme protokoll
+    // http://bekk.no
+
+--
+
+    Samme port
+    // http://bekk.no:80
+
+
+---
+
+# Ajax
+
+##Cross-origin resource sharing
+
+Klienten sender origin header
+
+    Origin: http://www.bekk.no
+
+--
+
+Server analyser requesten
+
+--
+
+og returnerer header
+
+    Access-Control-Allow-Origin: http://www.bekk.no
+
+--
+
+eller
+
+    Access-Control-Allow-Origin: *
 
 ---
 
 class: middle center
-#Workaround
 
-&nbsp;
+#Representational state transfer
+
+--
+
+REST
 
 ---
+
 class: middle center
-#Workaround
 
-JSONP
+![rest struktur](../resources/rest-structure.png)
+
+
+
 
 ---
 
-#AJAX
+# REST - http verb
 
-## Vanlig AJAX
 
-    // JSON
+    http://bekk.no/ansatte
+
+--
+
+###GET
+List the URIs and perhaps other details of the collection's members.
+
+--
+
+###PUT
+Replace the entire collection with another collection.
+
+--
+
+###POST
+Create a new entry in the collection. The new entry's URI is assigned automatically and is usually returned by the operation.
+
+--
+
+###DELETE
+Delete the entire collection.
+
+
+
+[wikipedia](http://en.wikipedia.org/wiki/Representational_state_transfer#Applied_to_web_services)
+
+
+---
+
+# REST - http verb
+
+    http://bekk.no/ansatte/erikwendel
+
+--
+
+###GET
+Retrieve a representation of the addressed member of the collection, expressed in an appropriate Internet media type.
+
+--
+
+###PUT
+Replace the addressed member of the collection, or if it doesn't exist, create it.
+
+--
+
+###POST
+Not generally used.
+
+--
+
+###DELETE
+Delete the addressed member of the collection.
+
+
+
+[wikipedia](http://en.wikipedia.org/wiki/Representational_state_transfer#Applied_to_web_services)
+
+
+---
+
+# REST - utvekslingsformat
+
+## JSON: JavaScript Object Notation
+
+    // Server returnerer følgende (som en streng)
+    '{data: [{navn: "Kent", alder: 29}, {navn: "Erik", alder: 26}]}'
+
+--
+
+    //JavaScript konverterer det til et objekt:
     {
-        "Name": "Foo",
-        "Id": 1234,
-        "Rank": 7
+        data: [
+        {
+            navn: "Kent",
+            alder: 29
+        },
+        {
+            navn: "Erik",
+            alder: 26
+        }]
     }
 
----
+--
+### Under huden
 
-#AJAX
+    JSON.parse('{data: [{navn: "Kent", alder: 29}, {navn: "Erik", alder: 26}]}')
 
-## Vanlig AJAX
-
-    // JSON
-    {
-        "Name": "Foo",
-        "Id": 1234,
-        "Rank": 7
-    }
-
-## JSONP
-
-    // JSONP
-    functionCall({"Name": "Foo", "Id": 1234, "Rank": 7});
 
 ---
 
-#AJAX
+class: center middle
 
-## JSONP med jQuery
-
-    $.ajax({
-        dataType: "jsonp",
-        url: "http://www.bekk.no/api?jsoncallback=?",
-        success: function(res) {
-            console.log(res);
-        },
-        error: function() {
-            console.log("Sorry, an error occured.");
-        }
-    });
-
----
-
-#AJAX
-
-## JSONP med jQuery
-
-    $.ajax({
-        dataType: "jsonp",
-        url: "http://www.bekk.no/api?jsoncallback=?",
-        success: function(res) {
-            console.log(res);
-        },
-        error: function() {
-            console.log("Sorry, an error occured.");
-        }
-    });
-
-### URL erstattes med
-    http://www.bekk.no/api?jsoncallback=jQuery18005757881309741956_1363111010831&_=1363111010857
-
----
-
-#AJAX
-
-##JSONP forklart
-
-Script-taggen kan hente javascript fra andre domener
-
-    script = document.createElement('script'); // Lager en script-node
-    script.type = 'text/javascript';
-    script.src = url + "jsoncallback=minCallback";
-
----
-
-#AJAX
-
-##JSONP forklart
-
-Script-taggen kan hente javascript fra andre domener
-
-    script = document.createElement('script'); // Lager en script-node
-    script.type = 'text/javascript';
-    script.src = url + "jsoncallback=minCallback";
-
-Vi lager en funksjon som heter minCallback:
-
-    var minCallback = function(response) {
-        // Gjør noe gøy!
-    };
-
----
-
-#AJAX
-
-##JSONP forklart
-
-Script-taggen kan hente javascript fra andre domener
-
-    script = document.createElement('script'); // Lager en script-node
-    script.type = 'text/javascript';
-    script.src = url + "jsoncallback=minCallback";
-
-Vi lager en funksjon som heter minCallback:
-
-    var minCallback = function(response) {
-        // Gjør noe gøy!
-    };
-
-Når responsen kommer, evalueres responsen:
-
-    minCallback({"Name": "Foo", "Id": 1234, "Rank": 7});
-
----
-
-#AJAX
-
-##Oops!
-
-    minCallback(alert("Watch out! Your computer will be hacked!"))
+[![devtools](https://raw.githubusercontent.com/ewendel/frontend--bilder/master/devtools.jpg)](http://jsbin.com/lojej/3/edit)
 
 ---
 
@@ -315,16 +278,170 @@ class: yellow
 
 #Oppgaver
 
-##Fortsett på bildekarusellen, men last bildene via ajax!
+## Vi har satt opp en service på **rest-images.herokuapp.com**
 
-1. Gjør et kall mot **sommer2014.herokuapp.com**, logg responsen.
-2. Bygg en HTML-streng (bildestripe) basert på bildene i arrayet.
-3. Sett HTML-strengen inn i DOM-elementet med **class="image-gallery"**
-4. **slideShow()**
+
+* http://rest-images.herokuapp.com/ (gir random query-ord)
+* http://rest-images.herokuapp.com/:query
+
+returnerer følgende struktur
+
+    {
+        "query":"Erik Wendel",
+        "images":[{
+            "url":"http://bilder.no/ew.jpg",
+            "thumb":"http://bilder.no/ewt.jpg",
+            "description":"Hr. Wendel"
+        }, (...)  ]
+    }
+
+---
+
+class: yellow
+
+#Oppgaver
+
+##Bildekarusell med ajax!
+Ta utgangspunkt i [bildegalleri.html](oppgave/bildegalleri.html)
+
+1. Hent ut søkeord når bruker trykker enter i inputfeltet
+2. Gjør et kall mot **rest-images.herokuapp.com**, logg responsen.
+3. Bygg en HTML-streng med thumbnails og sett den inn i **.image-gallery .thumbs**
 
 Prøv å løse oppgaven uten å se på [løsningsforslaget](løsningsforslag/bildegalleri-løsning.html)
 
 ---
+
+class: center middle
+
+# Eventer
+
+---
+
+class: center middle
+
+![events](../resources/events.png)
+
+---
+
+class: center middle
+
+![events](../resources/buttons.jpg)
+
+---
+
+# Eventer
+
+
+    $("a").on("click", function() {
+
+    });
+
+--
+
+    $(document).on("click", "a", function() {
+        // smartere
+    });
+
+
+---
+
+class: center middle
+
+# Timing
+
+---
+
+# Timing
+
+
+## La oss gjøre det nå!
+<button onclick="javascript:alert('clicked I have been')">click me!</button>
+
+--
+
+## Eventuellt vente litt
+<button onclick="javascript:window.timeId=setTimeout(function(){alert('clicked I have been')},3000)">click me in three sec!</button>
+
+--
+
+## Jeg trur ikke vi gidder
+<button onclick="javascript:clearTimeout(window.timeId)">NONO turn it off</button>
+
+
+---
+
+# Timing
+
+## Utsette ting
+    setTimeout(function() {
+        alert("clicked I have been");
+    }, 3000);
+
+--
+
+## Avbryte ting
+
+    var timerId = setTimeout(function() {
+        alert("clicked I have been");
+    }, 3000);
+
+    clearTimeout(timerId);
+
+
+---
+
+# Timing quiz
+
+
+    console.log("It's going to be");
+
+
+    setTimeout(function() {
+        console.log("dary");
+    }, 3000);
+
+
+
+    setTimeout(function() {
+        console.log("legen");
+    }, 200);
+
+
+
+    setTimeout(function() {
+        console.log("wait for it..");
+    }, 1000);
+
+Hva blir skrevet ut i konsollet?
+
+
+--
+
+    It's going to be
+    legen
+    wait for it.
+    dary
+
+---
+
+class: yellow
+
+#Oppgaver
+
+##Fortsett på bildekarusellen
+
+1. Hent ut søkeord uten at brukeren har trykket enter
+2. Pass på å ikke gjøre unødvendige kall,
+    *hint: vent til brukeren er ferdig med å trykke*
+3. Vis stor versjon av første bilde i **.image-gallery .featured**
+4. Bytt til neste bilde etter 10 sec
+3. Vis stor versjon brukeren trykker på en av thumbnail
+
+Prøv å løse oppgaven uten å se på [løsningsforslaget](løsningsforslag/bildegalleri-løsning.html)
+
+---
+
 
 class: center middle
 
@@ -455,8 +572,7 @@ class: center middle
 
 
 ---
-
-
+???
 
 class: yellow
 
@@ -470,7 +586,7 @@ class: yellow
 
 Prøv å løse oppgaven uten å se på [løsningsforslaget](løsningsforslag/bildegalleri-løsning-jsmodul.html)
 
----
+???
 
     </textarea>
     <script src="http://gnab.github.com/remark/downloads/remark-0.5.3.min.js" type="text/javascript"></script>
