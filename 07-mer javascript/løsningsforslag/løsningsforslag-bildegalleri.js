@@ -1,14 +1,22 @@
 var IMAGE_URL = "http://rest-images.herokuapp.com/";
 
 var slideShowTimeout;
-function slideShow() {
-  var current = $('.image-gallery .thumbs .active');
-  var next = current.next().is('li') ? current.next() : current.parent().find('li:first');
+function slideShow($el) {
+  var current = $el.find('.thumbs .active');
+  var next;
+  if(current.length === 0) {
+    next = $el.find(".thumbs li:first").addClass("active");
+  } else {
+    next = current.next().is('li') ? current.next() : current.parent().find('li:first');
+  }
+
   current.removeClass("active");
   next.addClass("active").find("a").click();
 
   clearTimeout(slideShowTimeout);
-  slideShowTimeout = setTimeout(slideShow, 10000);
+  slideShowTimeout = setTimeout(function() {
+    slideShow($el);
+  }, 10000);
 }
 
 function getImages($el, search) {
@@ -20,9 +28,9 @@ function getImages($el, search) {
           return '<li><a href="' + img.url + '"><img src="' + img.thumb + '" /></a></li> ';
       });
 
-      $el.find(".thumbs").html(html).find("li:first").addClass("active");
+      $el.find(".thumbs").html(html);
 
-      slideShow();
+      slideShow($el);
     },
     error: function(err) {
       console.error(err);
@@ -34,6 +42,7 @@ function getImages($el, search) {
 $(document).ready(function() {
   var $imageGallery = $(".image-gallery");
 
+  // setup events
   $imageGallery.on("click", ".thumbs a", function(event) {
     event.preventDefault();
     var $element = $(event.currentTarget);
@@ -52,7 +61,7 @@ $(document).ready(function() {
 
     keyupTimeout = setTimeout(function() {
       getImages($imageGallery, search);
-    },800)
+    },600)
   });
 });
 
