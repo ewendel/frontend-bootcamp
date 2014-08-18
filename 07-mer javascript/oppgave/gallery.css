@@ -1,0 +1,60 @@
+body {
+   background: url('../../mockup/grafikk/grid_noise.png');
+}
+
+.container {
+    margin: 30px;
+}
+
+.image-gallery #search {
+    display: block;
+    margin: 0 auto;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    padding:  5px;
+    font-size: 18px;
+
+    width: 50%;
+    min-width: 200px;
+}
+
+.image-gallery .featured,
+.image-gallery .thumbs {
+    margin: 20px;
+    background-color: rgba(204,204,204,.5);
+    padding: 10px;
+    border: 5px solid #ccc;
+}
+
+.image-gallery .featured {
+    height: 350px;
+}
+
+.image-gallery .thumbs {
+    height: 120px;
+    overflow-x:auto;
+    overflow-y:hidden;
+    white-space: nowrap;
+}
+
+.image-gallery .thumbs li,
+.image-gallery .thumbs img {
+    height: 100%;
+    display: inline-block;
+}
+
+.image-gallery .featured {
+    margin-top: 20px;
+    height: 350px;
+    background-color: rgba(204,204,204,.5);
+    padding: 10px;
+    border: 5px solid #ccc;
+    border-bottom: 5px solid #ccc;
+}
+
+.image-gallery .featured img {
+    display: block;
+    margin: 0 auto;
+    max-height: 100%;
+    max-width: 100%;
+}

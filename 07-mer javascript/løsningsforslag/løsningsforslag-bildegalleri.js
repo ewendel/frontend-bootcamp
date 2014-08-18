@@ -1,32 +1,64 @@
+var IMAGE_URL = "http://rest-images.herokuapp.com/";
+
+var slideShowTimeout;
 function slideShow() {
-  var current = $('.image-gallery .show');
-  var next = current.next().is('img') ? current.next() : current.parent().find('img:first');
-  current.hide().removeClass('show');
-  current.fadeOut('slow', function() {
-    next.fadeIn('slow').addClass('show');
-  })
+  var current = $('.image-gallery .thumbs .active');
+  var next = current.next().is('li') ? current.next() : current.parent().find('li:first');
+  current.removeClass("active");
+  next.addClass("active").find("a").click();
 
-
-  setTimeout(slideShow, 5000);
+  clearTimeout(slideShowTimeout);
+  slideShowTimeout = setTimeout(slideShow, 10000);
 }
 
-var url = "http://sommer2014.herokuapp.com/";
+function getImages($el, search) {
+  $.ajax({
+    dataType: "json",
+    url: IMAGE_URL + encodeURIComponent(search || "pusekatt"),
+    success: function(response) {
+      var html = $.map(response.images, function(img) {
+          return '<li><a href="' + img.url + '"><img src="' + img.thumb + '" /></a></li> ';
+      });
 
-$.ajax({
-  dataType: "jsonp",
-  url: url,
-  success: function(response) {
-    var html = $.map(response.images, function(img) {
-        return '<img src="' + img + '" style="display:none" />';
-    });
+      $el.find(".thumbs").html(html).find("li:first").addClass("active");
 
-    $(".image-gallery")
-        .html(html)
-        .find("img:first").addClass("show");
+      slideShow();
+    },
+    error: function(err) {
+      console.error(err);
+    }
+  });
+}
 
-    slideShow();
-  },
-  error: function(err) {
-    console.error(err);
-  }
+
+$(document).ready(function() {
+  var $imageGallery = $(".image-gallery");
+
+  $imageGallery.on("click", ".thumbs a", function(event) {
+    event.preventDefault();
+    var $element = $(event.currentTarget);
+    clearTimeout(slideShowTimeout);
+
+    var url = $element.attr("href");
+    $imageGallery.find(".featured").html('<img src="' + url + '" />');
+  });
+
+  var timeoutId;
+  $imageGallery.on("keyup", "#search", function(event) {
+    clearTimeout(timeoutId);
+    var $element = $(event.currentTarget);
+
+    var search = $element.val();
+
+    timeoutId = setTimeout(function() {
+      getImages($imageGallery, search);
+    },800)
+  });
 });
+
+
+
+
+
+
+
