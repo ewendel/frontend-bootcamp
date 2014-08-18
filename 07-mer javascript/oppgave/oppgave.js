@@ -1,20 +1,14 @@
-function slideShow() {
-  var current = $('.image-gallery .show');
-  var next = current.next().is('img') ? current.next() : current.parent().find('img:first');
-  current.hide().removeClass('show');
-  current.fadeOut('slow', function() {
-  	next.fadeIn('slow').addClass('show');
-  })
+var IMAGE_URL = "http://rest-images.herokuapp.com/";
 
+function getImages($el, search) {
 
-  setTimeout(slideShow, 5000);
+  // rendre strukturen i .thumbs element
+  // <li><a href="http://stort-bilde"><img src="thumb" /></a></li>
 }
 
 
-slideShow();
+$(document).ready(function() {
+  var $imageGallery = $(".image-gallery");
 
-// last bilder med jsonp fra sommer2014 api-et
-var url = "http://sommer2014.herokuapp.com/";
-$.ajax({
-
+  // setup events
 });
