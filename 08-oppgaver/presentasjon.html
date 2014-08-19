@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>Hack Day - Introkurs til frontendutvikling</title>
+    <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300italic,400|Dosis:300,400|Source+Code+Pro:200,300,400,400bold' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="../remark/kimjoe.css">
+    <style type="text/css" media="screen">
+        a:visited {
+            color: rgb(0, 0, 238) !important;
+        }
+      .jquery { background-color: #1E2837; }
+
+    </style>
+  </head>
+  <body>
+    <textarea id="source">
+
+class: fullscreen
+
+![code](https://raw.githubusercontent.com/ewendel/frontend--bilder/master/code.jpeg)
+
+<div class="overlay loud" style="text-align: center; top: 70%">
+<p>
+    Frontendkurs: Dag 3
+    <small style="display:block;">HACK DAY</small>
+</p>
+</div>
+
+---
+
+class: agenda yellow
+
+# Agenda
+
+<div style="position: absolute; bottom: 100px; left: 80px;">
+
+### Restpresentasjon fra dag 2
+### Oppgave 1: Todoapp
+### Oppgave 2: Chatklient
+### Oppsummering av kurset
+### Kompetansebyggingen videre
+
+</div>
+
+---
+
+class: center
+
+# Oppgave 1: Todo-app
+
+<div style="width: 300px; margin: 0 auto;">
+    ![code](https://raw.githubusercontent.com/ewendel/frontend--bilder/master/todoapp.png)
+</div>
+
+<a href="oppgave1/oppgave/oppgavetekst.txt" target="_blank">Oppgavebeskrivelse</a>
+
+<a href="oppgave1/oppgave/screenshot.png" target="_blank">Skjermbilde</a>
+
+
+---
+
+class: frontpage
+
+# Twitter 2.0
+
+### Rest endepunktene leverer JSONP og fungerer på følgende måte:
+  * [http://mac-erikwendel.local:3000/message](http://ios-course.herokuapp.com/message) (GET) <- alle beskjeder
+  * [http://mac-erikwendel.local:3000/message](http://ios-course.herokuapp.com/message) (POST) <- JSON i body
+  * [http://mac-erikwendel.local:3000/message/{id}](http://ios-course.herokuapp.com/message/{id}) (DELETE) <- Slette
+  * [http://mac-erikwendel.local:3000/message/{id}](http://ios-course.herokuapp.com/message/{id}) (PUT) <- Oppdatere
+
+
+    {
+      "from":      "unnamed",
+      "message":   "hello world",
+      "date":      "2012-10-18T17:43:48.011Z" // new Date() i javascript
+    }
+
+.center[<a href="oppgave2/oppgavetekst.txt" target="_blank">Oppgavebeskrivelse</a>]
+
+.center[<a href="oppgave2/twitter2.0.png" target="_blank">Skjermbilde</a>]
+
+---
+
+class: middle center red
+
+# Oppsummering
+
+???
+
+Når man skal lære frontend på tre dager, sier det seg selv at det vil gå litt over stokk stein. Det er veldig mye å lære på veldig kort tid. Derfor prøver kurset å gi et solid fundament å bygge videre på, hvor vi har vært nøye på å bruke tid på de grunnleggende, viktige tingene. Derimot er det ingen som er ferdig utlært etter kurset, og dere vil lære masse på prosjekt i tiden fremover.
+
+Vi vil også minne om at verken Kent eller jeg er profesjonelle kursholdere og har stort sett snekret dette materialet på kveldstid. Det betyr at det vil forekomme noen hickups, noen gjenglemte kodelinjer i øvingene, noen lenker som ikke fungerer, etc. Likevel håper vi at dere har lært mye på disse dagene - det har ihvertfall sett veldig sånn ut.
+
+---
+
+class: middle center red
+
+# Kompetansebyggingen videre
+
+???
+
+Her er noen forslag til hvordan man kan bygge kompetanse på frontend fremover.
+
+
+---
+
+class: fullscreen
+
+![code](https://raw.githubusercontent.com/ewendel/frontend--bilder/master/superhero.png)
+
+---
+
+class: middle center
+
+![code](http://dbwebb.se/img/bok/javascript-the-good-parts.jpg)
+
+---
+
+class: middle center
+
+![code](http://ecx.images-amazon.com/images/I/51jBaj0M0xL.jpg)
+
+---
+
+class: fullscreen
+
+![code](https://raw.githubusercontent.com/ewendel/frontend--bilder/master/codeschool.png)
+
+---
+
+class: fullscreen
+
+![code](https://raw.githubusercontent.com/ewendel/frontend--bilder/master/aerotwist.png)
+
+---
+
+class: fullscreen
+
+![code](https://raw.githubusercontent.com/ewendel/frontend--bilder/master/squashligaen.png)
+
+---
+
+# Ressursser
+
+### Blogger
+[Superhero.js](http://api.jquery.com/)
+<br>[Aerotwist](http://aerotwist.com/)
+<br>[JS - The Weird Parts](https://medium.com/@daffl/javascript-the-weird-parts-8ff3da55798e)
+<br>[BEKK Open: From jQuery to Backbone](http://open.bekk.no/from-jquery-to-backbone)
+
+### Bøker
+[JavaScript - The Good Parts](http://shop.oreilly.com/product/9780596517748.do)
+<br>[Eloquent JavaScript](http://eloquentjavascript.net/) (generell)
+<br>[JavaScript Allongé](https://leanpub.com/javascript-allonge) (funksjonell js)
+<br>[JavaScript Patterns](http://shop.oreilly.com/product/9780596806767.do)
+
+### Interaktivt
+[Untrusted](http://alexnisnevich.github.io/untrusted/) (js-spill)
+<br>[CodeWars](http://www.codewars.com/) (tjen poeng ved å kode)
+<br>[Code School](https://www.codeschool.com/) (interaktive kurs)
+<br>[CSS Weekly](http://css-weekly.com), [JS Weekly](http://javascriptweekly.com), [HTML5 Weekly](http://html5weekly.com/) (nyhetsbrev)
+
+---
+
+class: fullscreen
+
+![thatsallfolks](http://www.soothetube.com/wp-content/uploads/2013/12/all.jpg)
+
+    </textarea>
+    <script src="http://gnab.github.com/remark/downloads/remark-0.5.3.min.js" type="text/javascript"></script>
+    <script type="text/javascript">
+      var hljs = remark.highlighter.engine;
+    </script>
+    <script src="js/remark.language.js" type="text/javascript"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+    <script type="text/javascript">
+      var slideshow = remark.create({
+          highlightStyle: 'tomorrow',
+          highlightLanguage: 'javascript'
+        }) ;
+      var a = [];
+      slideshow.addListener("slidein",function(b,c){if(a.indexOf(c)>-1)return;var d=$(b);d.find("p:empty").remove(),d.find(".front-page").length===0&&d.find("h1").wrapInner("<span>"),d.find(".pushed img").parent().wrapInner("<span class='img'>"),a.push(c)})
+    </script>
+  </body>
+</html>
