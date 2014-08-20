@@ -37,6 +37,12 @@ body {
     white-space: nowrap;
 }
 
+.image-gallery.loading .featured,
+.image-gallery.loading .thumbs {
+    transition: opacity 0.3s ease;
+    opacity: 0.4;
+}
+
 .image-gallery .thumbs li,
 .image-gallery .thumbs img {
     height: 100%;
