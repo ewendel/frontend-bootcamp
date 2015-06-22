@@ -1,0 +1,20 @@
+body {
+    background: #fff;
+    padding: 20px;
+    font-family: Georgia;
+}
+
+li {
+    list-style-type: square;
+}
+
+li.checked {
+    text-decoration: line-through;
+    color: #999999;
+}
+
+.shopping-list-container {
+    background: #e0e0e0;
+    padding: 2em;
+    margin-bottom: 3em;
+}
