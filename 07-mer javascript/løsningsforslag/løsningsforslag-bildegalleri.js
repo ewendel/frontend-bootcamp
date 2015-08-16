@@ -1,4 +1,4 @@
-var IMAGE_URL = "http://rest-images.herokuapp.com/";
+var IMAGE_URL = "http://sommer2015.herokuapp.com/";
 
 var slideShowTimeout;
 function slideShow($el) {
