@@ -1,0 +1,44 @@
+<html>
+<head>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>BEKK</title>
+    <style>
+        @import url(http://fonts.googleapis.com/css?family=Port+Lligat+Slab);
+
+
+        .container {
+            width: 960px;
+            margin: 0 auto;
+            position: relative
+        }
+
+
+    </style>
+</head>
+</head>
+<body>
+<div class="container">
+<!--
+The aria-live="assertive" attribute means that the value of the text field will be spoken whenever it changes. This happens whenever you use the buttons to add or subtract 10 from the value.
+The aria-controls attribute just confirms that each button controls the input. Different screen readers identify this accessible relationship in different ways, but it helps to know what you are affecting. JAWS sometimes announces a shortcut to the element that is being controlled. This is handy if it's a long way away in the document.
+-->
+
+    <form action="">
+        <fieldset>
+            <legend>Add or subtract ten</legend>
+            <div>
+                <label for="number">Current value</label>
+                <input type="text" role="alert" aria-live="assertive" readonly value="0" id="number"/>
+                <button type="button" title="add 10" aria-controls="number" onclick="add()">Add</button>
+                <button type="button" title="subtract 10" aria-controls="number" onclick="substract()" >Subtract</button>
+            </div>
+        </fieldset>
+    </form>
+</div>
+
+<script src="../../resources/jquery.js" type="text/javascript"></script>
+<script src="aria.js" type="text/javascript"></script>
+</body>
+</html>
+
