@@ -1,13 +1,13 @@
-// Construct two car object instances.
+// Make the function times return a function that returns the next multiple of n for each subsequent call.
 
-function Car (type) {
-    this.type = type;
-}
+var times = function (n) {
 
-var honda = ...
-var bmw = ...
+};
 
-test("Car", function() {
-    ok(honda.type === 'honda');
-    ok(bmw.type === 'bmw');
+var times2 = times(2);
+
+test("times2", function() {
+    ok(times2() === 2);
+    ok(times2() === 4);
+    ok(times2() === 6);
 }); 

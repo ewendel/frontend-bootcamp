@@ -1,4 +1,14 @@
-// Make all asserts pass by uncommenting each assert and only changing double dots into variables, function calls and typeof-s.
+/* 
+    Your task: make all the asserts pass
+    Possible actions:
+        change double dots into
+            variables
+            function calls
+            typeof-s
+
+    .. and only that.
+    Don't change the source code.
+*/
 
 var a = 1;
 b = 3;

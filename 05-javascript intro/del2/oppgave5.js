@@ -1,13 +1,10 @@
-//Make the function times return a function that returns the next multiple of n for each subsequent call.
+// Log numbers 0-4 correctly by wrapping the anonomous function in a function that is run immediately to bind variable i:
 
-    var times = function (n) {
+// To run, hit "Run" in the upper right corner. :)
 
-};
-
-var times2 = times(2);
-
-test("times2", function() {
-    ok(times2() === 2);
-    ok(times2() === 4);
-    ok(times2() === 6);
-}); 
+var i;
+for (i = 0; i < 5; i++) {
+    setTimeout(function () {
+        console.log(i);
+    }, i*1000);
+}

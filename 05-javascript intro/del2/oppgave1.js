@@ -1,9 +1,7 @@
 // Complete the sum function, making it sum all arguments, no matter how many you give it.
 
 function sum () {
-    var s;
-
-    return s;
+    
 }
 
 test("Sum", function() {

@@ -1,10 +1,11 @@
-// Log numbers 0-4 correctly by wrapping the anonomous function in a function that is run immediately to bind variable i:
+// Create a function that returns new functions that return true!
 
-// To run, hit "Run" in the upper right corner. :)
+var createFunction = function () {};
 
-var i;
-for (i = 0; i < 5; i++) {
-    setTimeout(function () {
-        console.log(i);
-    }, i*1000);
-}
+test("createFunction", function() {
+
+    ok(typeof createFunction() === 'function',
+        'createFunction() should return a function');
+    ok(createFunction()() === true,
+        "calling createFunction's returned function should return true");
+}); 
