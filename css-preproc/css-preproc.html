@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>Nettleseren & HTML - Kurs i grensesnittsprogrammering</title>
+    <link href='http://fonts.googleapis.com/css?family=Inconsolata' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300italic,400|Dosis:300,400|Source+Code+Pro:200,300,400,400bold' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="../remark/kimjoe.css">
+    <style type="text/css" media="screen">
+      .loud {font-size:2em;}
+
+      blockquote, .loud {font-size:2em;}
+      blockquote cite, .loud small {font-size:.7em;color:#FD5158;}
+      .remark-slide .overlay {
+        text-align: center;
+      }
+      .remark-slide .overlay h1 > span {background:transparent !important;}
+      .remark-slide .overlay h1:before {border-top:none !important;}
+    </style>
+  </head>
+  <body>
+    <textarea id="source">
+
+
+class: middle center
+
+# LESS (og SASS)
+
+## en CSS-preprosessor
+
+---
+
+# LESS
+
+* utvider CSS med ny funksjonalitet
+
+* muliggjør variabler, mixins, nøsting m.m.
+
+* nyttig, men har sine fallgruver
+
+---
+
+# Nøsting
+
+```
+.main-page .title {
+  margin-top: 20px;
+}
+
+.main-page .subtitle {
+  margin-top: 10px;
+}
+```
+
+---
+
+# Nøsting
+
+```
+.main-page {
+  .title {
+    margin-top: 20px;
+  }
+
+  .subtitle {
+    margin-top: 10px;
+  }
+}
+```
+
+---
+
+# Nøsting: fallgruve
+
+```
+.main-page {
+  .sub-section {
+    .sidebar {
+      .selected {
+        color: green;
+      }
+    }
+  }
+}
+```
+
+---
+
+# Nøsting: pitfalls
+
+```
+.main-page .sub-section .sidebar .selected {
+  color: green;
+}
+```
+
+---
+
+# Variabler
+
+* fin måte å være konsekvent på
+* forenkler refaktorering
+
+```
+  @base: #f938ab;
+  @margin: 20px;
+
+  .main-page {
+    color: @base;
+    margin-top: @margin;
+  }
+```
+
+---
+
+# Mixins
+
+lar oss gruppere stilregler for gjenbruk
+
+```
+.box-shadow {
+  -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+  -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+  box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+}
+
+.mybox {
+  .box-shadow;
+}
+```
+
+---
+
+# Parametriserte mixins
+
+```
+.borderRadius(@radius) {
+  -webkit-border-radius:  @radius;
+  -moz-border-radius:     @radius;
+  border-radius:          @radius;
+}
+```
+
+---
+
+# Mixins med defaultverdier
+
+```
+.borderRadius(@radius: 5px) {
+  -webkit-border-radius:  @radius;
+  -moz-border-radius:     @radius;
+  border-radius:          @radius;
+}
+```
+
+---
+
+# Modularitet
+
+* less lar oss importere stiler fra andre filer
+* lar oss unngå "the huge untouchable css file"
+
+---
+
+# Modularitet
+
+```
+@import "base.less"
+@import "icons.less"
+@import "fonts.less"
+@import "frontpage.less"
+@import "otherpage.less"
+```
+
+    </textarea>
+    <script src="http://gnab.github.com/remark/downloads/remark-0.5.3.min.js" type="text/javascript"></script>
+    <script type="text/javascript">
+      var hljs = remark.highlighter.engine;
+    </script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+    <script type="text/javascript">
+      var slideshow = remark.create({
+          highlightStyle: 'solarized_light',
+          highlightLanguage: 'html'
+        }) ;
+      var a = [];
+      slideshow.addListener("slidein",function(b,c){if(a.indexOf(c)>-1)return;var d=$(b);d.find("p:empty").remove(),d.find(".front-page").length===0&&d.find("h1").wrapInner("<span>"),d.find(".pushed img").parent().wrapInner("<span class='img'>"),a.push(c)})
+    </script>
+  </body>
+</html>
