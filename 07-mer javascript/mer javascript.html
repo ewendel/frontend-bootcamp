@@ -62,12 +62,6 @@ Send og motta data i bakgrunnen
 
 class: middle center
 
-[![devtools](https://raw.githubusercontent.com/ewendel/frontend--bilder/master/devtools.jpg)](http://jsbin.com/nepati/3/edit)
-
----
-
-class: middle center
-
 ![wtf](https://raw.githubusercontent.com/ewendel/frontend--bilder/master/wtf.gif)
 
 ---
@@ -100,59 +94,6 @@ Ajax med jQuery:
 
     });
 
----
-
-class: middle center
-
-#Same origin policy
-
-&nbsp;
-
----
-
-# Ajax
-
-## Same origin policy
-
-    Samme domene
-    // bekk.no
-
---
-
-    Samme protokoll
-    // http://bekk.no
-
---
-
-    Samme port
-    // http://bekk.no:80
-
-
----
-
-# Ajax
-
-##Cross-origin resource sharing
-
-Klienten sender origin header
-
-    Origin: http://www.bekk.no
-
---
-
-Server analyser requesten
-
---
-
-og returnerer header
-
-    Access-Control-Allow-Origin: http://www.bekk.no
-
---
-
-eller
-
-    Access-Control-Allow-Origin: *
 
 ---
 
@@ -268,15 +209,9 @@ Delete the addressed member of the collection.
 
 ---
 
-class: center middle
-
-[![devtools](https://raw.githubusercontent.com/ewendel/frontend--bilder/master/devtools.jpg)](http://jsbin.com/lojej/3/edit)
-
----
-
 class: yellow
 
-#Oppgaver
+# Oppgaver
 
 ## Vi har satt opp en service på **sommer2015.herokuapp.com**
 
@@ -440,160 +375,6 @@ class: yellow
 
 Prøv å løse oppgaven uten å se på [løsningsforslaget](løsningsforslag/bildegalleri-løsning.html)
 
----
-
-
-class: center middle
-
-#Struktur
-
----
-
-# Recap
-
-    var Person = function (navn, stilling, firma) {
-        this.navn = navn;
-        this.stilling = stilling;
-        this.firma = firma;
-    };
-
-    var pat = new Person("Pat", "postmann", "Posten");
-    var nils_arne = new Person("Nils Arne", "trener", "Rosenborg");
-
-    Person.prototype.hils = function() {
-        console.log("Hei, jeg heter " + this.navn);
-    }
-
-    nils_arne.hils(); // "Hei, jeg heter Nils Arne"
-    pat.hils(); // "Hei, jeg heter Pat"
-
-    pat.katt = "Miss";
-
----
-
-# JS Moduler
-
-    this === window // true
-
-    var Person = function (navn, stilling, firma) {
-        this === window // false
-    };
-
-    var pat = new Person("Pat", "postmann", "Posten");
-
----
-
-# JS Moduler
-
-    this === window // true
-
-    var Person = function (navn, stilling, firma) {
-        this === window // false
-    };
-
-    var pat = new Person("Pat", "postmann", "Posten");
-
-Når noe er instansiert, vil this (nesten) alltid være instansen av objektet
-
----
-
-
-# JS Moduler
-
-## Vi kan sette variabler på this
-
-    var Person = function (navn, stilling, firma) {
-        this.langNese === true;
-
-        this.finMetode = function() {
-            ....
-        };
-    };
-
-    var pat = new Person("Pat", "postmann", "Posten");
-    pat.langNese // true
-
-
----
-
-
-# JS Moduler
-
-## Vi kan sette variabler på this
-
-    var Person = function (navn, stilling, firma) {
-        this.langNese === true;
-
-        this.finMetode = function() {
-            ....
-        };
-    };
-
-    var pat = new Person("Pat", "postmann", "Posten");
-    pat.langNese // true
-
-Alt på this er public metoder
-
----
-
-# JS Moduler
-
-## Hva med private metoder?
-
-
----
-
-# JS Moduler
-
-## Hva med private metoder?
-
-    var Person = (function() {
-
-        var finPrivatMetode = function(navn) {
-            return navn === "Pat";
-        };
-
-        var Person = function (navn, stilling, firma) {
-            var langNese = finPrivatMetode.call(this, navn)
-
-        };
-
-        return Person;
-    })();
-
-    var pat = new Person("Pat", "postmann", "Posten");
-
----
-
-
-class: center middle
-
-[![devtools](https://raw.githubusercontent.com/ewendel/frontend--bilder/master/devtools.jpg)](http://jsbin.com/lojej/3/edit)
-
-
----
-???
-
-class: yellow
-
-#Oppgaver
-
-## Refaktorer på bildekarusellen
-
-1. Bygg om bildekarusellen til en JS modul.
-2. Hent data utenfor modulen og send den inn via en public metode.
-3. **Hvis tid:** se på [jQuery deferred](http://api.jquery.com/category/deferred-object/) og prøv å implementere oppstart med promises.
-
-Prøv å løse oppgaven uten å se på [løsningsforslaget](løsningsforslag/bildegalleri-løsning-jsmodul.html)
-
-???
-
-
----
-
-class: middle center yellow
-
-  # <a href="../08-oppgaver/presentasjon.html">Neste del</a>
 
     </textarea>
     <script src="http://gnab.github.com/remark/downloads/remark-0.5.3.min.js" type="text/javascript"></script>
