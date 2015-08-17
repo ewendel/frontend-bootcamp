@@ -25,7 +25,7 @@ function getImages($el, search) {
     url: IMAGE_URL + encodeURIComponent(search || "pusekatt"),
     success: function(response) {
       var html = $.map(response.images, function(img) {
-          return '<li><a href="' + img.url + '"><img src="' + img.thumb + '" /></a></li> ';
+          return '<li><a href="' + img.url + '"><img src="' + img.url + '" /></a></li> ';
       });
 
       $el.find(".thumbs").html(html);

@@ -39,7 +39,7 @@ window.BEKK = window.BEKK || {};
         this.hideLoading();
 
         var html = $.map(data.images, function(img) {
-            return '<li><a href="' + img.url + '"><img src="' + img.thumb + '" /></a></li> ';
+            return '<li><a href="' + img.url + '"><img src="' + img.url + '" /></a></li> ';
         });
         this.$el.find(".thumbs").html(html);
 
