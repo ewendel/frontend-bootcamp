@@ -1,19 +1,7 @@
-var todoListElement = $("#todoList");
-var formElement = $("#addTodoForm");
+var todoList;
+var changeId;
 
-// Rendering
-
-var renderTodoList = function() {
-	var html = "";
-	for(todo in todoList) {
-		// Løper igjennom listen og konkatinerer html
-		html = html + "<li>" + todoList[todo].render(); + "</li>";
-	}
-	todoListElement.html(html);
-};
-
-// Todo
-
+// Todo prototypes
 var Todo = function(task) {
 	this.task = task;
 };
@@ -22,32 +10,15 @@ Todo.prototype.render = function() {
 	return this.task + " <a href='#' class='btn remove'>Remove</a> <a href='#' class='btn change'>Change</a></li>";
 };
 
-// Todo List
-
-var todoList = [];
-
-// var todoList = (function() {
-// 	var savedList = JSON.parse(localStorage.getItem("todos"));
-// 	var returnedList = [];
-// 	if(savedList) {
-// 		for(i = 0; i < savedList.length; i++) {
-// 			var t = new Todo(savedList[i].task);
-// 			returnedList.push(t);
-// 		}
-// 	}
-// 	return returnedList;
-// })(); 
-
-// var saveTodoList = function() {
-// 	localStorage.setItem("todos", JSON.stringify(todoList))
-// };
-
 // Add/remove item
-
 var addTodo = function(task) {
 	var todo = new Todo(task); // Lager en ny Todo
 	todoList.push(todo); // Legger den til i arrayet
-	$(window).trigger("todolistChanged"); 
+};
+
+var changeTodo = function(task, index) {
+	var todo = new Todo(task); // Lager en ny Todo
+	todoList[index] = todo; // oppdaterer arrayet
 };
 
 var removeTodo = function(index) {
@@ -55,62 +26,75 @@ var removeTodo = function(index) {
 	$(window).trigger("todolistChanged");
 };
 
+// Hent ut gamle todos
+var restoreTodoList = function() {
+	var savedTodos = localStorage.getItem("todos");
+	if(savedTodos) {
+		var savedList = JSON.parse(savedTodos);
+		savedList.forEach(addTodo);
+	} else {
+		return [];
+	}
+};
+
+// Lagre todos mellom refresh
+var saveTodoList = function() {
+	var todoTasks = todoList.map(function(todo) {return todo.task;});
+	localStorage.setItem("todos", JSON.stringify(todoTasks));
+};
+
+var formElement = $("#addTodoForm");
+var todoListElement = $("#todoList");
+
+// Rendering
+var renderTodoList = function() {
+	// Løper igjennom listen og konkatinerer html
+	var html = todoList.map(function(todo) {
+		return "<li>" + todo.render() + "</li>";
+	});
+	todoListElement.html(html.join(""));
+};
+
 // Event handlers
-
 var addTodoHandler = function(e) {
-	e.preventDefault(); // Forhindrer default oppførsel 
-	var input = $(this).find("input"); 
-	var task = input.val();
-	if($.trim(task) !== "") { // Sjekker om det er skrevet inn en task
-		addTodo(task); // Lager i så fall en ny todo
+	e.preventDefault(); // Forhindrer default oppførsel
 
-		input.val(""); // Gjør klart for å skrive inn ny todo
-		input.focus(); 
-	} 
+	var input = formElement.find("input#todoName");
+	var task = input.val();
+
+	if(task && task.trim !== "") { // Sjekker om det er skrevet inn en task
+		if(!isNaN(changeId)) {
+			changeTodo(task, changeId);
+			changeId = undefined;
+		} else {
+			addTodo(task); // Lager i så fall en ny todo
+		}
+
+		// Gjør klart for å skrive inn ny todo
+		input.val("").focus();
+	}
 };
 
 var removeTodoHandler = function(e) {
-	var index = $(this).closest("li").index(); 
+	var index = $(this).closest("li").index();
 	removeTodo(index);
 };
 
 var changeTodoHandler = function(e) {
-	var index = $(this).closest("li").index(); 
-	var task = todoList[index].task;
-	formElement.find("input").val(task);
-	disableSubmitEvents();
-	enableChange(index); 
+	changeId = $(this).closest("li").index();
+	var task = todoList[changeId].task;
+	formElement.find("input#todoName").val(task).focus();
 };
 
-// Event listening
 
-var disableSubmitEvents = function() {
-	formElement.off("submit");
-};
+// initialize
+todoList = restoreTodoList();
 
-var enableAdding = function() {
-	formElement.on("submit", addTodoHandler);
-};
-
-var enableChange = function(index) {
-	var input = formElement.find("input");
-	input.focus(); 
-	formElement.on("submit", function(event) {
-		event.preventDefault(); 
-		var modifiedTask = input.val(); 
-		if($.trim(modifiedTask) !== "") {
-			todoList[index].task = modifiedTask; 
-			$(window).trigger("todolistChanged"); 
-			disableSubmitEvents(); 
-			enableAdding(); 
-			input.val("");
-		}
-	});
-};
-
-enableAdding(); 
+Array.observe(todoList, renderTodoList);
+Array.observe(todoList, saveTodoList);
+formElement.on("submit", addTodoHandler);
 todoListElement.on("click", ".remove", removeTodoHandler);
 todoListElement.on("click", ".change", changeTodoHandler);
-$(window).on("todolistChanged", renderTodoList);
-// $(window).on("todolistChanged", saveTodoList);
-// renderTodoList(); 
+
+// render
+renderTodoList();
