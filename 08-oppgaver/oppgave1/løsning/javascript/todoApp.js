@@ -31,7 +31,7 @@ var restoreTodoList = function() {
 	var savedTodos = localStorage.getItem("todos");
 	if(savedTodos) {
 		var savedList = JSON.parse(savedTodos);
-		savedList.forEach(addTodo);
+		return savedList.map(function(task) { return new Todo(task); });
 	} else {
 		return [];
 	}
